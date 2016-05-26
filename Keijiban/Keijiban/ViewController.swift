@@ -35,6 +35,9 @@ class ViewController: NSViewController, NSWindowDelegate {
     @IBAction func titlebarToggleSidebarButtonPressed(sender: AnyObject) {
         // Toggle if the sidebar is collapsed
         contentSplitViewController.splitViewItems[0].animator().collapsed = !contentSplitViewController.splitViewItems[0].collapsed;
+        
+        // Update the sidebar toggle button
+        updateSidebarToggleButton();
     }
     
     /// Updates titlebarToggleSidebarButton to match if the sidebar is collapsed
