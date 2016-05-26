@@ -13,12 +13,12 @@
 
 #define INCH                72.0f
 
-#define DF_TITLE_COLOR      [NSColor colorWithCalibratedWhite:0.25f alpha:1.0f]
+#define DF_TITLE_COLOR      [NSColor colorWithCalibratedRed:1.0f green:1.0f blue:1.0f alpha:0.5f]
 #define DF_BORDER_COLOR     [NSColor colorWithCalibratedWhite:0.75f alpha:1.0f]
-#define DF_HIGHLIGHT_COLOR  [NSColor colorWithCalibratedRed:0.119f green:0.399f blue:0.964f alpha:1.0f]
-#define DF_BACKGROUND_COLOR [NSColor colorWithCalibratedRed:0.854f green:0.858f blue:0.873f alpha:1.0f]
+#define DF_HIGHLIGHT_COLOR  [NSColor colorWithCalibratedRed:1.0f green:1.0f blue:1.0f alpha:1.0f]
+#define DF_BACKGROUND_COLOR [NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:0.0f]
 
-#define DF_FONT             [NSFont fontWithName:@"HelveticaNeue-Medium" size:13];
+#define DF_FONT             [NSFont fontWithName:@"HelveticaNeue" size:11];
 
 
 @interface LITabButton (Private)
@@ -165,6 +165,9 @@
         titleRect = NSOffsetRect(titleRect, 0, -1);
         titleRect = NSInsetRect(titleRect, titleRectInset, 0);
     }
+    
+    titleRect = NSMakeRect(titleRect.origin.x + 4, titleRect.origin.y, titleRect.size.width - 8, titleRect.size.height);
+    
     return titleRect;
 }
 

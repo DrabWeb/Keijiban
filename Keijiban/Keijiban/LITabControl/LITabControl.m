@@ -66,7 +66,8 @@
         [_scrollView setDrawsBackground:NO];
         [_scrollView setBackgroundColor:[NSColor redColor]];
         [_scrollView setVerticalScrollElasticity:NSScrollElasticityNone];
-        _addButton          = [self buttonWithImageNamed:@"LITabPlusTemplate" target:self action:@selector(add:)];
+        _addButton          = [self buttonWithImageNamed:@"NSAddTemplate" target:self action:@selector(add:)];
+        _addButton.image.template = true;
         _addButton.focusRingType = NSFocusRingTypeNone;
         
         [_addButton setMenu:nil];
@@ -83,7 +84,7 @@
          [NSLayoutConstraint constraintWithItem:_addButton attribute:NSLayoutAttributeWidth
                                       relatedBy:NSLayoutRelationEqual
                                          toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-                                     multiplier:1 constant:48]];
+                                     multiplier:1 constant:24]];
         
         [_addButton.cell setBorderMask:[_addButton.cell borderMask] | LIBorderMaskRight|LIBorderMaskBottom|LIBorderMaskTop];
         
@@ -529,14 +530,14 @@ static char LIScrollViewObservationContext;
     
     self.items = newItems;
     self.scrollView.documentView = (self.items.count) ? tabView : nil;
-    [self.scrollView.layer setBorderWidth:1];
-    [self.scrollView.layer setBorderColor:[NSColor colorWithCalibratedWhite:0.75f alpha:1.0f].CGColor];
+    [self.scrollView.layer setBorderWidth:0];
+    [self.scrollView.layer setBorderColor:[NSColor colorWithCalibratedWhite:0.75f alpha:0.0f].CGColor];
     
     if (self.scrollView.documentView) {
         NSClipView *clipView = self.scrollView.contentView;
         NSView *documentView = self.scrollView.documentView;
-        [documentView.layer setBorderWidth:1];
-        [documentView.layer setBorderColor:[NSColor colorWithCalibratedWhite:0.75f alpha:1.0f].CGColor];
+        [documentView.layer setBorderWidth:0];
+        [documentView.layer setBorderColor:[NSColor colorWithCalibratedWhite:0.75f alpha:0.0f].CGColor];
         // document content is as tall as our scrolling area, and at least as wide...
         
         [clipView addConstraints:
@@ -802,7 +803,7 @@ static char LIScrollViewObservationContext;
 #pragma mark Drawing
 
 - (BOOL)isOpaque {
-    return YES;
+    return NO;
 }
 - (BOOL)isFlipped {
     return YES;

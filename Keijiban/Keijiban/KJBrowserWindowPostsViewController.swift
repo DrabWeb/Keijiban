@@ -15,16 +15,36 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     @IBOutlet var tabsControl: LITabControl!
     
     /// The tabs for tabsControl
-    var tabs : [KJBrowserWindowPostsTabItem] = [KJBrowserWindowPostsTabItem(title: "Tab One"), KJBrowserWindowPostsTabItem(title: "Tab Two"), KJBrowserWindowPostsTabItem(title: "Tab Three"), KJBrowserWindowPostsTabItem(title: "Tab Four"), KJBrowserWindowPostsTabItem(title: "Tab Five")];
+    var tabs : [KJBrowserWindowPostsTabItem] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        // Style the view
+        styleView();
+    }
+    
+    /// Styles the view controller
+    func styleView() {
+        // Style the tabs
+        tabsControl.borderWidth = 0;
+        tabsControl.backgroundColor = NSColor(calibratedWhite: 0, alpha: 0.2);
+        
+        // Set the tabs control's add action and target
+        tabsControl.addTarget = self;
+        tabsControl.addAction = Selector("addNewTab");
         
         // Set tabsControl's data source
         tabsControl.dataSource = self;
+    }
+    
+    /// Called when the user clicks the "+" button in the tab bar or hits CMD+T
+    func addNewTab() {
+        // Add a new example tab
+        tabs.append(KJBrowserWindowPostsTabItem(title: NSUUID().UUIDString));
         
-        tabsControl.alphaValue = 1;
+        // Reload the tabs control
+        tabsControl.reloadData();
     }
     
     func tabControlNumberOfTabs(tabControl: LITabControl!) -> UInt {

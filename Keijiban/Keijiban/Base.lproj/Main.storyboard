@@ -354,11 +354,11 @@
         <scene sceneID="RI7-7i-NfO">
             <objects>
                 <viewController id="COO-g2-CYK" userLabel="Posts View Controller" customClass="KJBrowserWindowPostsViewController" customModule="Keijiban" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="hrP-YI-cXx">
+                    <view key="view" wantsLayer="YES" id="hrP-YI-cXx">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-b9-8kg" userLabel="Tabs" customClass="LITabControl">
+                            <customView wantsLayer="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-b9-8kg" userLabel="Tabs Control" customClass="LITabControl">
                                 <rect key="frame" x="0.0" y="276" width="450" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="ths-Uf-0ko"/>

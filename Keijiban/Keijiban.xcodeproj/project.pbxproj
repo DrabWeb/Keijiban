@@ -11,9 +11,6 @@
 		5D120F3D1CF786FA00BF41FE /* LIPullDownTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F331CF786FA00BF41FE /* LIPullDownTemplate.pdf */; };
 		5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F351CF786FA00BF41FE /* LITabCell.m */; };
 		5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F371CF786FA00BF41FE /* LITabControl.m */; };
-		5D120F401CF786FA00BF41FE /* LITabLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F381CF786FA00BF41FE /* LITabLeftTemplate.pdf */; };
-		5D120F411CF786FA00BF41FE /* LITabPlusTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F391CF786FA00BF41FE /* LITabPlusTemplate.pdf */; };
-		5D120F421CF786FA00BF41FE /* LITabRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F3A1CF786FA00BF41FE /* LITabRightTemplate.pdf */; };
 		5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */; };
 		5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */; };
 		5D83AB121CF769EF00B4F81B /* KJColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB111CF769EF00B4F81B /* KJColoredView.swift */; };
@@ -56,9 +53,6 @@
 		5D120F351CF786FA00BF41FE /* LITabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LITabCell.m; sourceTree = "<group>"; };
 		5D120F361CF786FA00BF41FE /* LITabControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITabControl.h; sourceTree = "<group>"; };
 		5D120F371CF786FA00BF41FE /* LITabControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LITabControl.m; sourceTree = "<group>"; };
-		5D120F381CF786FA00BF41FE /* LITabLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LITabLeftTemplate.pdf; sourceTree = "<group>"; };
-		5D120F391CF786FA00BF41FE /* LITabPlusTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LITabPlusTemplate.pdf; sourceTree = "<group>"; };
-		5D120F3A1CF786FA00BF41FE /* LITabRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LITabRightTemplate.pdf; sourceTree = "<group>"; };
 		5D120F3B1CF786FA00BF41FE /* NSImage+LITabControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+LITabControl.h"; sourceTree = "<group>"; };
 		5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+LITabControl.m"; sourceTree = "<group>"; };
 		5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPostsTabItem.swift; sourceTree = "<group>"; };
@@ -164,9 +158,6 @@
 				5D120F351CF786FA00BF41FE /* LITabCell.m */,
 				5D120F361CF786FA00BF41FE /* LITabControl.h */,
 				5D120F371CF786FA00BF41FE /* LITabControl.m */,
-				5D120F381CF786FA00BF41FE /* LITabLeftTemplate.pdf */,
-				5D120F391CF786FA00BF41FE /* LITabPlusTemplate.pdf */,
-				5D120F3A1CF786FA00BF41FE /* LITabRightTemplate.pdf */,
 				5D120F3B1CF786FA00BF41FE /* NSImage+LITabControl.h */,
 				5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */,
 			);
@@ -401,9 +392,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D120F411CF786FA00BF41FE /* LITabPlusTemplate.pdf in Resources */,
-				5D120F401CF786FA00BF41FE /* LITabLeftTemplate.pdf in Resources */,
-				5D120F421CF786FA00BF41FE /* LITabRightTemplate.pdf in Resources */,
 				5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */,
 				5D120F3D1CF786FA00BF41FE /* LIPullDownTemplate.pdf in Resources */,
 				5DE69AFE1CF75FA2001772BF /* Main.storyboard in Resources */,
