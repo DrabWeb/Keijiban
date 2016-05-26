@@ -8,6 +8,7 @@
 
 #import "LITabControl.h"
 #import "LITabCell.h"
+#import "NSImage+LITabControl.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -66,9 +67,8 @@
         [_scrollView setDrawsBackground:NO];
         [_scrollView setBackgroundColor:[NSColor redColor]];
         [_scrollView setVerticalScrollElasticity:NSScrollElasticityNone];
-        _addButton          = [self buttonWithImageNamed:@"NSAddTemplate" target:self action:@selector(add:)];
-        _addButton.image.template = true;
-        _addButton.focusRingType = NSFocusRingTypeNone;
+        
+        _addButton = [self buttonWithImageNamed:@"NSAddTemplate" target:self action:@selector(add:)];
         
         [_addButton setMenu:nil];
         NSDictionary *views = NSDictionaryOfVariableBindings(_scrollView, _addButton);
@@ -112,11 +112,14 @@
     [button setEnabled:action != NULL];
     
     [button setImagePosition:NSImageOnly];
-    NSImage* image =[NSImage imageNamed:name];
+    NSImage* image = [NSImage imageNamed:name];
+    image = [image imageWithTint:[NSColor redColor]];
     [image setTemplate:YES];
     [button setImage:image];
     [button setBezelStyle:NSShadowlessSquareBezelStyle];
-    [button setBordered: YES];
+    [button setBordered:NO];
+    
+    button.focusRingType = NSFocusRingTypeNone;
     
     return button;
 }

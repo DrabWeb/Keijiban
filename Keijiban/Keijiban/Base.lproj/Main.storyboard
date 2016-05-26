@@ -354,21 +354,33 @@
         <scene sceneID="RI7-7i-NfO">
             <objects>
                 <viewController id="COO-g2-CYK" userLabel="Posts View Controller" customClass="KJBrowserWindowPostsViewController" customModule="Keijiban" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="hrP-YI-cXx">
+                    <view key="view" id="hrP-YI-cXx">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView wantsLayer="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-b9-8kg" userLabel="Tabs Control" customClass="LITabControl">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="eej-2v-z8g" userLabel="Tab Bar">
                                 <rect key="frame" x="0.0" y="276" width="450" height="24"/>
+                                <subviews>
+                                    <customView wantsLayer="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-b9-8kg" userLabel="Tabs Control" customClass="LITabControl">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="ths-Uf-0ko"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="ths-Uf-0ko"/>
+                                    <constraint firstAttribute="trailing" secondItem="pcB-b9-8kg" secondAttribute="trailing" id="6lJ-N4-hOg"/>
+                                    <constraint firstAttribute="height" constant="24" id="BPx-Ka-V9E"/>
+                                    <constraint firstAttribute="bottom" secondItem="pcB-b9-8kg" secondAttribute="bottom" id="NaS-Ww-vRd"/>
+                                    <constraint firstItem="pcB-b9-8kg" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="top" id="WSm-yI-wTN"/>
+                                    <constraint firstItem="pcB-b9-8kg" firstAttribute="leading" secondItem="eej-2v-z8g" secondAttribute="leading" id="v61-P3-Dck"/>
                                 </constraints>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="pcB-b9-8kg" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="Gx6-GL-y6c"/>
-                            <constraint firstItem="pcB-b9-8kg" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="JV7-GU-B9V"/>
-                            <constraint firstAttribute="trailing" secondItem="pcB-b9-8kg" secondAttribute="trailing" id="NhO-3i-XYp"/>
+                            <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="BWd-Va-n1c"/>
+                            <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
+                            <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
                         </constraints>
                     </view>
                     <connections>

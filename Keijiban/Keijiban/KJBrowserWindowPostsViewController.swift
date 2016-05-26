@@ -41,10 +41,16 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     /// Called when the user clicks the "+" button in the tab bar or hits CMD+T
     func addNewTab() {
         // Add a new example tab
-        tabs.append(KJBrowserWindowPostsTabItem(title: NSUUID().UUIDString));
+        tabs.append(KJBrowserWindowPostsTabItem(title: "Catalog"));
         
         // Reload the tabs control
         tabsControl.reloadData();
+        
+        // Select the new tab
+        tabsControl.selectedItem = tabs.last!;
+        
+        // Scroll to the end of the tab bar
+        ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).scrollToPoint(NSPoint(x: ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).frame.width + 10000, y: 0));
     }
     
     func tabControlNumberOfTabs(tabControl: LITabControl!) -> UInt {

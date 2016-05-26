@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		40692E6FCD60D564D7D2759C /* libPods-Keijiban.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7CEB2AE8DE9F73970756A82 /* libPods-Keijiban.a */; };
-		5D120F3D1CF786FA00BF41FE /* LIPullDownTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F331CF786FA00BF41FE /* LIPullDownTemplate.pdf */; };
 		5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F351CF786FA00BF41FE /* LITabCell.m */; };
 		5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F371CF786FA00BF41FE /* LITabControl.m */; };
 		5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */; };
@@ -48,7 +47,6 @@
 /* Begin PBXFileReference section */
 		306B504F624CC5439ADE3E07 /* Pods-Keijiban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keijiban.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keijiban/Pods-Keijiban.release.xcconfig"; sourceTree = "<group>"; };
 		5D120F1E1CF7867B00BF41FE /* Keijiban-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keijiban-Bridging-Header.h"; sourceTree = "<group>"; };
-		5D120F331CF786FA00BF41FE /* LIPullDownTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LIPullDownTemplate.pdf; sourceTree = "<group>"; };
 		5D120F341CF786FA00BF41FE /* LITabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITabCell.h; sourceTree = "<group>"; };
 		5D120F351CF786FA00BF41FE /* LITabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LITabCell.m; sourceTree = "<group>"; };
 		5D120F361CF786FA00BF41FE /* LITabControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITabControl.h; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 		5D120F321CF786FA00BF41FE /* LITabControl */ = {
 			isa = PBXGroup;
 			children = (
-				5D120F331CF786FA00BF41FE /* LIPullDownTemplate.pdf */,
 				5D120F341CF786FA00BF41FE /* LITabCell.h */,
 				5D120F351CF786FA00BF41FE /* LITabCell.m */,
 				5D120F361CF786FA00BF41FE /* LITabControl.h */,
@@ -393,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */,
-				5D120F3D1CF786FA00BF41FE /* LIPullDownTemplate.pdf in Resources */,
 				5DE69AFE1CF75FA2001772BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
