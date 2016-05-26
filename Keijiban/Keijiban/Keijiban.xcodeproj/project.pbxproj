@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D83AB121CF769EF00B4F81B /* KJColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB111CF769EF00B4F81B /* KJColoredView.swift */; };
+		5D83AB141CF76AAF00B4F81B /* KJNoDividerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB131CF76AAF00B4F81B /* KJNoDividerSplitView.swift */; };
+		5D83AB1C1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB1B1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift */; };
+		5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift */; };
+		5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */; };
+		5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF61CF75FA2001772BF /* AppDelegate.swift */; };
+		5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF81CF75FA2001772BF /* ViewController.swift */; };
+		5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFA1CF75FA2001772BF /* Assets.xcassets */; };
+		5DE69AFE1CF75FA2001772BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFC1CF75FA2001772BF /* Main.storyboard */; };
+		5DE69B091CF75FA2001772BF /* KeijibanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69B081CF75FA2001772BF /* KeijibanTests.swift */; };
+		5DE69B141CF75FA2001772BF /* KeijibanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5DE69B051CF75FA2001772BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DE69AEB1CF75FA2001772BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DE69AF21CF75FA2001772BF;
+			remoteInfo = Keijiban;
+		};
+		5DE69B101CF75FA2001772BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DE69AEB1CF75FA2001772BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DE69AF21CF75FA2001772BF;
+			remoteInfo = Keijiban;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5D83AB111CF769EF00B4F81B /* KJColoredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJColoredView.swift; sourceTree = "<group>"; };
+		5D83AB131CF76AAF00B4F81B /* KJNoDividerSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJNoDividerSplitView.swift; sourceTree = "<group>"; };
+		5D83AB1B1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowSidebarViewController.swift; sourceTree = "<group>"; };
+		5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPstsViewController.swift; sourceTree = "<group>"; };
+		5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowSplitViewController.swift; sourceTree = "<group>"; };
+		5DE69AF31CF75FA2001772BF /* Keijiban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keijiban.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE69AF61CF75FA2001772BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5DE69AF81CF75FA2001772BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5DE69AFA1CF75FA2001772BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5DE69AFD1CF75FA2001772BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5DE69AFF1CF75FA2001772BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DE69B041CF75FA2001772BF /* KeijibanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeijibanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE69B081CF75FA2001772BF /* KeijibanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeijibanTests.swift; sourceTree = "<group>"; };
+		5DE69B0A1CF75FA2001772BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DE69B0F1CF75FA2001772BF /* KeijibanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeijibanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeijibanUITests.swift; sourceTree = "<group>"; };
+		5DE69B151CF75FA2001772BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DE69AF01CF75FA2001772BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE69B011CF75FA2001772BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE69B0C1CF75FA2001772BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D83AB101CF769D500B4F81B /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D83AB111CF769EF00B4F81B /* KJColoredView.swift */,
+				5D83AB131CF76AAF00B4F81B /* KJNoDividerSplitView.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		5D83AB161CF76B7600B4F81B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5DE69AFC1CF75FA2001772BF /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5D83AB191CF76F6A00B4F81B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D83AB201CF7753400B4F81B /* Browser */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5D83AB1A1CF7703A00B4F81B /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				5D83AB1B1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift */,
+			);
+			name = Sidebar;
+			sourceTree = "<group>";
+		};
+		5D83AB1D1CF7707300B4F81B /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift */,
+			);
+			name = Posts;
+			sourceTree = "<group>";
+		};
+		5D83AB201CF7753400B4F81B /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */,
+				5D83AB1D1CF7707300B4F81B /* Posts */,
+				5D83AB1A1CF7703A00B4F81B /* Sidebar */,
+			);
+			name = Browser;
+			sourceTree = "<group>";
+		};
+		5DE69AEA1CF75FA2001772BF = {
+			isa = PBXGroup;
+			children = (
+				5DE69AF51CF75FA2001772BF /* Keijiban */,
+				5DE69B071CF75FA2001772BF /* KeijibanTests */,
+				5DE69B121CF75FA2001772BF /* KeijibanUITests */,
+				5DE69AF41CF75FA2001772BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5DE69AF41CF75FA2001772BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DE69AF31CF75FA2001772BF /* Keijiban.app */,
+				5DE69B041CF75FA2001772BF /* KeijibanTests.xctest */,
+				5DE69B0F1CF75FA2001772BF /* KeijibanUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DE69AF51CF75FA2001772BF /* Keijiban */ = {
+			isa = PBXGroup;
+			children = (
+				5DE69AF61CF75FA2001772BF /* AppDelegate.swift */,
+				5DE69AF81CF75FA2001772BF /* ViewController.swift */,
+				5D83AB161CF76B7600B4F81B /* Storyboards */,
+				5D83AB101CF769D500B4F81B /* Custom Views */,
+				5D83AB191CF76F6A00B4F81B /* View Controllers */,
+				5DE69AFA1CF75FA2001772BF /* Assets.xcassets */,
+				5DE69AFF1CF75FA2001772BF /* Info.plist */,
+			);
+			path = Keijiban;
+			sourceTree = "<group>";
+		};
+		5DE69B071CF75FA2001772BF /* KeijibanTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DE69B081CF75FA2001772BF /* KeijibanTests.swift */,
+				5DE69B0A1CF75FA2001772BF /* Info.plist */,
+			);
+			path = KeijibanTests;
+			sourceTree = "<group>";
+		};
+		5DE69B121CF75FA2001772BF /* KeijibanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */,
+				5DE69B151CF75FA2001772BF /* Info.plist */,
+			);
+			path = KeijibanUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DE69AF21CF75FA2001772BF /* Keijiban */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE69B181CF75FA2001772BF /* Build configuration list for PBXNativeTarget "Keijiban" */;
+			buildPhases = (
+				5DE69AEF1CF75FA2001772BF /* Sources */,
+				5DE69AF01CF75FA2001772BF /* Frameworks */,
+				5DE69AF11CF75FA2001772BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Keijiban;
+			productName = Keijiban;
+			productReference = 5DE69AF31CF75FA2001772BF /* Keijiban.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5DE69B031CF75FA2001772BF /* KeijibanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE69B1B1CF75FA2001772BF /* Build configuration list for PBXNativeTarget "KeijibanTests" */;
+			buildPhases = (
+				5DE69B001CF75FA2001772BF /* Sources */,
+				5DE69B011CF75FA2001772BF /* Frameworks */,
+				5DE69B021CF75FA2001772BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DE69B061CF75FA2001772BF /* PBXTargetDependency */,
+			);
+			name = KeijibanTests;
+			productName = KeijibanTests;
+			productReference = 5DE69B041CF75FA2001772BF /* KeijibanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5DE69B0E1CF75FA2001772BF /* KeijibanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE69B1E1CF75FA2001772BF /* Build configuration list for PBXNativeTarget "KeijibanUITests" */;
+			buildPhases = (
+				5DE69B0B1CF75FA2001772BF /* Sources */,
+				5DE69B0C1CF75FA2001772BF /* Frameworks */,
+				5DE69B0D1CF75FA2001772BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DE69B111CF75FA2001772BF /* PBXTargetDependency */,
+			);
+			name = KeijibanUITests;
+			productName = KeijibanUITests;
+			productReference = 5DE69B0F1CF75FA2001772BF /* KeijibanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DE69AEB1CF75FA2001772BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = DrabWeb;
+				TargetAttributes = {
+					5DE69AF21CF75FA2001772BF = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					5DE69B031CF75FA2001772BF = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 5DE69AF21CF75FA2001772BF;
+					};
+					5DE69B0E1CF75FA2001772BF = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 5DE69AF21CF75FA2001772BF;
+					};
+				};
+			};
+			buildConfigurationList = 5DE69AEE1CF75FA2001772BF /* Build configuration list for PBXProject "Keijiban" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5DE69AEA1CF75FA2001772BF;
+			productRefGroup = 5DE69AF41CF75FA2001772BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DE69AF21CF75FA2001772BF /* Keijiban */,
+				5DE69B031CF75FA2001772BF /* KeijibanTests */,
+				5DE69B0E1CF75FA2001772BF /* KeijibanUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DE69AF11CF75FA2001772BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */,
+				5DE69AFE1CF75FA2001772BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE69B021CF75FA2001772BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE69B0D1CF75FA2001772BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DE69AEF1CF75FA2001772BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D83AB1C1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift in Sources */,
+				5D83AB121CF769EF00B4F81B /* KJColoredView.swift in Sources */,
+				5D83AB141CF76AAF00B4F81B /* KJNoDividerSplitView.swift in Sources */,
+				5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */,
+				5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift in Sources */,
+				5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */,
+				5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE69B001CF75FA2001772BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE69B091CF75FA2001772BF /* KeijibanTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE69B0B1CF75FA2001772BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE69B141CF75FA2001772BF /* KeijibanUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DE69B061CF75FA2001772BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DE69AF21CF75FA2001772BF /* Keijiban */;
+			targetProxy = 5DE69B051CF75FA2001772BF /* PBXContainerItemProxy */;
+		};
+		5DE69B111CF75FA2001772BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DE69AF21CF75FA2001772BF /* Keijiban */;
+			targetProxy = 5DE69B101CF75FA2001772BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5DE69AFC1CF75FA2001772BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE69AFD1CF75FA2001772BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5DE69B161CF75FA2001772BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5DE69B171CF75FA2001772BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5DE69B191CF75FA2001772BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Keijiban/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Keijiban;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5DE69B1A1CF75FA2001772BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Keijiban/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Keijiban;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5DE69B1C1CF75FA2001772BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KeijibanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.KeijibanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Keijiban.app/Contents/MacOS/Keijiban";
+			};
+			name = Debug;
+		};
+		5DE69B1D1CF75FA2001772BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KeijibanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.KeijibanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Keijiban.app/Contents/MacOS/Keijiban";
+			};
+			name = Release;
+		};
+		5DE69B1F1CF75FA2001772BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KeijibanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.KeijibanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Keijiban;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		5DE69B201CF75FA2001772BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KeijibanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.KeijibanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Keijiban;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DE69AEE1CF75FA2001772BF /* Build configuration list for PBXProject "Keijiban" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE69B161CF75FA2001772BF /* Debug */,
+				5DE69B171CF75FA2001772BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DE69B181CF75FA2001772BF /* Build configuration list for PBXNativeTarget "Keijiban" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE69B191CF75FA2001772BF /* Debug */,
+				5DE69B1A1CF75FA2001772BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DE69B1B1CF75FA2001772BF /* Build configuration list for PBXNativeTarget "KeijibanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE69B1C1CF75FA2001772BF /* Debug */,
+				5DE69B1D1CF75FA2001772BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DE69B1E1CF75FA2001772BF /* Build configuration list for PBXNativeTarget "KeijibanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE69B1F1CF75FA2001772BF /* Debug */,
+				5DE69B201CF75FA2001772BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DE69AEB1CF75FA2001772BF /* Project object */;
+}
