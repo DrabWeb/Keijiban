@@ -357,7 +357,23 @@
                     <view key="view" id="hrP-YI-cXx">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-b9-8kg" userLabel="Tabs" customClass="LITabControl">
+                                <rect key="frame" x="0.0" y="276" width="450" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="ths-Uf-0ko"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pcB-b9-8kg" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="Gx6-GL-y6c"/>
+                            <constraint firstItem="pcB-b9-8kg" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="JV7-GU-B9V"/>
+                            <constraint firstAttribute="trailing" secondItem="pcB-b9-8kg" secondAttribute="trailing" id="NhO-3i-XYp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tabsControl" destination="pcB-b9-8kg" id="aTX-W3-Fpw"/>
+                    </connections>
                 </viewController>
                 <customObject id="rCM-1W-Ssd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

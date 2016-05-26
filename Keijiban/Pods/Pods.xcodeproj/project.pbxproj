@@ -6,21 +6,99 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		02FE33EC5944A5C9194F292B8B9CCA41 /* Pods-KeijibanUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F94B0FB4DC7D4F57EE7EF7E4C442F7 /* Pods-KeijibanUITests-dummy.m */; };
+		04AC67B034527E9F7AB28EC23E5B4E3A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
+		17593629C25C66A657031945FC30D6A1 /* Pods-KeijibanTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 745716008EA3BBC7EDD6DA5E19DC704B /* Pods-KeijibanTests-dummy.m */; };
+		29C55B6E259C0D3BD9DAA64ED45ED24B /* Pods-Keijiban-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B91E2B692B69122492591B95A682BC /* Pods-Keijiban-dummy.m */; };
+		37806920F7AD36E3D9109E164635A090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
+		B74741BED7FD6FDC97EB0DB62849C807 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		004751D0453A1B1994BCF26EF1624818 /* Pods-Keijiban-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Keijiban-acknowledgements.plist"; sourceTree = "<group>"; };
+		06A6D9582C1B3EFC50455717A91C0110 /* Pods-Keijiban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Keijiban.release.xcconfig"; sourceTree = "<group>"; };
+		0F8923D714E964A0BE577B87555FE20C /* Pods-KeijibanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		11CC9ACCB182FB8933DDB48D432B689D /* Pods-KeijibanUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KeijibanUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		33C44C5DA5638F1F6178E7F704F82B14 /* libPods-Keijiban.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Keijiban.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A28BD3615752CCFD1C13739DC7A741D /* Pods-KeijibanTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KeijibanTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		41D8AAFF00D159CF9767FF35B136A357 /* Pods-KeijibanUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanUITests-frameworks.sh"; sourceTree = "<group>"; };
+		53F94B0FB4DC7D4F57EE7EF7E4C442F7 /* Pods-KeijibanUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KeijibanUITests-dummy.m"; sourceTree = "<group>"; };
+		5D15A2395949191E244C0A9AF477512B /* libPods-KeijibanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A53668B7F6543F30E89CE8CBAC8F60F /* Pods-KeijibanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C2BC5A82498BE07AACC2ABB023E6433 /* libPods-KeijibanUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		745716008EA3BBC7EDD6DA5E19DC704B /* Pods-KeijibanTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KeijibanTests-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		956F866C2342FDC2D89D5F14956ABB6E /* Pods-KeijibanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E62A2C1A948912BDD4DDBF20446DC29 /* Pods-Keijiban-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Keijiban-frameworks.sh"; sourceTree = "<group>"; };
+		AB6D9BF97A72967235DDB3526A3DD16B /* Pods-KeijibanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ACC785047C8E19F2568241CA20311EEE /* Pods-Keijiban-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Keijiban-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C1ACCC8C7A567E7688E93601CA5B9449 /* Pods-Keijiban-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Keijiban-resources.sh"; sourceTree = "<group>"; };
+		C483253DD697E02EC3B7DAABC471242E /* Pods-KeijibanTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanTests-resources.sh"; sourceTree = "<group>"; };
+		CC9562FE44AE7B3BF500DB633A753E86 /* Pods-KeijibanTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KeijibanTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CCE3D524EFDF3A38E4FFD0825EB89571 /* Pods-KeijibanTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanTests-frameworks.sh"; sourceTree = "<group>"; };
+		D875E5A2C6DE4199413818E989C5A86C /* Pods-KeijibanUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanUITests-resources.sh"; sourceTree = "<group>"; };
+		DDE04346AB7E2EBACFD4E297C83B2D5C /* Pods-Keijiban.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Keijiban.debug.xcconfig"; sourceTree = "<group>"; };
+		E623CA89225C5D72EA0781E8D54DBBA6 /* Pods-KeijibanUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KeijibanUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F8B91E2B692B69122492591B95A682BC /* Pods-Keijiban-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Keijiban-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		1D5B8B9A2AEAD3AB5BB29986A97473DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B74741BED7FD6FDC97EB0DB62849C807 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C63180C702366889350560EE88FF5AD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04AC67B034527E9F7AB28EC23E5B4E3A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D670BC3617CCF2A399296E4A9302C185 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37806920F7AD36E3D9109E164635A090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
-		09C5E90726D2521A760312DBF50D9358 /* Products */ = {
+		08C2B5D638CFB53B49D081EEE321A893 /* Pods-KeijibanTests */ = {
 			isa = PBXGroup;
 			children = (
+				CC9562FE44AE7B3BF500DB633A753E86 /* Pods-KeijibanTests-acknowledgements.markdown */,
+				3A28BD3615752CCFD1C13739DC7A741D /* Pods-KeijibanTests-acknowledgements.plist */,
+				745716008EA3BBC7EDD6DA5E19DC704B /* Pods-KeijibanTests-dummy.m */,
+				CCE3D524EFDF3A38E4FFD0825EB89571 /* Pods-KeijibanTests-frameworks.sh */,
+				C483253DD697E02EC3B7DAABC471242E /* Pods-KeijibanTests-resources.sh */,
+				AB6D9BF97A72967235DDB3526A3DD16B /* Pods-KeijibanTests.debug.xcconfig */,
+				956F866C2342FDC2D89D5F14956ABB6E /* Pods-KeijibanTests.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-KeijibanTests";
+			path = "Target Support Files/Pods-KeijibanTests";
 			sourceTree = "<group>";
 		};
-		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+		28C17CEF104526ACA07B6EEE217EC43E /* OS X */ = {
 			isa = PBXGroup;
 			children = (
+				1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28C17CEF104526ACA07B6EEE217EC43E /* OS X */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -28,27 +106,121 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
-				09C5E90726D2521A760312DBF50D9358 /* Products */,
-				F6CCA5D896907CE7506C37FD31FC265A /* Targets Support Files */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */,
+				A3580DEFBB5DE23459E9043D0CC04620 /* Products */,
+				8E69994817DE93ABA13344F0E7941A50 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		F6CCA5D896907CE7506C37FD31FC265A /* Targets Support Files */ = {
+		8E69994817DE93ABA13344F0E7941A50 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAEF894A6B0D2CD77114ACE7A25E854E /* Pods-Keijiban */,
+				08C2B5D638CFB53B49D081EEE321A893 /* Pods-KeijibanTests */,
+				937989244F9237B99AE62EF83D5DDB06 /* Pods-KeijibanUITests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		937989244F9237B99AE62EF83D5DDB06 /* Pods-KeijibanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E623CA89225C5D72EA0781E8D54DBBA6 /* Pods-KeijibanUITests-acknowledgements.markdown */,
+				11CC9ACCB182FB8933DDB48D432B689D /* Pods-KeijibanUITests-acknowledgements.plist */,
+				53F94B0FB4DC7D4F57EE7EF7E4C442F7 /* Pods-KeijibanUITests-dummy.m */,
+				41D8AAFF00D159CF9767FF35B136A357 /* Pods-KeijibanUITests-frameworks.sh */,
+				D875E5A2C6DE4199413818E989C5A86C /* Pods-KeijibanUITests-resources.sh */,
+				6A53668B7F6543F30E89CE8CBAC8F60F /* Pods-KeijibanUITests.debug.xcconfig */,
+				0F8923D714E964A0BE577B87555FE20C /* Pods-KeijibanUITests.release.xcconfig */,
+			);
+			name = "Pods-KeijibanUITests";
+			path = "Target Support Files/Pods-KeijibanUITests";
+			sourceTree = "<group>";
+		};
+		A3580DEFBB5DE23459E9043D0CC04620 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C44C5DA5638F1F6178E7F704F82B14 /* libPods-Keijiban.a */,
+				5D15A2395949191E244C0A9AF477512B /* libPods-KeijibanTests.a */,
+				6C2BC5A82498BE07AACC2ABB023E6433 /* libPods-KeijibanUITests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAEF894A6B0D2CD77114ACE7A25E854E /* Pods-Keijiban */ = {
+			isa = PBXGroup;
+			children = (
+				ACC785047C8E19F2568241CA20311EEE /* Pods-Keijiban-acknowledgements.markdown */,
+				004751D0453A1B1994BCF26EF1624818 /* Pods-Keijiban-acknowledgements.plist */,
+				F8B91E2B692B69122492591B95A682BC /* Pods-Keijiban-dummy.m */,
+				9E62A2C1A948912BDD4DDBF20446DC29 /* Pods-Keijiban-frameworks.sh */,
+				C1ACCC8C7A567E7688E93601CA5B9449 /* Pods-Keijiban-resources.sh */,
+				DDE04346AB7E2EBACFD4E297C83B2D5C /* Pods-Keijiban.debug.xcconfig */,
+				06A6D9582C1B3EFC50455717A91C0110 /* Pods-Keijiban.release.xcconfig */,
+			);
+			name = "Pods-Keijiban";
+			path = "Target Support Files/Pods-Keijiban";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0247C504E33B0842B7039D23821A9EC4 /* Pods-KeijibanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C2C0CBC973F7C9BC6A683C03856F032 /* Build configuration list for PBXNativeTarget "Pods-KeijibanTests" */;
+			buildPhases = (
+				9D11CE9887000165E3CAA3BF67F43B7D /* Sources */,
+				C63180C702366889350560EE88FF5AD7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-KeijibanTests";
+			productName = "Pods-KeijibanTests";
+			productReference = 5D15A2395949191E244C0A9AF477512B /* libPods-KeijibanTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6FBC2FE2108BD5AE725B60AC6DB33D9E /* Pods-Keijiban */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F70935F794D27355683BC5DD0FDB8501 /* Build configuration list for PBXNativeTarget "Pods-Keijiban" */;
+			buildPhases = (
+				CFC962649348B07112D7DDD0974593D5 /* Sources */,
+				1D5B8B9A2AEAD3AB5BB29986A97473DE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Keijiban";
+			productName = "Pods-Keijiban";
+			productReference = 33C44C5DA5638F1F6178E7F704F82B14 /* libPods-Keijiban.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		896B3A6904EA8D335CD75125FD8DBC9F /* Pods-KeijibanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43123CA49274CAA9746CDF91D9E1F180 /* Build configuration list for PBXNativeTarget "Pods-KeijibanUITests" */;
+			buildPhases = (
+				492B2C9CAEE825A9FA272A2AF375B28C /* Sources */,
+				D670BC3617CCF2A399296E4A9302C185 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-KeijibanUITests";
+			productName = "Pods-KeijibanUITests";
+			productReference = 6C2BC5A82498BE07AACC2ABB023E6433 /* libPods-KeijibanUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -59,19 +231,220 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 09C5E90726D2521A760312DBF50D9358 /* Products */;
+			productRefGroup = A3580DEFBB5DE23459E9043D0CC04620 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				6FBC2FE2108BD5AE725B60AC6DB33D9E /* Pods-Keijiban */,
+				0247C504E33B0842B7039D23821A9EC4 /* Pods-KeijibanTests */,
+				896B3A6904EA8D335CD75125FD8DBC9F /* Pods-KeijibanUITests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXSourcesBuildPhase section */
+		492B2C9CAEE825A9FA272A2AF375B28C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02FE33EC5944A5C9194F292B8B9CCA41 /* Pods-KeijibanUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D11CE9887000165E3CAA3BF67F43B7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17593629C25C66A657031945FC30D6A1 /* Pods-KeijibanTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFC962649348B07112D7DDD0974593D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29C55B6E259C0D3BD9DAA64ED45ED24B /* Pods-Keijiban-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
 /* Begin XCBuildConfiguration section */
-		1E621D6BF749EDCE77ACBE7C6D464E29 /* Debug */ = {
+		1AB20F4AE0166331077E3E6C0BDBA12F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE04346AB7E2EBACFD4E297C83B2D5C /* Pods-Keijiban.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4888EEFBEA04FABA2120470F4B676BBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67B67B3C94CD7E78A2E9CD21078F6A8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 956F866C2342FDC2D89D5F14956ABB6E /* Pods-KeijibanTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		73CB4537AC868BEB9BD85B02D15E1459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F8923D714E964A0BE577B87555FE20C /* Pods-KeijibanUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C114E815F339DAF73F69D15FBE17D3FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A53668B7F6543F30E89CE8CBAC8F60F /* Pods-KeijibanUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C4FE4F424AC20BF4BE65F5F1AD372C22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB6D9BF97A72967235DDB3526A3DD16B /* Pods-KeijibanTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C6F2042A911AF314D986FE005E4BF963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06A6D9582C1B3EFC50455717A91C0110 /* Pods-Keijiban.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DA2E206EB90DF75A25332AE4AA713F31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -86,10 +459,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -107,48 +482,41 @@
 			};
 			name = Debug;
 		};
-		5577A3F22A37686E40DB6863D68D476C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1E621D6BF749EDCE77ACBE7C6D464E29 /* Debug */,
-				5577A3F22A37686E40DB6863D68D476C /* Release */,
+				DA2E206EB90DF75A25332AE4AA713F31 /* Debug */,
+				4888EEFBEA04FABA2120470F4B676BBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43123CA49274CAA9746CDF91D9E1F180 /* Build configuration list for PBXNativeTarget "Pods-KeijibanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C114E815F339DAF73F69D15FBE17D3FD /* Debug */,
+				73CB4537AC868BEB9BD85B02D15E1459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C2C0CBC973F7C9BC6A683C03856F032 /* Build configuration list for PBXNativeTarget "Pods-KeijibanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4FE4F424AC20BF4BE65F5F1AD372C22 /* Debug */,
+				67B67B3C94CD7E78A2E9CD21078F6A8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F70935F794D27355683BC5DD0FDB8501 /* Build configuration list for PBXNativeTarget "Pods-Keijiban" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AB20F4AE0166331077E3E6C0BDBA12F /* Debug */,
+				C6F2042A911AF314D986FE005E4BF963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

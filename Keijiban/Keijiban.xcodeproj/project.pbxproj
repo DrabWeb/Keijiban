@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40692E6FCD60D564D7D2759C /* libPods-Keijiban.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7CEB2AE8DE9F73970756A82 /* libPods-Keijiban.a */; };
+		5D120F3D1CF786FA00BF41FE /* LIPullDownTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F331CF786FA00BF41FE /* LIPullDownTemplate.pdf */; };
+		5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F351CF786FA00BF41FE /* LITabCell.m */; };
+		5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F371CF786FA00BF41FE /* LITabControl.m */; };
+		5D120F401CF786FA00BF41FE /* LITabLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F381CF786FA00BF41FE /* LITabLeftTemplate.pdf */; };
+		5D120F411CF786FA00BF41FE /* LITabPlusTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F391CF786FA00BF41FE /* LITabPlusTemplate.pdf */; };
+		5D120F421CF786FA00BF41FE /* LITabRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5D120F3A1CF786FA00BF41FE /* LITabRightTemplate.pdf */; };
+		5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */; };
+		5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */; };
 		5D83AB121CF769EF00B4F81B /* KJColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB111CF769EF00B4F81B /* KJColoredView.swift */; };
 		5D83AB141CF76AAF00B4F81B /* KJNoDividerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB131CF76AAF00B4F81B /* KJNoDividerSplitView.swift */; };
 		5D83AB1C1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB1B1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift */; };
-		5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift */; };
+		5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */; };
 		5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */; };
 		5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF61CF75FA2001772BF /* AppDelegate.swift */; };
 		5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF81CF75FA2001772BF /* ViewController.swift */; };
@@ -18,6 +27,8 @@
 		5DE69AFE1CF75FA2001772BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFC1CF75FA2001772BF /* Main.storyboard */; };
 		5DE69B091CF75FA2001772BF /* KeijibanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69B081CF75FA2001772BF /* KeijibanTests.swift */; };
 		5DE69B141CF75FA2001772BF /* KeijibanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */; };
+		8C85CEC8129BEC35549382E5 /* libPods-KeijibanTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D4EC74543B9CE807530759 /* libPods-KeijibanTests.a */; };
+		D1579DCAAB549026B7D82FBF /* libPods-KeijibanUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A411F4F5F6954BAD9EA54AB /* libPods-KeijibanUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +49,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		306B504F624CC5439ADE3E07 /* Pods-Keijiban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keijiban.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keijiban/Pods-Keijiban.release.xcconfig"; sourceTree = "<group>"; };
+		5D120F1E1CF7867B00BF41FE /* Keijiban-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keijiban-Bridging-Header.h"; sourceTree = "<group>"; };
+		5D120F331CF786FA00BF41FE /* LIPullDownTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LIPullDownTemplate.pdf; sourceTree = "<group>"; };
+		5D120F341CF786FA00BF41FE /* LITabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITabCell.h; sourceTree = "<group>"; };
+		5D120F351CF786FA00BF41FE /* LITabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LITabCell.m; sourceTree = "<group>"; };
+		5D120F361CF786FA00BF41FE /* LITabControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITabControl.h; sourceTree = "<group>"; };
+		5D120F371CF786FA00BF41FE /* LITabControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LITabControl.m; sourceTree = "<group>"; };
+		5D120F381CF786FA00BF41FE /* LITabLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LITabLeftTemplate.pdf; sourceTree = "<group>"; };
+		5D120F391CF786FA00BF41FE /* LITabPlusTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LITabPlusTemplate.pdf; sourceTree = "<group>"; };
+		5D120F3A1CF786FA00BF41FE /* LITabRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LITabRightTemplate.pdf; sourceTree = "<group>"; };
+		5D120F3B1CF786FA00BF41FE /* NSImage+LITabControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+LITabControl.h"; sourceTree = "<group>"; };
+		5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+LITabControl.m"; sourceTree = "<group>"; };
+		5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPostsTabItem.swift; sourceTree = "<group>"; };
 		5D83AB111CF769EF00B4F81B /* KJColoredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJColoredView.swift; sourceTree = "<group>"; };
 		5D83AB131CF76AAF00B4F81B /* KJNoDividerSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJNoDividerSplitView.swift; sourceTree = "<group>"; };
 		5D83AB1B1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowSidebarViewController.swift; sourceTree = "<group>"; };
-		5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPstsViewController.swift; sourceTree = "<group>"; };
+		5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPostsViewController.swift; sourceTree = "<group>"; };
 		5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowSplitViewController.swift; sourceTree = "<group>"; };
 		5DE69AF31CF75FA2001772BF /* Keijiban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keijiban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE69AF61CF75FA2001772BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +79,14 @@
 		5DE69B0F1CF75FA2001772BF /* KeijibanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeijibanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeijibanUITests.swift; sourceTree = "<group>"; };
 		5DE69B151CF75FA2001772BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A411F4F5F6954BAD9EA54AB /* libPods-KeijibanUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75D777992BDD323027ED194E /* Pods-KeijibanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A86FA73CC2DB61F67EB993DA /* Pods-KeijibanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE6B0486752F1746DFEA5CCF /* Pods-Keijiban.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keijiban.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Keijiban/Pods-Keijiban.debug.xcconfig"; sourceTree = "<group>"; };
+		BEA25A037E01D6141E67DDED /* Pods-KeijibanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanUITests/Pods-KeijibanUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3D4EC74543B9CE807530759 /* libPods-KeijibanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7CEB2AE8DE9F73970756A82 /* libPods-Keijiban.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Keijiban.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99DD3989A84366B5C0C1609 /* Pods-KeijibanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanUITests/Pods-KeijibanUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40692E6FCD60D564D7D2759C /* libPods-Keijiban.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C85CEC8129BEC35549382E5 /* libPods-KeijibanTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +110,77 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1579DCAAB549026B7D82FBF /* libPods-KeijibanUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08DB4E00397C15102FA19B12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7CEB2AE8DE9F73970756A82 /* libPods-Keijiban.a */,
+				C3D4EC74543B9CE807530759 /* libPods-KeijibanTests.a */,
+				6A411F4F5F6954BAD9EA54AB /* libPods-KeijibanUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		193F48911F090084BE7D718E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE6B0486752F1746DFEA5CCF /* Pods-Keijiban.debug.xcconfig */,
+				306B504F624CC5439ADE3E07 /* Pods-Keijiban.release.xcconfig */,
+				75D777992BDD323027ED194E /* Pods-KeijibanTests.debug.xcconfig */,
+				A86FA73CC2DB61F67EB993DA /* Pods-KeijibanTests.release.xcconfig */,
+				BEA25A037E01D6141E67DDED /* Pods-KeijibanUITests.debug.xcconfig */,
+				F99DD3989A84366B5C0C1609 /* Pods-KeijibanUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5D120F301CF7868400BF41FE /* Objective C */ = {
+			isa = PBXGroup;
+			children = (
+				5D120F1E1CF7867B00BF41FE /* Keijiban-Bridging-Header.h */,
+			);
+			name = "Objective C";
+			sourceTree = "<group>";
+		};
+		5D120F311CF786EB00BF41FE /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				5D120F321CF786FA00BF41FE /* LITabControl */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		5D120F321CF786FA00BF41FE /* LITabControl */ = {
+			isa = PBXGroup;
+			children = (
+				5D120F331CF786FA00BF41FE /* LIPullDownTemplate.pdf */,
+				5D120F341CF786FA00BF41FE /* LITabCell.h */,
+				5D120F351CF786FA00BF41FE /* LITabCell.m */,
+				5D120F361CF786FA00BF41FE /* LITabControl.h */,
+				5D120F371CF786FA00BF41FE /* LITabControl.m */,
+				5D120F381CF786FA00BF41FE /* LITabLeftTemplate.pdf */,
+				5D120F391CF786FA00BF41FE /* LITabPlusTemplate.pdf */,
+				5D120F3A1CF786FA00BF41FE /* LITabRightTemplate.pdf */,
+				5D120F3B1CF786FA00BF41FE /* NSImage+LITabControl.h */,
+				5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */,
+			);
+			path = LITabControl;
+			sourceTree = "<group>";
+		};
+		5D120F441CF7883A00BF41FE /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		5D83AB101CF769D500B4F81B /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +217,7 @@
 		5D83AB1D1CF7707300B4F81B /* Posts */ = {
 			isa = PBXGroup;
 			children = (
-				5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift */,
+				5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */,
 			);
 			name = Posts;
 			sourceTree = "<group>";
@@ -140,6 +239,8 @@
 				5DE69B071CF75FA2001772BF /* KeijibanTests */,
 				5DE69B121CF75FA2001772BF /* KeijibanUITests */,
 				5DE69AF41CF75FA2001772BF /* Products */,
+				193F48911F090084BE7D718E /* Pods */,
+				08DB4E00397C15102FA19B12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,7 +261,10 @@
 				5DE69AF81CF75FA2001772BF /* ViewController.swift */,
 				5D83AB161CF76B7600B4F81B /* Storyboards */,
 				5D83AB101CF769D500B4F81B /* Custom Views */,
+				5D120F441CF7883A00BF41FE /* Objects */,
 				5D83AB191CF76F6A00B4F81B /* View Controllers */,
+				5D120F311CF786EB00BF41FE /* Libraries */,
+				5D120F301CF7868400BF41FE /* Objective C */,
 				5DE69AFA1CF75FA2001772BF /* Assets.xcassets */,
 				5DE69AFF1CF75FA2001772BF /* Info.plist */,
 			);
@@ -192,9 +296,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DE69B181CF75FA2001772BF /* Build configuration list for PBXNativeTarget "Keijiban" */;
 			buildPhases = (
+				44488979B7BE096EE1BAD9EB /* 📦 Check Pods Manifest.lock */,
 				5DE69AEF1CF75FA2001772BF /* Sources */,
 				5DE69AF01CF75FA2001772BF /* Frameworks */,
 				5DE69AF11CF75FA2001772BF /* Resources */,
+				8B8D1D929613F34F82F4A728 /* 📦 Embed Pods Frameworks */,
+				B99EAC5DFE91286EEF721268 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,9 +316,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DE69B1B1CF75FA2001772BF /* Build configuration list for PBXNativeTarget "KeijibanTests" */;
 			buildPhases = (
+				839F3577F8CD0B08A6708EA1 /* 📦 Check Pods Manifest.lock */,
 				5DE69B001CF75FA2001772BF /* Sources */,
 				5DE69B011CF75FA2001772BF /* Frameworks */,
 				5DE69B021CF75FA2001772BF /* Resources */,
+				394E8109F579A3F4E90E2514 /* 📦 Embed Pods Frameworks */,
+				C7D283448912ED88A270B7B4 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,9 +337,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DE69B1E1CF75FA2001772BF /* Build configuration list for PBXNativeTarget "KeijibanUITests" */;
 			buildPhases = (
+				8A6CA7DEC1A874D96E1363C8 /* 📦 Check Pods Manifest.lock */,
 				5DE69B0B1CF75FA2001772BF /* Sources */,
 				5DE69B0C1CF75FA2001772BF /* Frameworks */,
 				5DE69B0D1CF75FA2001772BF /* Resources */,
+				69D25CF05602711B1CF2B766 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,7 +401,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D120F411CF786FA00BF41FE /* LITabPlusTemplate.pdf in Resources */,
+				5D120F401CF786FA00BF41FE /* LITabLeftTemplate.pdf in Resources */,
+				5D120F421CF786FA00BF41FE /* LITabRightTemplate.pdf in Resources */,
 				5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */,
+				5D120F3D1CF786FA00BF41FE /* LIPullDownTemplate.pdf in Resources */,
 				5DE69AFE1CF75FA2001772BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +426,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		394E8109F579A3F4E90E2514 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44488979B7BE096EE1BAD9EB /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		69D25CF05602711B1CF2B766 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeijibanUITests/Pods-KeijibanUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		839F3577F8CD0B08A6708EA1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8A6CA7DEC1A874D96E1363C8 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8B8D1D929613F34F82F4A728 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Keijiban/Pods-Keijiban-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B99EAC5DFE91286EEF721268 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Keijiban/Pods-Keijiban-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D283448912ED88A270B7B4 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5DE69AEF1CF75FA2001772BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -317,10 +556,14 @@
 			files = (
 				5D83AB1C1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift in Sources */,
 				5D83AB121CF769EF00B4F81B /* KJColoredView.swift in Sources */,
+				5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */,
 				5D83AB141CF76AAF00B4F81B /* KJNoDividerSplitView.swift in Sources */,
 				5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */,
-				5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPstsViewController.swift in Sources */,
+				5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */,
+				5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */,
+				5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift in Sources */,
 				5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */,
+				5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */,
 				5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,32 +693,40 @@
 		};
 		5DE69B191CF75FA2001772BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE6B0486752F1746DFEA5CCF /* Pods-Keijiban.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Keijiban/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Keijiban;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Keijiban/Keijiban-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5DE69B1A1CF75FA2001772BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 306B504F624CC5439ADE3E07 /* Pods-Keijiban.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Keijiban/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Keijiban;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Keijiban/Keijiban-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		5DE69B1C1CF75FA2001772BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75D777992BDD323027ED194E /* Pods-KeijibanTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -489,6 +740,7 @@
 		};
 		5DE69B1D1CF75FA2001772BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A86FA73CC2DB61F67EB993DA /* Pods-KeijibanTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -502,6 +754,7 @@
 		};
 		5DE69B1F1CF75FA2001772BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEA25A037E01D6141E67DDED /* Pods-KeijibanUITests.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = KeijibanUITests/Info.plist;
@@ -515,6 +768,7 @@
 		};
 		5DE69B201CF75FA2001772BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F99DD3989A84366B5C0C1609 /* Pods-KeijibanUITests.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = KeijibanUITests/Info.plist;
