@@ -42,6 +42,15 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         storedTabScrollPoint = (tabsControl.subviews[0] as! NSScrollView).contentView.bounds.origin;
     }
     
+    /// Tries to jump to the tab at the given index. If it is out of range the selection doesnt change(The tab index should be given in array index format)
+    func tryToJumpToTab(tab : Int) {
+        // If the index is in range...
+        if(tab >= 0 && tab < tabs.count) {
+            // Change the selected tab to the tab at the given index
+            tabsControl.selectedItem = tabs[tab];
+        }
+    }
+    
     /// Called when the user clicks the "+" button in the tab bar or hits CMD+T, for testing
     func addNewTab() {
         // Add a new example tab

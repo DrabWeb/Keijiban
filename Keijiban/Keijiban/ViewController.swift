@@ -33,17 +33,23 @@ class ViewController: NSViewController, NSWindowDelegate {
     
     /// When we push titlebarToggleSidebarButton...
     @IBAction func titlebarToggleSidebarButtonPressed(sender: AnyObject) {
-        // Toggle if the sidebar is collapsed
-        contentSplitViewController.splitViewItems[0].animator().collapsed = !contentSplitViewController.splitViewItems[0].collapsed;
-        
-        // Update the sidebar toggle button
-        updateSidebarToggleButton();
+        // Toggle the sidebar
+        toggleSidebar();
     }
     
     /// Updates titlebarToggleSidebarButton to match if the sidebar is collapsed
     func updateSidebarToggleButton() {
         // Set the sidebar toggle buttons state based on if the sidebar is collapsed
         titlebarToggleSidebarButton.state = Int(contentSplitViewController.splitViewItems[0].collapsed);
+    }
+    
+    /// Toggles if the sidebar is open
+    func toggleSidebar() {
+        // Toggle if the sidebar is collapsed
+        contentSplitViewController.splitViewItems[0].animator().collapsed = !contentSplitViewController.splitViewItems[0].collapsed;
+        
+        // Update the sidebar toggle button
+        updateSidebarToggleButton();
     }
     
     /// Called when the user does CMD+T. Adds a new tab
@@ -64,6 +70,12 @@ class ViewController: NSViewController, NSWindowDelegate {
             // Close the window
             window.close();
         }
+    }
+    
+    /// Called when the user does CMD+SHIFT+L. Calls toggleSidebar
+    func toggleSidebarAction() {
+        // Toggle the sidebar
+        toggleSidebar();
     }
     
     override func viewDidLoad() {
@@ -113,8 +125,59 @@ class ViewController: NSViewController, NSWindowDelegate {
         updateSidebarToggleButton();
     }
     
-    func windowDidBecomeKey(notification: NSNotification) {
-        // Set all the menu item targets
+    
+    /// Called when the user presses CMD+1. Tries to jump to tab 1
+    func actionJumpToTabOne() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(0);
+    }
+    
+    /// Called when the user presses CMD+2. Tries to jump to tab 2
+    func actionJumpToTabTwo() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(1);
+    }
+    
+    /// Called when the user presses CMD+3. Tries to jump to tab 3
+    func actionJumpToTabThree() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(2);
+    }
+    
+    /// Called when the user presses CMD+4. Tries to jump to tab 4
+    func actionJumpToTabFour() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(3);
+    }
+    
+    /// Called when the user presses CMD+5. Tries to jump to tab 5
+    func actionJumpToTabFive() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(4);
+    }
+    
+    /// Called when the user presses CMD+6. Tries to jump to tab 6
+    func actionJumpToTabSix() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(5);
+    }
+    
+    /// Called when the user presses CMD+7. Tries to jump to tab 7
+    func actionJumpToTabSeven() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(6);
+    }
+    
+    /// Called when the user presses CMD+8. Tries to jump to tab 8
+    func actionJumpToTabEight() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(7);
+    }
+    
+    /// Called when the user presses CMD+9. Tries to jump to tab 9
+    func actionJumpToTabNine() {
+        // Jump to the tab
+        contentPostsViewController.tryToJumpToTab(8);
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {

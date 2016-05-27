@@ -158,7 +158,29 @@
                             </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="View" id="HyV-fh-RgO"/>
+                                <menu key="submenu" title="View" id="HyV-fh-RgO">
+                                    <items>
+                                        <menuItem title="Toggle Sidebar" keyEquivalent="L" id="czH-cD-X6Q"/>
+                                        <menuItem isSeparatorItem="YES" id="FhZ-tp-Ocv"/>
+                                        <menuItem title="Tabs" id="XfU-JP-DGT">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Tabs" id="Wzi-xW-vrT">
+                                                <items>
+                                                    <menuItem title="Tab 1" keyEquivalent="1" id="7bA-b0-5BQ"/>
+                                                    <menuItem title="Tab 2" keyEquivalent="2" id="rKi-yu-7b3"/>
+                                                    <menuItem title="Tab 3" keyEquivalent="3" id="tlS-2q-muu"/>
+                                                    <menuItem title="Tab 4" keyEquivalent="4" id="pLa-oX-JtQ"/>
+                                                    <menuItem title="Tab 5" keyEquivalent="5" id="Gyk-cc-mgL"/>
+                                                    <menuItem title="Tab 6" keyEquivalent="6" id="rnq-XP-9Er"/>
+                                                    <menuItem title="Tab 7" keyEquivalent="7" id="scY-ch-bGb"/>
+                                                    <menuItem title="Tab 8" keyEquivalent="8" id="MRc-gp-Mcu"/>
+                                                    <menuItem title="Tab 9" keyEquivalent="9" id="Rcw-Wm-gJT"/>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="2kR-Gj-snE"/>
+                                    </items>
+                                </menu>
                             </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -207,6 +229,16 @@
                     <connections>
                         <outlet property="menuItemClose" destination="DVo-aG-piG" id="ixx-Yj-NxN"/>
                         <outlet property="menuItemNewTab" destination="cYi-cc-fO0" id="SLf-WB-dSV"/>
+                        <outlet property="menuItemTabsTabEight" destination="MRc-gp-Mcu" id="L1E-qb-ZmK"/>
+                        <outlet property="menuItemTabsTabFive" destination="Gyk-cc-mgL" id="wfa-pS-049"/>
+                        <outlet property="menuItemTabsTabFour" destination="pLa-oX-JtQ" id="hzv-Gy-cyz"/>
+                        <outlet property="menuItemTabsTabNine" destination="Rcw-Wm-gJT" id="1At-oD-1Lr"/>
+                        <outlet property="menuItemTabsTabOne" destination="7bA-b0-5BQ" id="pcX-7S-CN6"/>
+                        <outlet property="menuItemTabsTabSeven" destination="scY-ch-bGb" id="f5R-HY-DpT"/>
+                        <outlet property="menuItemTabsTabSix" destination="rnq-XP-9Er" id="LqQ-lK-0gG"/>
+                        <outlet property="menuItemTabsTabThree" destination="tlS-2q-muu" id="kWr-A0-SUQ"/>
+                        <outlet property="menuItemTabsTabTwo" destination="rKi-yu-7b3" id="0M4-gC-huH"/>
+                        <outlet property="menuItemToggleSidebar" destination="czH-cD-X6Q" id="BcI-Ol-Vzz"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
