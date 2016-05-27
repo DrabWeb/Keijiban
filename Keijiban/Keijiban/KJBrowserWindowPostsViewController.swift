@@ -8,7 +8,7 @@
 
 import Cocoa
 
-/// The view controller for the posts view(Catalog, index, threads, ETC.) of browsing windows
+/// The view controller for the posts view. Controls the tabs and creating new post viewer views
 class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
 
     /// The tabs control for this browser window
@@ -16,6 +16,9 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     
     /// The visual effect view for the background of the tab bar
     @IBOutlet var tabsControlBackgroundVisualEffectView: NSVisualEffectView!
+    
+    /// The NSTabView that holds the actual views for the tab bar
+    @IBOutlet var postViewersTabView: NSTabView!
     
     /// The tabs for tabsControl
     var tabs : [KJBrowserWindowPostsTabItem] = [];
@@ -25,6 +28,32 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         // Do view setup here.
         // Style the view
         styleView();
+    }
+    
+    /// Updates postViewersTabView to match the current tabs
+    func updatePostViewersTabView() {
+        // Clear all the current tab view items
+        for(_, currentTabViewItem) in postViewersTabView.tabViewItems.enumerate() {
+            postViewersTabView.removeTabViewItem(currentTabViewItem);
+        }
+        
+        // For every tab...
+        for(currentIndex, currentTab) in tabs.enumerate() {
+            // If the current tab's view controller is nil...
+            if(currentTab.viewController == nil) {
+                // Set the current tab's view controller to a new KJPostViewerViewController
+                tabs[currentIndex].viewController = storyboard!.instantiateControllerWithIdentifier("postViewerViewController") as! KJPostViewerViewController;
+            }
+            
+            /// The new tab item to add to postViewersTabView
+            let newTabItem : NSTabViewItem = NSTabViewItem(viewController: currentTab.viewController!);
+            
+            // Set the tabs label(Even though its not seen)
+            newTabItem.label = currentTab.title;
+            
+            // Add newTabItem to postViewersTabView
+            postViewersTabView.addTabViewItem(newTabItem);
+        }
     }
     
     /// The grid scroll point stored by storeCurrentSelection
@@ -48,10 +77,13 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         if(tab >= 0 && tab < tabs.count) {
             // Change the selected tab to the tab at the given index
             tabsControl.selectedItem = tabs[tab];
+            
+            // Call tabsControlTabSelectionChanged
+            tabsControlTabSelectionChanged();
         }
     }
     
-    /// Called when the user clicks the "+" button in the tab bar or hits CMD+T, for testing
+    /// Adds a new tab with the users default new tab page(Catalog or Index). Also called when the user hits + or does CMD+T
     func addNewTab() {
         // Add a new example tab
         tabs.append(KJBrowserWindowPostsTabItem(title: "Catalog"));
@@ -63,7 +95,13 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         tabsControl.selectedItem = tabs.last!;
         
         // Scroll to the end of the tab bar
-        ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).scrollToPoint(NSPoint(x: ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).frame.width + 10000, y: 0));
+        ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).scrollToPoint(NSPoint(x: ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).frame.width * 1000000, y: 0));
+        
+        // Update postViewersTabView
+        updatePostViewersTabView();
+        
+        // Call tabsControlTabSelectionChanged
+        tabsControlTabSelectionChanged();
     }
     
     /// Closes the current selected tab
@@ -103,6 +141,18 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
             // Select the tab after the one we closed
             tabsControl.selectedItem = tabs[currentTabIndex];
         }
+        
+        // Update postViewersTabView
+        updatePostViewersTabView();
+        
+        // Call tabsControlTabSelectionChanged
+        tabsControlTabSelectionChanged();
+    }
+    
+    /// Called when the tabs control tab selection is changed
+    func tabsControlTabSelectionChanged() {
+        // Jump to the tab in postViewersTabView
+        postViewersTabView.selectTabViewItemAtIndex(NSMutableArray(array: tabs).indexOfObject(tabsControl.selectedItem as! KJBrowserWindowPostsTabItem));
     }
     
     /// Styles the view controller
@@ -162,6 +212,7 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     }
     
     func tabControlDidChangeSelection(notification: NSNotification!) {
-        
+        // Call tabsControlTabSelectionChanged
+        tabsControlTabSelectionChanged();
     }
 }

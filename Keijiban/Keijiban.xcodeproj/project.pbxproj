@@ -17,6 +17,7 @@
 		5D83AB1C1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB1B1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift */; };
 		5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */; };
 		5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */; };
+		5D89F1CB1CF8E23F006752C5 /* KJPostViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */; };
 		5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF61CF75FA2001772BF /* AppDelegate.swift */; };
 		5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF81CF75FA2001772BF /* ViewController.swift */; };
 		5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFA1CF75FA2001772BF /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		5D83AB1B1CF7705200B4F81B /* KJBrowserWindowSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowSidebarViewController.swift; sourceTree = "<group>"; };
 		5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPostsViewController.swift; sourceTree = "<group>"; };
 		5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowSplitViewController.swift; sourceTree = "<group>"; };
+		5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KJPostViewerViewController.swift; path = Assets.xcassets/KJPostViewerViewController.swift; sourceTree = "<group>"; };
 		5DE69AF31CF75FA2001772BF /* Keijiban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keijiban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE69AF61CF75FA2001772BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE69AF81CF75FA2001772BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */,
+				5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */,
 			);
 			name = Posts;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */,
 				5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */,
 				5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift in Sources */,
+				5D89F1CB1CF8E23F006752C5 /* KJPostViewerViewController.swift in Sources */,
 				5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */,
 				5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */,
 				5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */,

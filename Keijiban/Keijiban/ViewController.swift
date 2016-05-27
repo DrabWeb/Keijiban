@@ -85,6 +85,11 @@ class ViewController: NSViewController, NSWindowDelegate {
         styleWindow();
     }
     
+    override func viewWillAppear() {
+        // Open a new tab
+        contentPostsViewController.addNewTab();
+    }
+    
     func windowWillEnterFullScreen(notification: NSNotification) {
         // Hide the toolbar
         window.toolbar?.visible = false;

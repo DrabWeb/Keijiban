@@ -249,7 +249,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Keijiban" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Keijiban" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -273,6 +273,37 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Post Viewer View Controller-->
+        <scene sceneID="8ri-v8-d4X">
+            <objects>
+                <viewController storyboardIdentifier="postViewerViewController" id="Dl4-hN-sqw" userLabel="Post Viewer View Controller" customClass="KJPostViewerViewController" customModule="Keijiban" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="tSN-z5-Ow3">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-cc-UVR">
+                                <rect key="frame" x="101" y="139" width="249" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="249" id="0oZ-tv-pye"/>
+                                    <constraint firstAttribute="height" constant="22" id="2q6-Ab-zbO"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="qgm-Mw-IMe">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="HpR-cc-UVR" firstAttribute="centerX" secondItem="tSN-z5-Ow3" secondAttribute="centerX" id="qQu-a3-ggF"/>
+                            <constraint firstItem="HpR-cc-UVR" firstAttribute="centerY" secondItem="tSN-z5-Ow3" secondAttribute="centerY" id="tGs-Uj-OKo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="piu-ml-DsR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="1277"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -428,14 +459,24 @@
                                     <constraint firstAttribute="trailing" secondItem="jqg-Vc-HAD" secondAttribute="trailing" id="yVa-Sj-wac"/>
                                 </constraints>
                             </customView>
+                            <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-0N-cXt" userLabel="Post Viewers Tab View">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <font key="font" metaFont="system"/>
+                                <tabViewItems/>
+                            </tabView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Qvp-0N-cXt" secondAttribute="trailing" id="6WY-bd-9Es"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" constant="37" id="INp-9G-rcV"/>
+                            <constraint firstItem="Qvp-0N-cXt" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="ObJ-k9-dO0"/>
+                            <constraint firstAttribute="bottom" secondItem="Qvp-0N-cXt" secondAttribute="bottom" id="drf-bG-2DR"/>
                             <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
+                            <constraint firstItem="Qvp-0N-cXt" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="z1r-FO-VO9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="postViewersTabView" destination="Qvp-0N-cXt" id="U7O-xB-ULu"/>
                         <outlet property="tabsControl" destination="pcB-b9-8kg" id="aTX-W3-Fpw"/>
                         <outlet property="tabsControlBackgroundVisualEffectView" destination="jqg-Vc-HAD" id="SQA-xg-UPW"/>
                     </connections>
