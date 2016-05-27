@@ -46,6 +46,26 @@ class ViewController: NSViewController, NSWindowDelegate {
         titlebarToggleSidebarButton.state = Int(contentSplitViewController.splitViewItems[0].collapsed);
     }
     
+    /// Called when the user does CMD+T. Adds a new tab
+    func newTabAction() {
+        // Add a new tab
+        contentPostsViewController.addNewTab();
+    }
+    
+    /// Called when the user does CMD+W. Closes the current tab if there are more than one, and if there is only one or less closes the window
+    func closeAction() {
+        // If there is more than one tab open...
+        if(contentPostsViewController.tabs.count > 1) {
+            // Close the selected tab
+            contentPostsViewController.closeCurrentTab();
+        }
+        // If there is only one tab or less open...
+        else {
+            // Close the window
+            window.close();
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -91,6 +111,10 @@ class ViewController: NSViewController, NSWindowDelegate {
     func sidebarCollapsedStateChanged() {
         // Update the sidebar toggle button
         updateSidebarToggleButton();
+    }
+    
+    func windowDidBecomeKey(notification: NSNotification) {
+        // Set all the menu item targets
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {

@@ -113,7 +113,6 @@
     
     [button setImagePosition:NSImageOnly];
     NSImage* image = [NSImage imageNamed:name];
-    image = [image imageWithTint:[NSColor redColor]];
     [image setTemplate:YES];
     [button setImage:image];
     [button setBezelStyle:NSShadowlessSquareBezelStyle];

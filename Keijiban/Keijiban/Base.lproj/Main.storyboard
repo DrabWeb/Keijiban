@@ -58,11 +58,13 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="New Browser" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <segue destination="B8D-0N-5wS" kind="show" id="MVC-bB-gOP"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="New Tab" keyEquivalent="t" id="cYi-cc-fO0"/>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                                         <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                             <connections>
@@ -196,10 +198,15 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Keijiban" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Keijiban" customModuleProvider="target">
+                    <connections>
+                        <outlet property="menuItemClose" destination="DVo-aG-piG" id="ixx-Yj-NxN"/>
+                        <outlet property="menuItemNewTab" destination="cYi-cc-fO0" id="SLf-WB-dSV"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="75.5" y="-85"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -210,6 +217,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="200" height="61"/>
                         <toolbar key="toolbar" implicitIdentifier="5F9843FF-EC79-4E8E-89B9-A7AD9EC09280" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="6a1-ZY-iQh">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="1gQ-M6-eOa"/>
@@ -241,7 +249,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <subviews>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="EA9-Bd-bcp" userLabel="Content Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="480" height="233"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                         <connections>
                                             <segue destination="piV-DZ-lxw" kind="embed" identifier="contentSplitViewControllerSegue" id="5NX-Je-q0K"/>
                                         </connections>
@@ -249,12 +257,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="EA9-Bd-bcp" secondAttribute="bottom" id="M4W-Oh-zze"/>
+                                    <constraint firstItem="EA9-Bd-bcp" firstAttribute="top" secondItem="UoX-6a-bXZ" secondAttribute="top" id="N2D-aC-tzf"/>
                                     <constraint firstAttribute="trailing" secondItem="EA9-Bd-bcp" secondAttribute="trailing" id="S8K-j6-sPe"/>
-                                    <constraint firstItem="EA9-Bd-bcp" firstAttribute="top" secondItem="UoX-6a-bXZ" secondAttribute="top" constant="37" id="fb8-PM-Ycb"/>
                                     <constraint firstItem="EA9-Bd-bcp" firstAttribute="leading" secondItem="UoX-6a-bXZ" secondAttribute="leading" id="jYn-kX-lg6"/>
                                 </constraints>
                             </visualEffectView>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-wt-KwZ" userLabel="Titlebar Visual Effect View">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="withinWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-wt-KwZ" userLabel="Titlebar Visual Effect View">
                                 <rect key="frame" x="0.0" y="233" width="480" height="37"/>
                                 <subviews>
                                     <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FU9-X4-4ra" userLabel="Toggle Sidebar Button">
@@ -359,8 +367,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="eej-2v-z8g" userLabel="Tab Bar">
-                                <rect key="frame" x="0.0" y="276" width="450" height="24"/>
+                                <rect key="frame" x="0.0" y="239" width="450" height="24"/>
                                 <subviews>
+                                    <visualEffectView appearanceType="vibrantDark" blendingMode="withinWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="jqg-Vc-HAD" userLabel="Tab Background Visual Effect View">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="24"/>
+                                    </visualEffectView>
                                     <customView wantsLayer="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-b9-8kg" userLabel="Tabs Control" customClass="LITabControl">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="24"/>
                                         <constraints>
@@ -370,21 +381,26 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="pcB-b9-8kg" secondAttribute="trailing" id="6lJ-N4-hOg"/>
+                                    <constraint firstItem="jqg-Vc-HAD" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="top" id="6wD-3s-jtY"/>
+                                    <constraint firstItem="jqg-Vc-HAD" firstAttribute="leading" secondItem="eej-2v-z8g" secondAttribute="leading" id="7nF-4J-xIb"/>
                                     <constraint firstAttribute="height" constant="24" id="BPx-Ka-V9E"/>
                                     <constraint firstAttribute="bottom" secondItem="pcB-b9-8kg" secondAttribute="bottom" id="NaS-Ww-vRd"/>
+                                    <constraint firstAttribute="bottom" secondItem="jqg-Vc-HAD" secondAttribute="bottom" id="Ogy-NI-ixQ"/>
                                     <constraint firstItem="pcB-b9-8kg" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="top" id="WSm-yI-wTN"/>
                                     <constraint firstItem="pcB-b9-8kg" firstAttribute="leading" secondItem="eej-2v-z8g" secondAttribute="leading" id="v61-P3-Dck"/>
+                                    <constraint firstAttribute="trailing" secondItem="jqg-Vc-HAD" secondAttribute="trailing" id="yVa-Sj-wac"/>
                                 </constraints>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="BWd-Va-n1c"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
+                            <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" constant="37" id="INp-9G-rcV"/>
                             <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tabsControl" destination="pcB-b9-8kg" id="aTX-W3-Fpw"/>
+                        <outlet property="tabsControlBackgroundVisualEffectView" destination="jqg-Vc-HAD" id="SQA-xg-UPW"/>
                     </connections>
                 </viewController>
                 <customObject id="rCM-1W-Ssd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
