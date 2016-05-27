@@ -71,6 +71,11 @@
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Close Window" keyEquivalent="W" id="aVg-wY-h6t">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="qD2-ef-Hhk"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
