@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Alamofire
 
 class ViewController: NSViewController, NSWindowDelegate {
     
@@ -45,11 +46,17 @@ class ViewController: NSViewController, NSWindowDelegate {
     
     /// When the user selects an item in titlebarBoardChooserPoupButton...
     @IBAction func titlebarBoardChooserPoupButtonInteracted(sender: NSPopUpButton) {
-        print("Changing to board \(chanUtilities.boards[sender.selectedItem!.tag])");
+        // Change the current board to the selected board
+        currentBoard = chanUtilities.boards[sender.selectedItem!.tag];
+        
+        print("Changing to board \(currentBoard)");
     }
     
     /// The 4chan utilities for this view controller
     let chanUtilities : KJ4CUtilities = KJ4CUtilities();
+    
+    /// The current board the user has selected
+    var currentBoard : KJ4CBoard = KJ4CBoard();
     
     /// Updates titlebarToggleSidebarButton to match if the sidebar is collapsed
     func updateSidebarToggleButton() {
