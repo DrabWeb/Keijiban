@@ -1,0 +1,6 @@
+framework module Pods_KeijibanUITests {
+  umbrella header "Pods-KeijibanUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

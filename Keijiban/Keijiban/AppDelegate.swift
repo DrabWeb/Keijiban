@@ -66,8 +66,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
+        // Make the application folders
+        makeApplicationFolders();
+        
         // Setup the menu item actions
         setupMenuItemActions();
+    }
+    
+    /// Makes the folders needed for the application(Application Support, ETC.)
+    func makeApplicationFolders() {
+        do {
+            // Make the application support folder
+            try NSFileManager.defaultManager().createDirectoryAtPath(KJConstants.applicationSupportDirectory, withIntermediateDirectories: false, attributes: nil);
+        }
+        catch _ as NSError {
+            // Do nothing, pretty much the only possible error is that it already exists
+        }
     }
     
     /// Sets up the actions for the menu items that are dependant on the frontmost window

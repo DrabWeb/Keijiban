@@ -1,2 +1,2 @@
 # Keijiban
-An image board browser for OSX
+A 4chan browser for OSX

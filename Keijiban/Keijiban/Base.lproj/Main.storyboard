@@ -308,7 +308,7 @@
                 </viewController>
                 <customObject id="piu-ml-DsR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1217" y="1277"/>
+            <point key="canvasLocation" x="1185" y="1288"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -399,7 +399,7 @@
                 </splitViewController>
                 <customObject id="lJd-Wj-UUQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1177"/>
+            <point key="canvasLocation" x="75" y="1288"/>
         </scene>
         <!--Sidebar View Controller-->
         <scene sceneID="Iag-Bw-HYc">
@@ -486,7 +486,7 @@
                                         </clipView>
                                         <edgeInsets key="contentInsets" left="0.0" right="0.0" top="37" bottom="0.0"/>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="qwE-Ye-Kyb">
-                                            <rect key="frame" x="1" y="327" width="131" height="16"/>
+                                            <rect key="frame" x="0.0" y="284" width="450" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="dyt-r2-K4i">
@@ -518,7 +518,7 @@
                 </viewController>
                 <customObject id="zKb-h7-MM5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="916"/>
+            <point key="canvasLocation" x="-494" y="1288"/>
         </scene>
         <!--Posts View Controller-->
         <scene sceneID="RI7-7i-NfO">
@@ -577,7 +577,7 @@
                 </viewController>
                 <customObject id="rCM-1W-Ssd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="1277"/>
+            <point key="canvasLocation" x="650" y="1288"/>
         </scene>
     </scenes>
     <resources>
