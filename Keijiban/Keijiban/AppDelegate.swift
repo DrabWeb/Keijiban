@@ -64,6 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// View/Tabs/Tab 9 (⌘9)
     @IBOutlet weak var menuItemTabsTabNine: NSMenuItem!
     
+    /// The main 4chan utilities for the app
+    let chanUtilities : KJ4CUtilities = KJ4CUtilities();
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         // Make the application folders
