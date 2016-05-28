@@ -41,16 +41,9 @@ class KJ4CUtilities {
                     self.boards.append(KJ4CBoard(code: currentBoard.1["board"].stringValue, name: currentBoard.1["title"].stringValue));
                 }
                 
-                print(self.boards);
-                
                 // Call the completion handler
                 completionHandler?();
             }
         }
-    }
-    
-    init() {
-        // Get all the boards
-        self.getAllBoards(nil);
     }
 }

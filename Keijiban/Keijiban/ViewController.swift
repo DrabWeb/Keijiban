@@ -37,6 +37,20 @@ class ViewController: NSViewController, NSWindowDelegate {
         toggleSidebar();
     }
     
+    /// The popup button in the titlebar for choosing the board
+    @IBOutlet var titlebarBoardChooserPoupButton: NSPopUpButton!
+    
+    /// The left side constraint for titlebarBoardChooserPoupButton
+    @IBOutlet var titlebarBoardChooserPoupButtonLeftConstraint: NSLayoutConstraint!
+    
+    /// When the user selects an item in titlebarBoardChooserPoupButton...
+    @IBAction func titlebarBoardChooserPoupButtonInteracted(sender: NSPopUpButton) {
+        print("Changing to board \(chanUtilities.boards[sender.selectedItem!.tag])");
+    }
+    
+    /// The 4chan utilities for this view controller
+    let chanUtilities : KJ4CUtilities = KJ4CUtilities();
+    
     /// Updates titlebarToggleSidebarButton to match if the sidebar is collapsed
     func updateSidebarToggleButton() {
         // Set the sidebar toggle buttons state based on if the sidebar is collapsed
@@ -83,6 +97,30 @@ class ViewController: NSViewController, NSWindowDelegate {
         // Do view setup here.
         // Style the window
         styleWindow();
+        
+        // Setup the 4chan utilities
+        setupChanUtilities();
+    }
+
+    /// Sets up the 4chan utilities for this view controller
+    func setupChanUtilities() {
+        // Setup the 4chan utilities
+        chanUtilities.getAllBoards(boardsLoaded);
+    }
+    
+    /// Called when the boards for chanUtilities load
+    private func boardsLoaded() {
+        // Remove all the menu items from titlebarBoardChooserPoupButton
+        titlebarBoardChooserPoupButton.removeAllItems();
+        
+        // For every board...
+        for(currentIndex, currentBoard) in chanUtilities.boards.enumerate() {
+            // Add the current board to titlebarBoardChooserPoupButton
+            titlebarBoardChooserPoupButton.addItemWithTitle(currentBoard.name);
+            
+            // Set the item's tag to it's board's index in boards
+            titlebarBoardChooserPoupButton.itemArray.last!.tag = currentIndex;
+        }
     }
     
     override func viewWillAppear() {
@@ -99,6 +137,9 @@ class ViewController: NSViewController, NSWindowDelegate {
         
         // Set the window's appearance to vibrant dark so the fullscreen toolbar is dark
         window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
+        
+        // Update the constraints
+        titlebarBoardChooserPoupButtonLeftConstraint.constant = 2;
     }
     
     func windowDidExitFullScreen(notification: NSNotification) {
@@ -107,6 +148,9 @@ class ViewController: NSViewController, NSWindowDelegate {
         
         // Set back the window's appearance
         window.appearance = NSAppearance(named: NSAppearanceNameAqua);
+        
+        // Update the constraints
+        titlebarBoardChooserPoupButtonLeftConstraint.constant = 67;
     }
     
     /// Styles the window
