@@ -86,6 +86,9 @@ class ViewController: NSViewController, NSWindowDelegate {
     }
     
     override func viewWillAppear() {
+        // Adjust the sidebar size so it isnt half the window
+        contentSplitViewController.splitView.setPosition(150, ofDividerAtIndex: 0);
+        
         // Open a new tab
         contentPostsViewController.addNewTab();
     }

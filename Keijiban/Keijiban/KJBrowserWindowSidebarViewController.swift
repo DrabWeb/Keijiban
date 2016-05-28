@@ -14,6 +14,9 @@ class KJBrowserWindowSidebarViewController: NSViewController {
     /// The visual effect view for the background of the sidebar
     @IBOutlet var backgroundVisualEffectView: NSVisualEffectView!
     
+    /// The source list for this sidebar
+    @IBOutlet weak var sidebarSourceList: PXSourceList!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

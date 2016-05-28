@@ -11,8 +11,25 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    /// File/New Browser (⌘N)
+    @IBOutlet weak var menuItemNewBrowser: NSMenuItem!
+    
     /// File/New Tab (⌘T)
     @IBOutlet weak var menuItemNewTab: NSMenuItem!
+    
+    /// When the user activates menuItemNewTab...
+    @IBAction func menuItemNewTabInteracted(sender: NSMenuItem) {
+        // If the frontmost view controller is a browser window view controller...
+        if((NSApp.mainWindow?.contentViewController as? ViewController) != nil) {
+            // Open a new tab in the frontmost browser window
+            (NSApp.mainWindow!.contentViewController as! ViewController).performSelector(Selector("newTabAction"));
+        }
+        // If the frontmost view controller isnt a browser window view controller...
+        else {
+            // Open a new browser window
+            menuItemNewBrowser.target?.performSelector(menuItemNewBrowser.action);
+        }
+    }
     
     /// File/Close (⌘W)
     @IBOutlet weak var menuItemClose: NSMenuItem!
@@ -56,7 +73,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Sets up the actions for the menu items that are dependant on the frontmost window
     func setupMenuItemActions() {
         // Set the actions
-        menuItemNewTab.action = Selector("newTabAction");
         menuItemClose.action = Selector("closeAction");
         menuItemToggleSidebar.action = Selector("toggleSidebarAction");
         

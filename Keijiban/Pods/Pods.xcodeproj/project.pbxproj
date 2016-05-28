@@ -9,47 +9,97 @@
 /* Begin PBXBuildFile section */
 		02FE33EC5944A5C9194F292B8B9CCA41 /* Pods-KeijibanUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F94B0FB4DC7D4F57EE7EF7E4C442F7 /* Pods-KeijibanUITests-dummy.m */; };
 		04AC67B034527E9F7AB28EC23E5B4E3A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
+		10100A990E430FEAF38528E03DF3BFA7 /* PXSourceListBadgeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EBA80AAB439BFC53DAAD51F7B85F0F /* PXSourceListBadgeCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17593629C25C66A657031945FC30D6A1 /* Pods-KeijibanTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 745716008EA3BBC7EDD6DA5E19DC704B /* Pods-KeijibanTests-dummy.m */; };
-		29C55B6E259C0D3BD9DAA64ED45ED24B /* Pods-Keijiban-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B91E2B692B69122492591B95A682BC /* Pods-Keijiban-dummy.m */; };
 		37806920F7AD36E3D9109E164635A090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
-		B74741BED7FD6FDC97EB0DB62849C807 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
+		3F10BDCA427A45CE25C7D14241927C17 /* PXSourceListTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9584D046899582A23796E5AC6F665D /* PXSourceListTableCellView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4A38722A97ED74521E472532E3AC96E9 /* PXSourceListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 819904824DD45F8D2E83F9281F8698D7 /* PXSourceListItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F25BF7EE80E9649EBC3178EE747F3D3 /* PXSourceListBadgeView.h in Headers */ = {isa = PBXBuildFile; fileRef = D504D6BC35DFA725275AF974DCC39ACA /* PXSourceListBadgeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F69E796289F8FFBC83A9B56056BE6CB /* PXSourceListBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D364DEB4556C938A0C6A583F657E73B1 /* PXSourceListBadgeView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		742AE1B53783B62CD6435D57D95AF29C /* PXSourceListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BD0917ED5FB12381760D968A38A96A9 /* PXSourceListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75E6EAE45C48856CA3C6757F14FC2014 /* PXSourceListRuntimeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 68655F206C3B97B9F9D308A291F5B035 /* PXSourceListRuntimeAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		79178FF50B5B3BE014D65D8CEC8B4DF8 /* PXSourceListPrivateConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6B4B89A3745B68F0DFB4DE3BBEEA25 /* PXSourceListPrivateConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8164DF057882FD9B3A2A867939F7D1B1 /* PXSourceListDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 41976FB40E90897C2BF18C65FE827C89 /* PXSourceListDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81FA4E0F4289228C6CA26A88ACB9D145 /* PXSourceList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CAE4B56BB673EAEB5A2A2CC2A2C2B4 /* PXSourceList.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		88B5F39EA07E5209272070C764063840 /* PXSourceList.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E13493D92790A7529FD4FD366A0C290 /* PXSourceList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89A6092DE299B4B9986071E76396140C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
+		9B5CA78F1465C5F9D308B84B6ED30364 /* PXSourceListDelegateDataSourceProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4245F8448E22A5F9BC74FE886BC84863 /* PXSourceListDelegateDataSourceProxy.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A24D39935734A91E7B99EE649239F104 /* PXSourceList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C5551CC01801D22533680531E5818F2C /* PXSourceList-dummy.m */; };
+		AA45B344CE2513D23B9F465ABCA82528 /* PXSourceListTableCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 09C68A78F2070A411879618AD7B8D038 /* PXSourceListTableCellView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF9FF1B81EC7A07960A52F70B26DBCB5 /* PXSourceListBadgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 539165925FC7B9910178B1DA8EEAD810 /* PXSourceListBadgeCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BD90485BDCFBE328C0D808E83A80207B /* PXSourceListDelegateDataSourceProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A77163BD198A45E79A4E8ED5DA836726 /* PXSourceListDelegateDataSourceProxy.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D52B64120F98D46B1E8A225A1E368459 /* PXSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB5B3F2C6279330C8A47CD0ECC72A79 /* PXSourceListItem.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E7FA24CBF6EFA5F156F8C1E5651ECAC2 /* PXSourceListRuntimeAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 498F7F7C48D0733556F5B8733C7FEAF7 /* PXSourceListRuntimeAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EF0681ABB7A3A598428BD673BE17879F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */; };
+		F4687FEB7F5D097FCC364CE281B23BF9 /* Pods-Keijiban-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B91E2B692B69122492591B95A682BC /* Pods-Keijiban-dummy.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4432E56059F6DF56A0B08D6BDBBBFF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1A2C055D8FCA690A3AF8F2CF43F9318;
+			remoteInfo = PXSourceList;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		004751D0453A1B1994BCF26EF1624818 /* Pods-Keijiban-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Keijiban-acknowledgements.plist"; sourceTree = "<group>"; };
+		03CDDEA35BE266E5688BB8FC9BA8D5E8 /* libPXSourceList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPXSourceList.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		03EBA80AAB439BFC53DAAD51F7B85F0F /* PXSourceListBadgeCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListBadgeCell.h; path = PXSourceList/PXSourceListBadgeCell.h; sourceTree = "<group>"; };
 		06A6D9582C1B3EFC50455717A91C0110 /* Pods-Keijiban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Keijiban.release.xcconfig"; sourceTree = "<group>"; };
+		09C68A78F2070A411879618AD7B8D038 /* PXSourceListTableCellView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListTableCellView.h; path = PXSourceList/PXSourceListTableCellView.h; sourceTree = "<group>"; };
+		0BD0917ED5FB12381760D968A38A96A9 /* PXSourceListDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListDataSource.h; path = PXSourceList/PXSourceListDataSource.h; sourceTree = "<group>"; };
 		0F8923D714E964A0BE577B87555FE20C /* Pods-KeijibanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		11CC9ACCB182FB8933DDB48D432B689D /* Pods-KeijibanUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KeijibanUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		1CA6EBC2E57D96052268211209D6AA52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		33C44C5DA5638F1F6178E7F704F82B14 /* libPods-Keijiban.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Keijiban.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E13493D92790A7529FD4FD366A0C290 /* PXSourceList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceList.h; path = PXSourceList/PXSourceList.h; sourceTree = "<group>"; };
+		1F9584D046899582A23796E5AC6F665D /* PXSourceListTableCellView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PXSourceListTableCellView.m; path = PXSourceList/PXSourceListTableCellView.m; sourceTree = "<group>"; };
+		23A7161C44C10969CEA8AC91E1F8A8CA /* libPods-Keijiban.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Keijiban.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A28BD3615752CCFD1C13739DC7A741D /* Pods-KeijibanTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KeijibanTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3A8D6ADC3C28372A59A770C16F68F0F3 /* PXSourceList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PXSourceList.xcconfig; sourceTree = "<group>"; };
+		41976FB40E90897C2BF18C65FE827C89 /* PXSourceListDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListDelegate.h; path = PXSourceList/PXSourceListDelegate.h; sourceTree = "<group>"; };
 		41D8AAFF00D159CF9767FF35B136A357 /* Pods-KeijibanUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanUITests-frameworks.sh"; sourceTree = "<group>"; };
+		4245F8448E22A5F9BC74FE886BC84863 /* PXSourceListDelegateDataSourceProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListDelegateDataSourceProxy.h; path = PXSourceList/Internal/PXSourceListDelegateDataSourceProxy.h; sourceTree = "<group>"; };
+		498F7F7C48D0733556F5B8733C7FEAF7 /* PXSourceListRuntimeAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListRuntimeAdditions.h; path = PXSourceList/Internal/PXSourceListRuntimeAdditions.h; sourceTree = "<group>"; };
+		4BFAF13E8306F337E83E66696B3BE3FD /* PXSourceList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PXSourceList-prefix.pch"; sourceTree = "<group>"; };
+		539165925FC7B9910178B1DA8EEAD810 /* PXSourceListBadgeCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PXSourceListBadgeCell.m; path = PXSourceList/PXSourceListBadgeCell.m; sourceTree = "<group>"; };
 		53F94B0FB4DC7D4F57EE7EF7E4C442F7 /* Pods-KeijibanUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KeijibanUITests-dummy.m"; sourceTree = "<group>"; };
-		5D15A2395949191E244C0A9AF477512B /* libPods-KeijibanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68655F206C3B97B9F9D308A291F5B035 /* PXSourceListRuntimeAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PXSourceListRuntimeAdditions.m; path = PXSourceList/Internal/PXSourceListRuntimeAdditions.m; sourceTree = "<group>"; };
 		6A53668B7F6543F30E89CE8CBAC8F60F /* Pods-KeijibanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6C2BC5A82498BE07AACC2ABB023E6433 /* libPods-KeijibanUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		745716008EA3BBC7EDD6DA5E19DC704B /* Pods-KeijibanTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KeijibanTests-dummy.m"; sourceTree = "<group>"; };
+		819904824DD45F8D2E83F9281F8698D7 /* PXSourceListItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListItem.h; path = PXSourceList/PXSourceListItem.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		956F866C2342FDC2D89D5F14956ABB6E /* Pods-KeijibanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E62A2C1A948912BDD4DDBF20446DC29 /* Pods-Keijiban-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Keijiban-frameworks.sh"; sourceTree = "<group>"; };
+		A77163BD198A45E79A4E8ED5DA836726 /* PXSourceListDelegateDataSourceProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PXSourceListDelegateDataSourceProxy.m; path = PXSourceList/Internal/PXSourceListDelegateDataSourceProxy.m; sourceTree = "<group>"; };
 		AB6D9BF97A72967235DDB3526A3DD16B /* Pods-KeijibanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeijibanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACC785047C8E19F2568241CA20311EEE /* Pods-Keijiban-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Keijiban-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B9CAE4B56BB673EAEB5A2A2CC2A2C2B4 /* PXSourceList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PXSourceList.m; path = PXSourceList/PXSourceList.m; sourceTree = "<group>"; };
 		C1ACCC8C7A567E7688E93601CA5B9449 /* Pods-Keijiban-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Keijiban-resources.sh"; sourceTree = "<group>"; };
 		C483253DD697E02EC3B7DAABC471242E /* Pods-KeijibanTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanTests-resources.sh"; sourceTree = "<group>"; };
+		C4E6F7CD0B51DC7994C3ED51BF07D535 /* libPods-KeijibanUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5551CC01801D22533680531E5818F2C /* PXSourceList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PXSourceList-dummy.m"; sourceTree = "<group>"; };
+		CB6B4B89A3745B68F0DFB4DE3BBEEA25 /* PXSourceListPrivateConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListPrivateConstants.h; path = PXSourceList/Internal/PXSourceListPrivateConstants.h; sourceTree = "<group>"; };
 		CC9562FE44AE7B3BF500DB633A753E86 /* Pods-KeijibanTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KeijibanTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CCE3D524EFDF3A38E4FFD0825EB89571 /* Pods-KeijibanTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanTests-frameworks.sh"; sourceTree = "<group>"; };
+		D3232B330F0F45ACAE0E7B592D4C7FFF /* libPods-KeijibanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeijibanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D364DEB4556C938A0C6A583F657E73B1 /* PXSourceListBadgeView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PXSourceListBadgeView.m; path = PXSourceList/PXSourceListBadgeView.m; sourceTree = "<group>"; };
+		D504D6BC35DFA725275AF974DCC39ACA /* PXSourceListBadgeView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PXSourceListBadgeView.h; path = PXSourceList/PXSourceListBadgeView.h; sourceTree = "<group>"; };
 		D875E5A2C6DE4199413818E989C5A86C /* Pods-KeijibanUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeijibanUITests-resources.sh"; sourceTree = "<group>"; };
+		DCB5B3F2C6279330C8A47CD0ECC72A79 /* PXSourceListItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PXSourceListItem.m; path = PXSourceList/PXSourceListItem.m; sourceTree = "<group>"; };
 		DDE04346AB7E2EBACFD4E297C83B2D5C /* Pods-Keijiban.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Keijiban.debug.xcconfig"; sourceTree = "<group>"; };
 		E623CA89225C5D72EA0781E8D54DBBA6 /* Pods-KeijibanUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KeijibanUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F8B91E2B692B69122492591B95A682BC /* Pods-Keijiban-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Keijiban-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1D5B8B9A2AEAD3AB5BB29986A97473DE /* Frameworks */ = {
+		0FA3DD5A4AF0A17615B63555C6EA9B46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B74741BED7FD6FDC97EB0DB62849C807 /* Cocoa.framework in Frameworks */,
+				EF0681ABB7A3A598428BD673BE17879F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +116,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				37806920F7AD36E3D9109E164635A090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDF4FA597AC606049ECAB7D3A9B5A49D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A6092DE299B4B9986071E76396140C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +153,31 @@
 			name = "OS X";
 			sourceTree = "<group>";
 		};
+		30F4B00A875C447311761E902E800292 /* PXSourceList */ = {
+			isa = PBXGroup;
+			children = (
+				1E13493D92790A7529FD4FD366A0C290 /* PXSourceList.h */,
+				B9CAE4B56BB673EAEB5A2A2CC2A2C2B4 /* PXSourceList.m */,
+				03EBA80AAB439BFC53DAAD51F7B85F0F /* PXSourceListBadgeCell.h */,
+				539165925FC7B9910178B1DA8EEAD810 /* PXSourceListBadgeCell.m */,
+				D504D6BC35DFA725275AF974DCC39ACA /* PXSourceListBadgeView.h */,
+				D364DEB4556C938A0C6A583F657E73B1 /* PXSourceListBadgeView.m */,
+				0BD0917ED5FB12381760D968A38A96A9 /* PXSourceListDataSource.h */,
+				41976FB40E90897C2BF18C65FE827C89 /* PXSourceListDelegate.h */,
+				4245F8448E22A5F9BC74FE886BC84863 /* PXSourceListDelegateDataSourceProxy.h */,
+				A77163BD198A45E79A4E8ED5DA836726 /* PXSourceListDelegateDataSourceProxy.m */,
+				819904824DD45F8D2E83F9281F8698D7 /* PXSourceListItem.h */,
+				DCB5B3F2C6279330C8A47CD0ECC72A79 /* PXSourceListItem.m */,
+				CB6B4B89A3745B68F0DFB4DE3BBEEA25 /* PXSourceListPrivateConstants.h */,
+				498F7F7C48D0733556F5B8733C7FEAF7 /* PXSourceListRuntimeAdditions.h */,
+				68655F206C3B97B9F9D308A291F5B035 /* PXSourceListRuntimeAdditions.m */,
+				09C68A78F2070A411879618AD7B8D038 /* PXSourceListTableCellView.h */,
+				1F9584D046899582A23796E5AC6F665D /* PXSourceListTableCellView.m */,
+				CA136B065FAC6305DD244EA6C831C11A /* Support Files */,
+			);
+			path = PXSourceList;
+			sourceTree = "<group>";
+		};
 		39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +191,8 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */,
-				A3580DEFBB5DE23459E9043D0CC04620 /* Products */,
+				F966E3093C22769D78F419C9CCC7E91B /* Pods */,
+				B2889EF3FA5EF52A8731DA0C6D22F722 /* Products */,
 				8E69994817DE93ABA13344F0E7941A50 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -138,16 +222,6 @@
 			path = "Target Support Files/Pods-KeijibanUITests";
 			sourceTree = "<group>";
 		};
-		A3580DEFBB5DE23459E9043D0CC04620 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				33C44C5DA5638F1F6178E7F704F82B14 /* libPods-Keijiban.a */,
-				5D15A2395949191E244C0A9AF477512B /* libPods-KeijibanTests.a */,
-				6C2BC5A82498BE07AACC2ABB023E6433 /* libPods-KeijibanUITests.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AAEF894A6B0D2CD77114ACE7A25E854E /* Pods-Keijiban */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +237,57 @@
 			path = "Target Support Files/Pods-Keijiban";
 			sourceTree = "<group>";
 		};
+		B2889EF3FA5EF52A8731DA0C6D22F722 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23A7161C44C10969CEA8AC91E1F8A8CA /* libPods-Keijiban.a */,
+				D3232B330F0F45ACAE0E7B592D4C7FFF /* libPods-KeijibanTests.a */,
+				C4E6F7CD0B51DC7994C3ED51BF07D535 /* libPods-KeijibanUITests.a */,
+				03CDDEA35BE266E5688BB8FC9BA8D5E8 /* libPXSourceList.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA136B065FAC6305DD244EA6C831C11A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D6ADC3C28372A59A770C16F68F0F3 /* PXSourceList.xcconfig */,
+				C5551CC01801D22533680531E5818F2C /* PXSourceList-dummy.m */,
+				4BFAF13E8306F337E83E66696B3BE3FD /* PXSourceList-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PXSourceList";
+			sourceTree = "<group>";
+		};
+		F966E3093C22769D78F419C9CCC7E91B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30F4B00A875C447311761E902E800292 /* PXSourceList */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7FAF60894E983F35F93D572013DDE39E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B5F39EA07E5209272070C764063840 /* PXSourceList.h in Headers */,
+				10100A990E430FEAF38528E03DF3BFA7 /* PXSourceListBadgeCell.h in Headers */,
+				4F25BF7EE80E9649EBC3178EE747F3D3 /* PXSourceListBadgeView.h in Headers */,
+				742AE1B53783B62CD6435D57D95AF29C /* PXSourceListDataSource.h in Headers */,
+				8164DF057882FD9B3A2A867939F7D1B1 /* PXSourceListDelegate.h in Headers */,
+				9B5CA78F1465C5F9D308B84B6ED30364 /* PXSourceListDelegateDataSourceProxy.h in Headers */,
+				4A38722A97ED74521E472532E3AC96E9 /* PXSourceListItem.h in Headers */,
+				79178FF50B5B3BE014D65D8CEC8B4DF8 /* PXSourceListPrivateConstants.h in Headers */,
+				E7FA24CBF6EFA5F156F8C1E5651ECAC2 /* PXSourceListRuntimeAdditions.h in Headers */,
+				AA45B344CE2513D23B9F465ABCA82528 /* PXSourceListTableCellView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		0247C504E33B0842B7039D23821A9EC4 /* Pods-KeijibanTests */ = {
@@ -179,23 +303,7 @@
 			);
 			name = "Pods-KeijibanTests";
 			productName = "Pods-KeijibanTests";
-			productReference = 5D15A2395949191E244C0A9AF477512B /* libPods-KeijibanTests.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		6FBC2FE2108BD5AE725B60AC6DB33D9E /* Pods-Keijiban */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F70935F794D27355683BC5DD0FDB8501 /* Build configuration list for PBXNativeTarget "Pods-Keijiban" */;
-			buildPhases = (
-				CFC962649348B07112D7DDD0974593D5 /* Sources */,
-				1D5B8B9A2AEAD3AB5BB29986A97473DE /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Keijiban";
-			productName = "Pods-Keijiban";
-			productReference = 33C44C5DA5638F1F6178E7F704F82B14 /* libPods-Keijiban.a */;
+			productReference = D3232B330F0F45ACAE0E7B592D4C7FFF /* libPods-KeijibanTests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		896B3A6904EA8D335CD75125FD8DBC9F /* Pods-KeijibanUITests */ = {
@@ -211,7 +319,41 @@
 			);
 			name = "Pods-KeijibanUITests";
 			productName = "Pods-KeijibanUITests";
-			productReference = 6C2BC5A82498BE07AACC2ABB023E6433 /* libPods-KeijibanUITests.a */;
+			productReference = C4E6F7CD0B51DC7994C3ED51BF07D535 /* libPods-KeijibanUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A1A2C055D8FCA690A3AF8F2CF43F9318 /* PXSourceList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97DEC685D66BDD5B97A95301720993B9 /* Build configuration list for PBXNativeTarget "PXSourceList" */;
+			buildPhases = (
+				2A4E08DCA0295225580835BB8455FBCD /* Sources */,
+				DDF4FA597AC606049ECAB7D3A9B5A49D /* Frameworks */,
+				7FAF60894E983F35F93D572013DDE39E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PXSourceList;
+			productName = PXSourceList;
+			productReference = 03CDDEA35BE266E5688BB8FC9BA8D5E8 /* libPXSourceList.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BCAFD842C3770D95B80C557D13140E93 /* Pods-Keijiban */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C17AA6EE9E9458D6974E06B0F8A63E57 /* Build configuration list for PBXNativeTarget "Pods-Keijiban" */;
+			buildPhases = (
+				9103FE602DA227EA93FEBB687448F877 /* Sources */,
+				0FA3DD5A4AF0A17615B63555C6EA9B46 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96DED0DB0488772B1512890974190B24 /* PBXTargetDependency */,
+			);
+			name = "Pods-Keijiban";
+			productName = "Pods-Keijiban";
+			productReference = 23A7161C44C10969CEA8AC91E1F8A8CA /* libPods-Keijiban.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -231,23 +373,47 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A3580DEFBB5DE23459E9043D0CC04620 /* Products */;
+			productRefGroup = B2889EF3FA5EF52A8731DA0C6D22F722 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6FBC2FE2108BD5AE725B60AC6DB33D9E /* Pods-Keijiban */,
+				BCAFD842C3770D95B80C557D13140E93 /* Pods-Keijiban */,
 				0247C504E33B0842B7039D23821A9EC4 /* Pods-KeijibanTests */,
 				896B3A6904EA8D335CD75125FD8DBC9F /* Pods-KeijibanUITests */,
+				A1A2C055D8FCA690A3AF8F2CF43F9318 /* PXSourceList */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2A4E08DCA0295225580835BB8455FBCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24D39935734A91E7B99EE649239F104 /* PXSourceList-dummy.m in Sources */,
+				81FA4E0F4289228C6CA26A88ACB9D145 /* PXSourceList.m in Sources */,
+				AF9FF1B81EC7A07960A52F70B26DBCB5 /* PXSourceListBadgeCell.m in Sources */,
+				5F69E796289F8FFBC83A9B56056BE6CB /* PXSourceListBadgeView.m in Sources */,
+				BD90485BDCFBE328C0D808E83A80207B /* PXSourceListDelegateDataSourceProxy.m in Sources */,
+				D52B64120F98D46B1E8A225A1E368459 /* PXSourceListItem.m in Sources */,
+				75E6EAE45C48856CA3C6757F14FC2014 /* PXSourceListRuntimeAdditions.m in Sources */,
+				3F10BDCA427A45CE25C7D14241927C17 /* PXSourceListTableCellView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		492B2C9CAEE825A9FA272A2AF375B28C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				02FE33EC5944A5C9194F292B8B9CCA41 /* Pods-KeijibanUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9103FE602DA227EA93FEBB687448F877 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4687FEB7F5D097FCC364CE281B23BF9 /* Pods-Keijiban-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,39 +425,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CFC962649348B07112D7DDD0974593D5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29C55B6E259C0D3BD9DAA64ED45ED24B /* Pods-Keijiban-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin XCBuildConfiguration section */
-		1AB20F4AE0166331077E3E6C0BDBA12F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDE04346AB7E2EBACFD4E297C83B2D5C /* Pods-Keijiban.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_NO_COMMON_BLOCKS = YES;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
+/* Begin PBXTargetDependency section */
+		96DED0DB0488772B1512890974190B24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PXSourceList;
+			target = A1A2C055D8FCA690A3AF8F2CF43F9318 /* PXSourceList */;
+			targetProxy = A4432E56059F6DF56A0B08D6BDBBBFF9 /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
 		4888EEFBEA04FABA2120470F4B676BBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -329,6 +474,27 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		5894C91E6CEA8B30BB9C4A1D810474B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A8D6ADC3C28372A59A770C16F68F0F3 /* PXSourceList.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PXSourceList/PXSourceList-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
 		};
 		67B67B3C94CD7E78A2E9CD21078F6A8F /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -374,6 +540,49 @@
 			};
 			name = Release;
 		};
+		9650746A8B97A3F33A66C8D1F1FA7837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A8D6ADC3C28372A59A770C16F68F0F3 /* PXSourceList.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PXSourceList/PXSourceList-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A94294CB2E247C0043659385FBC06464 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE04346AB7E2EBACFD4E297C83B2D5C /* Pods-Keijiban.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		C114E815F339DAF73F69D15FBE17D3FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A53668B7F6543F30E89CE8CBAC8F60F /* Pods-KeijibanUITests.debug.xcconfig */;
@@ -418,28 +627,6 @@
 			};
 			name = Debug;
 		};
-		C6F2042A911AF314D986FE005E4BF963 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06A6D9582C1B3EFC50455717A91C0110 /* Pods-Keijiban.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_NO_COMMON_BLOCKS = YES;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		DA2E206EB90DF75A25332AE4AA713F31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -482,6 +669,28 @@
 			};
 			name = Debug;
 		};
+		F9029EF3F8C7629CE10B83E90463BC1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06A6D9582C1B3EFC50455717A91C0110 /* Pods-Keijiban.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -503,6 +712,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		97DEC685D66BDD5B97A95301720993B9 /* Build configuration list for PBXNativeTarget "PXSourceList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5894C91E6CEA8B30BB9C4A1D810474B7 /* Debug */,
+				9650746A8B97A3F33A66C8D1F1FA7837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9C2C0CBC973F7C9BC6A683C03856F032 /* Build configuration list for PBXNativeTarget "Pods-KeijibanTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -512,11 +730,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F70935F794D27355683BC5DD0FDB8501 /* Build configuration list for PBXNativeTarget "Pods-Keijiban" */ = {
+		C17AA6EE9E9458D6974E06B0F8A63E57 /* Build configuration list for PBXNativeTarget "Pods-Keijiban" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1AB20F4AE0166331077E3E6C0BDBA12F /* Debug */,
-				C6F2042A911AF314D986FE005E4BF963 /* Release */,
+				A94294CB2E247C0043659385FBC06464 /* Debug */,
+				F9029EF3F8C7629CE10B83E90463BC1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
