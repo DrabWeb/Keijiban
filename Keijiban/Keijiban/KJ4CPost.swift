@@ -9,7 +9,7 @@
 import Cocoa
 
 /// Represents a post on 4chan
-class KJ4CPost {
+class KJ4CPost: NSObject {
     /// The board this post is on
     var board : KJ4CBoard? = nil;
     
@@ -28,8 +28,14 @@ class KJ4CPost {
     /// The time this post was made(In UNIX epoch time)
     var postTime : Int = -1;
     
-    /// Does this post have any image attatched?
-    var hasImage : Bool = false;
+    /// Does this post have a file?
+    var hasFile : Bool = false;
+    
+    /// Was this post's file deleted?
+    var fileDeleted : Bool = false;
+    
+    /// Is this post's file spoilered?
+    var fileSpoilered : Bool = false;
     
     /// The image of this post(If any)
     var image : NSImage? = nil;
@@ -80,9 +86,17 @@ class KJ4CPost {
         
         self.postTime = json["time"].intValue;
         
-        hasImage = json["filename"].exists();
+        hasFile = json["filename"].exists();
         
-        if(hasImage) {
+        if(json["filedeleted"].exists()) {
+            fileDeleted = Bool(json["filedeleted"].intValue);
+        }
+        
+        if(json["spoiler"].exists()) {
+            self.fileSpoilered = Bool(json["spoiler"].intValue);
+        }
+        
+        if(hasFile) {
             self.imageExtension = json["ext"].stringValue;
             self.imageSize = NSSize(width: json["w"].intValue, height: json["h"].intValue);
             self.imageCdnFilename = json["tim"].intValue
@@ -90,6 +104,13 @@ class KJ4CPost {
         }
         
         self.comment = json["com"].stringValue;
+        
+        // Format the comment
+        self.comment = self.comment.stringByReplacingOccurrencesOfString("<br>", withString: "\n");
+        
+        // What is the of &#X; called? Maybe there is a way to remove it already made. All I know is what some of them stand for
+        self.comment = self.comment.stringByReplacingOccurrencesOfString("&#039;", withString: "'");
+        self.comment = self.comment.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
     }
 }
 
@@ -113,6 +134,9 @@ class KJ4COPPost: KJ4CPost {
     /// The recent replies to this post(Used in the index where you see the most recent posts)
     var recentReplies : [KJ4CPost] = [];
     
+    /// The string to display in the catalog that shows how many images and replies the thread has
+    var imageReplyDisplayString : String = "I: 00 / R: 00";
+    
     /// Get a KJ4CPost from the given JSON and the given board
     override init(json : JSON, board : KJ4CBoard) {
         super.init(json: json, board: board);
@@ -123,6 +147,8 @@ class KJ4COPPost: KJ4CPost {
         
         self.imageCount = json["images"].intValue;
         self.replyCount = json["replies"].intValue;
+        
+        imageReplyDisplayString = "I: \(imageCount) / R: \(replyCount)";
         
         self.reachedBumpLimit = Bool(json["bumplimit"].intValue);
         self.reachedImageLimit = Bool(json["imagelimit"].intValue);

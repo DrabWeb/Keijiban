@@ -287,26 +287,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-cc-UVR">
-                                <rect key="frame" x="101" y="139" width="249" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="249" id="0oZ-tv-pye"/>
-                                    <constraint firstAttribute="height" constant="22" id="2q6-Ab-zbO"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="qgm-Mw-IMe">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClO-EF-UbR" userLabel="Scroll View - Catalog Collection View">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="oaB-0O-7rc">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="gdW-NT-LhY" userLabel="Catalog Collection View">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                            <connections>
+                                                <binding destination="lKd-Vr-F7O" name="content" keyPath="arrangedObjects" id="BO0-mQ-ySt"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="nMS-od-d2k">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="8V0-Ox-qjb">
+                                    <rect key="frame" x="434" y="61" width="16" height="239"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="HpR-cc-UVR" firstAttribute="centerX" secondItem="tSN-z5-Ow3" secondAttribute="centerX" id="qQu-a3-ggF"/>
-                            <constraint firstItem="HpR-cc-UVR" firstAttribute="centerY" secondItem="tSN-z5-Ow3" secondAttribute="centerY" id="tGs-Uj-OKo"/>
+                            <constraint firstItem="ClO-EF-UbR" firstAttribute="top" secondItem="tSN-z5-Ow3" secondAttribute="top" id="7Xo-Ks-SaY"/>
+                            <constraint firstAttribute="trailing" secondItem="ClO-EF-UbR" secondAttribute="trailing" id="7wX-7l-XAm"/>
+                            <constraint firstItem="ClO-EF-UbR" firstAttribute="leading" secondItem="tSN-z5-Ow3" secondAttribute="leading" id="hXA-NM-zj1"/>
+                            <constraint firstAttribute="bottom" secondItem="ClO-EF-UbR" secondAttribute="bottom" id="rNg-UA-A21"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="catalogCollectionView" destination="gdW-NT-LhY" id="Nzr-5h-u2z"/>
+                        <outlet property="catalogCollectionViewArrayController" destination="lKd-Vr-F7O" id="sSr-hh-lGN"/>
+                    </connections>
                 </viewController>
                 <customObject id="piu-ml-DsR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="KJ4COPPost" id="lKd-Vr-F7O">
+                    <declaredKeys>
+                        <string>thumbnailImage</string>
+                        <string>comment</string>
+                    </declaredKeys>
+                    <connections>
+                        <binding destination="Dl4-hN-sqw" name="contentArray" keyPath="catalogCollectionViewItems" id="h6S-is-FFV"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="1185" y="1288"/>
         </scene>
@@ -593,7 +621,7 @@
                                 </constraints>
                             </customView>
                             <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-0N-cXt" userLabel="Post Viewers Tab View">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="239"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>
                             </tabView>
@@ -602,7 +630,7 @@
                             <constraint firstAttribute="trailing" secondItem="Qvp-0N-cXt" secondAttribute="trailing" id="6WY-bd-9Es"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" constant="37" id="INp-9G-rcV"/>
-                            <constraint firstItem="Qvp-0N-cXt" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="ObJ-k9-dO0"/>
+                            <constraint firstItem="Qvp-0N-cXt" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="bottom" id="bf9-YQ-8YC"/>
                             <constraint firstAttribute="bottom" secondItem="Qvp-0N-cXt" secondAttribute="bottom" id="drf-bG-2DR"/>
                             <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="z1r-FO-VO9"/>
@@ -618,10 +646,78 @@
             </objects>
             <point key="canvasLocation" x="650" y="1288"/>
         </scene>
+        <!--Collection View Item-->
+        <scene sceneID="ICR-Dy-TFV">
+            <objects>
+                <collectionViewItem storyboardIdentifier="catalogCollectionViewItem" id="FkG-3z-BBL" sceneMemberID="viewController">
+                    <view key="view" id="Owf-Jx-jPB">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-eb-UTk" userLabel="Thumbnail Image View">
+                                <rect key="frame" x="10" y="160" width="230" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="hmK-tx-ZCx"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="2Wx-7E-gHR"/>
+                                <connections>
+                                    <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.thumbnailImage" id="UfA-Z1-9ZO"/>
+                                </connections>
+                            </imageView>
+                            <textField horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="IgV-v0-bW4" userLabel="Comment Text Field">
+                                <rect key="frame" x="8" y="10" width="234" height="131"/>
+                                <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" alignment="center" title="Here is a comment for this post and here is more comment content and here is more and one more" id="4Eo-4i-Vdc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.comment" id="afr-vK-gZA"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Wzb-y0-Scr" userLabel="Image Reply Count Text Field">
+                                <rect key="frame" x="8" y="141" width="234" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="cT5-U5-2r8"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="R: 00 / I: 00" id="3lU-9B-iYm">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.imageReplyDisplayString" id="9hJ-r6-ohQ"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Wzb-y0-Scr" firstAttribute="top" secondItem="Ade-eb-UTk" secondAttribute="bottom" constant="5" id="1Xw-6P-MYk"/>
+                            <constraint firstAttribute="trailing" secondItem="Ade-eb-UTk" secondAttribute="trailing" constant="10" id="20f-0s-ItH"/>
+                            <constraint firstItem="IgV-v0-bW4" firstAttribute="top" secondItem="Wzb-y0-Scr" secondAttribute="bottom" id="EiE-mk-5AO"/>
+                            <constraint firstItem="IgV-v0-bW4" firstAttribute="leading" secondItem="Owf-Jx-jPB" secondAttribute="leading" constant="10" id="JWv-Ib-tVc"/>
+                            <constraint firstAttribute="trailing" secondItem="Wzb-y0-Scr" secondAttribute="trailing" constant="10" id="Ljq-cl-MCg"/>
+                            <constraint firstItem="Wzb-y0-Scr" firstAttribute="leading" secondItem="Owf-Jx-jPB" secondAttribute="leading" constant="10" id="Sl2-9S-2m4"/>
+                            <constraint firstAttribute="trailing" secondItem="IgV-v0-bW4" secondAttribute="trailing" constant="10" id="Y3L-y2-X4u"/>
+                            <constraint firstAttribute="bottom" secondItem="IgV-v0-bW4" secondAttribute="bottom" constant="10" id="ecQ-3J-KF3"/>
+                            <constraint firstItem="Ade-eb-UTk" firstAttribute="top" secondItem="Owf-Jx-jPB" secondAttribute="top" constant="10" id="m74-Oa-Q9z"/>
+                            <constraint firstItem="Ade-eb-UTk" firstAttribute="leading" secondItem="Owf-Jx-jPB" secondAttribute="leading" constant="10" id="qg1-Pr-aiP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Ade-eb-UTk" id="CDe-93-zoD"/>
+                        <outlet property="textField" destination="IgV-v0-bW4" id="DpH-Xn-tbU"/>
+                    </connections>
+                </collectionViewItem>
+                <customObject id="eIt-gh-8At" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="QLd-TA-Iag"/>
+            </objects>
+            <point key="canvasLocation" x="1589" y="1288"/>
+        </scene>
     </scenes>
     <resources>
         <image name="KJSearchIcon" width="256" height="256"/>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSCaution" width="32" height="32"/>
         <image name="NSLeftFacingTriangleTemplate" width="9" height="12"/>
         <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
     </resources>
