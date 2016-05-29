@@ -23,6 +23,11 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     /// The tabs for tabsControl
     var tabs : [KJBrowserWindowPostsTabItem] = [];
     
+    /// The current selected KJBrowserWindowPostsTabItem
+    var currentTab : KJBrowserWindowPostsTabItem {
+        return tabsControl.selectedItem as! KJBrowserWindowPostsTabItem;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -42,7 +47,7 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
             // If the current tab's view controller is nil...
             if(currentTab.viewController == nil) {
                 // Set the current tab's view controller to a new KJPostViewerViewController
-                tabs[currentIndex].viewController = storyboard!.instantiateControllerWithIdentifier("postViewerViewController") as! KJPostViewerViewController;
+                tabs[currentIndex].viewController = storyboard!.instantiateControllerWithIdentifier("postViewerViewController") as? KJPostViewerViewController;
             }
             
             /// The new tab item to add to postViewersTabView

@@ -64,6 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// View/Tabs/Tab 9 (⌘9)
     @IBOutlet weak var menuItemTabsTabNine: NSMenuItem!
     
+    /// The global application preferences
+    var preferences : KJPreferences = KJPreferences();
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         // Make the application folders

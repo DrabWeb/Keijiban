@@ -122,12 +122,18 @@ class ViewController: NSViewController, NSWindowDelegate {
         
         // For every board...
         for(currentIndex, currentBoard) in chanUtilities.boards.enumerate() {
-            // Add the current board to titlebarBoardChooserPoupButton
-            titlebarBoardChooserPoupButton.addItemWithTitle(currentBoard.name);
-            
-            // Set the item's tag to it's board's index in boards
-            titlebarBoardChooserPoupButton.itemArray.last!.tag = currentIndex;
+            // If the user added this board to their board list...
+            if((NSApplication.sharedApplication().delegate as! AppDelegate).preferences.boards.contains(currentBoard.code)) {
+                // Add the current board to titlebarBoardChooserPoupButton
+                titlebarBoardChooserPoupButton.addItemWithTitle(currentBoard.name);
+                
+                // Set the item's tag to it's board's index in boards
+                titlebarBoardChooserPoupButton.itemArray.last!.tag = currentIndex;
+            }
         }
+        
+        // Update the current board
+        currentBoard = chanUtilities.boards[titlebarBoardChooserPoupButton.selectedItem!.tag];
     }
     
     override func viewWillAppear() {

@@ -22,8 +22,8 @@ class KJ4CPost: NSObject {
     /// The post number for this post
     var postNumber : Int = -1;
     
-    /// The post this post replied to(0 if OP)
-    var replyTo : Int = -1;
+    /// The thread this post is in(0 if OP)
+    var inThread : Int = -1;
     
     /// The time this post was made(In UNIX epoch time)
     var postTime : Int = -1;
@@ -68,6 +68,16 @@ class KJ4CPost: NSObject {
     /// The text of this post
     var comment : String = "";
     
+    // Override the print output to be useful
+    override var description : String {
+        if(board != nil) {
+            return "<Keijiban.KJ4CPost: /\(board!.code)/thread/\(inThread)#\(postNumber) by \(name)>";
+        }
+        else {
+            return "<Keijiban.KJ4CPost: /nilboard/ #\(postNumber) by \(name)>";
+        }
+    }
+    
     /// Get a KJ4CPost from the given JSON and the given board
     init(json : JSON, board : KJ4CBoard) {
         // Set board to the passed board
@@ -82,7 +92,7 @@ class KJ4CPost: NSObject {
         
         self.postNumber = json["no"].intValue;
         
-        self.replyTo = json["resto"].intValue;
+        self.inThread = json["resto"].intValue;
         
         self.postTime = json["time"].intValue;
         
@@ -111,6 +121,7 @@ class KJ4CPost: NSObject {
         // What is the of &#X; called? Maybe there is a way to remove it already made. All I know is what some of them stand for
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&#039;", withString: "'");
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
+        self.comment = self.comment.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
     }
 }
 
@@ -136,6 +147,21 @@ class KJ4COPPost: KJ4CPost {
     
     /// The string to display in the catalog that shows how many images and replies the thread has
     var imageReplyDisplayString : String = "I: 00 / R: 00";
+    
+    /// The API URL of this thread
+    var threadUrl : String {
+        return "https://a.4cdn.org/\(board!.code)/thread/\(postNumber).json";
+    }
+    
+    // Override the print output to be useful
+    override var description : String {
+        if(board != nil) {
+            return "<Keijiban.KJ4COPPost: /\(board!.code)/thread/\(postNumber) by \(name)>";
+        }
+        else {
+            return "<Keijiban.KJ4COPPost: /nilboard/thread/\(postNumber) by \(name)>";
+        }
+    }
     
     /// Get a KJ4CPost from the given JSON and the given board
     override init(json : JSON, board : KJ4CBoard) {
