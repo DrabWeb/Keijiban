@@ -31,8 +31,8 @@ class KJPostViewerThreadTableCellView: NSTableCellView {
     /// The post this cell rerpesents
     var representedPost : KJ4CPost? = nil;
     
-    /// Displays the info from the given post in this cell
-    func displayInfoFromPost(post : KJ4CPost) {
+    /// Displays the info from the given post in this cell. Returns a float indicating the height the cell should be
+    func displayInfoFromPost(post : KJ4CPost) -> CGFloat {
         // Set representedPost
         representedPost = post;
         
@@ -88,6 +88,24 @@ class KJPostViewerThreadTableCellView: NSTableCellView {
         
         // Display the comment in the comment text field
         commentTextField.stringValue = post.comment;
+        
+        // Size the comment field to fit properly
+        self.commentTextField.sizeToFit();
+        
+        /// The height this row should be
+        var contentHeight : CGFloat = 42 + self.commentTextField.bounds.height;
+        
+        // If this row has a file and the content height is less than 120...
+        if(post.hasFile && contentHeight < 120) {
+            // Set the content heigh to 120
+            contentHeight = 120;
+        }
+        
+        // Add 1 to contentHeight for the separator
+        contentHeight += 1;
+        
+        // Return the content height
+        return contentHeight;
     }
     
     override func drawRect(dirtyRect: NSRect) {

@@ -30,6 +30,9 @@ class KJPostViewerViewController: NSViewController {
     /// The scroll view for postsTableView
     @IBOutlet var postsTableViewScrollView: NSScrollView!
     
+    /// The heights for the rows in postsTableView
+    var postsTableViewRowHeights : [CGFloat] = [];
+    
     /// The current mode that this post viewer is in
     var currentMode : KJPostViewerMode = KJPostViewerMode.None;
     
@@ -48,6 +51,9 @@ class KJPostViewerViewController: NSViewController {
         
         // Relod the table view
         postsTableView.reloadData();
+        
+        // Reload all the row's heights
+        postsTableView.noteHeightOfRowsWithIndexesChanged(NSIndexSet(indexesInRange: NSMakeRange(0, currentThread!.posts.count + 1)));
         
         // Hide all the other views
         catalogCollectionViewScrollView.hidden = true;
@@ -115,7 +121,7 @@ class KJPostViewerViewController: NSViewController {
         catalogCollectionView.maxItemSize = NSSize(width: 250, height: 250);
         
         // Make the request to get the catalog
-        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142156412.json", encoding: .JSON).responseJSON { (responseData) -> Void in
+        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142203161.json", encoding: .JSON).responseJSON { (responseData) -> Void in
             /// The string of JSON that will be returned when the GET request finishes
             let responseJsonString : NSString = NSString(data: responseData.data!, encoding: NSUTF8StringEncoding)!;
             
@@ -127,6 +133,19 @@ class KJPostViewerViewController: NSViewController {
                 self.displayThread(KJ4CThread(json: responseJson, board: KJ4CBoard(code: "a", name: "Anime & Manga")), completionHandler: nil);
             }
         }
+    }
+}
+
+extension KJPostViewerViewController: NSTableViewDelegate {
+    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        // If the row is in range of postsTableViewRowHeights...
+        if(row < postsTableViewRowHeights.count) {
+            // Return the row height at the given row
+            return postsTableViewRowHeights[row];
+        }
+        
+        // Return a default value that doesnt break constraints
+        return 122;
     }
 }
 
@@ -155,7 +174,7 @@ extension KJPostViewerViewController: NSTableViewDataSource {
             let cellData : KJ4CPost = currentThread!.postAtIndex(row);
             
             // Display the data in the cell
-            postCellView.displayInfoFromPost(cellData);
+            postsTableViewRowHeights.append(postCellView.displayInfoFromPost(cellData));
             
             // Return the modified cell view
             return postCellView as NSTableCellView;
@@ -164,12 +183,6 @@ extension KJPostViewerViewController: NSTableViewDataSource {
         // Return the unmodified cell view, we dont need to do anything
         return cellView;
     }
-}
-
-extension KJPostViewerViewController: NSTableViewDelegate {
-//    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-//        
-//    }
 }
 
 /// The different modes KJPostViewerViewController can be in

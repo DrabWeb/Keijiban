@@ -312,14 +312,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <scrollView hidden="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="195" horizontalPageScroll="10" verticalLineScroll="195" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-pP-RWj" userLabel="Scroll View - Posts Table View">
+                            <scrollView hidden="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="194" horizontalPageScroll="10" verticalLineScroll="194" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-pP-RWj" userLabel="Scroll View - Posts Table View">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Onl-O3-Vze">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="195" rowSizeStyle="automatic" viewBased="YES" id="QpB-Tm-TrC" userLabel="Posts Table View">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="194" rowSizeStyle="automatic" viewBased="YES" id="QpB-Tm-TrC" userLabel="Posts Table View">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -338,10 +338,10 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView wantsLayer="YES" id="OI7-RL-8wf" customClass="KJPostViewerThreadTableCellView" customModule="Keijiban" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="450" height="195"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="450" height="194"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <imageView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="SWm-hV-jZd" userLabel="Thumbnail Image View" customClass="KJRasterizedImageView" customModule="Keijiban" customModuleProvider="target">
+                                                                <imageView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWm-hV-jZd" userLabel="Thumbnail Image View" customClass="KJRasterizedImageView" customModule="Keijiban" customModuleProvider="target">
                                                                     <rect key="frame" x="10" y="48" width="100" height="100"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="100" id="7Au-tW-oRN"/>
@@ -366,14 +366,14 @@
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="4QP-Tj-ULk" userLabel="Comment Text Field">
                                                                     <rect key="frame" x="118" y="10" width="324" height="153"/>
-                                                                    <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" id="x3p-v8-oOL">
+                                                                    <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" id="x3p-v8-oOL">
                                                                         <font key="font" metaFont="system"/>
                                                                         <string key="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in porta augue. Nunc et blandit ante, ut vehicula odio. Quisque at lacinia dolor, eget iaculis dui. Vivamus suscipit ex et diam lacinia, sit amet laoreet dui scelerisque. Proin sed ex feugiat, vulputate arcu non, lacinia magna. Sed vulputate condimentum euismod. Sed at ultricies lorem. Mauris venenatis nisi non lacinia sollicitudin. Cras ullamcorper dapibus laoreet.</string>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <box horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1Id-cZ-6Uo" userLabel="Separator">
+                                                                <box verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1Id-cZ-6Uo" userLabel="Separator">
                                                                     <rect key="frame" x="0.0" y="-2" width="450" height="5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="NMc-5f-rab"/>
@@ -387,7 +387,7 @@
                                                                 <constraint firstItem="SWm-hV-jZd" firstAttribute="centerY" secondItem="OI7-RL-8wf" secondAttribute="centerY" id="0No-8s-0F7"/>
                                                                 <constraint firstItem="1Id-cZ-6Uo" firstAttribute="leading" secondItem="OI7-RL-8wf" secondAttribute="leading" id="4jh-zz-LdY"/>
                                                                 <constraint firstItem="THn-JF-CTZ" firstAttribute="leading" secondItem="OI7-RL-8wf" secondAttribute="leading" constant="120" id="96T-N6-zHb"/>
-                                                                <constraint firstItem="THn-JF-CTZ" firstAttribute="top" secondItem="OI7-RL-8wf" secondAttribute="top" constant="10" id="BoG-SE-sBl"/>
+                                                                <constraint firstItem="THn-JF-CTZ" firstAttribute="top" secondItem="OI7-RL-8wf" secondAttribute="top" constant="9" id="BoG-SE-sBl"/>
                                                                 <constraint firstItem="SWm-hV-jZd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OI7-RL-8wf" secondAttribute="top" constant="10" id="Hnb-aV-RLA"/>
                                                                 <constraint firstAttribute="bottom" secondItem="4QP-Tj-ULk" secondAttribute="bottom" constant="10" id="JnU-89-dUa"/>
                                                                 <constraint firstItem="4QP-Tj-ULk" firstAttribute="top" secondItem="THn-JF-CTZ" secondAttribute="bottom" constant="5" id="L6G-SR-BYD"/>
