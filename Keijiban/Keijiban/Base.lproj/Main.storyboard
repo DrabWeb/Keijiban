@@ -285,14 +285,14 @@
             <objects>
                 <viewController storyboardIdentifier="postsViewerPostViewControllerTemplate" id="msC-li-0WW" userLabel="Posts Viewer Post View Controller Template" sceneMemberID="viewController">
                     <view key="view" id="9Up-Qc-hT2">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="521" height="162"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="DHm-7F-rU2" userLabel="Posts Viewer Post View Template" customClass="KJPostViewerThreadPostView" customModule="Keijiban" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="194"/>
+                                <rect key="frame" x="0.0" y="0.0" width="521" height="162"/>
                                 <subviews>
                                     <imageView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vKI-AZ-kdz" userLabel="Thumbnail Image View" customClass="KJRasterizedImageView" customModule="Keijiban" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="47" width="100" height="100"/>
+                                        <rect key="frame" x="10" y="31" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="DQW-Ty-MLl"/>
                                             <constraint firstAttribute="height" constant="100" id="VTX-bs-cuk"/>
@@ -304,7 +304,7 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="og9-H9-n0J" userLabel="Cell"/>
                                     </imageView>
                                     <textField horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" alphaValue="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="ZkA-9w-Ag5" userLabel="Poster Info Text Field">
-                                        <rect key="frame" x="118" y="168" width="324" height="17"/>
+                                        <rect key="frame" x="118" y="136" width="395" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tOe-td-5CZ"/>
                                         </constraints>
@@ -315,7 +315,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="sEO-XN-6pd" userLabel="Comment Text Field">
-                                        <rect key="frame" x="118" y="10" width="324" height="153"/>
+                                        <rect key="frame" x="118" y="12" width="395" height="119"/>
                                         <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" id="ch2-Td-t8e" userLabel="Cell">
                                             <font key="font" metaFont="system"/>
                                             <string key="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in porta augue. Nunc et blandit ante, ut vehicula odio. Quisque at lacinia dolor, eget iaculis dui. Vivamus suscipit ex et diam lacinia, sit amet laoreet dui scelerisque. Proin sed ex feugiat, vulputate arcu non, lacinia magna. Sed vulputate condimentum euismod. Sed at ultricies lorem. Mauris venenatis nisi non lacinia sollicitudin. Cras ullamcorper dapibus laoreet.</string>
@@ -324,7 +324,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <box verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="V9f-hf-rk7" userLabel="Separator">
-                                        <rect key="frame" x="0.0" y="-2" width="450" height="5"/>
+                                        <rect key="frame" x="0.0" y="-2" width="521" height="5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="EWD-21-qLy"/>
                                         </constraints>
@@ -346,7 +346,7 @@
                                     <constraint firstAttribute="trailing" secondItem="V9f-hf-rk7" secondAttribute="trailing" id="dVw-i0-2tj"/>
                                     <constraint firstAttribute="trailing" secondItem="sEO-XN-6pd" secondAttribute="trailing" constant="10" id="fKn-Nk-xdO"/>
                                     <constraint firstItem="vKI-AZ-kdz" firstAttribute="centerY" secondItem="DHm-7F-rU2" secondAttribute="centerY" id="obK-Yj-smm"/>
-                                    <constraint firstAttribute="bottom" secondItem="sEO-XN-6pd" secondAttribute="bottom" constant="10" id="rJP-gy-6Qs"/>
+                                    <constraint firstAttribute="bottom" secondItem="sEO-XN-6pd" secondAttribute="bottom" constant="12" id="rJP-gy-6Qs"/>
                                     <constraint firstAttribute="trailing" secondItem="ZkA-9w-Ag5" secondAttribute="trailing" constant="10" id="syU-In-kLc"/>
                                     <constraint firstItem="sEO-XN-6pd" firstAttribute="top" secondItem="ZkA-9w-Ag5" secondAttribute="bottom" constant="5" id="wla-FT-puU"/>
                                 </constraints>
@@ -370,17 +370,17 @@
                 </viewController>
                 <customObject id="0PG-Oi-cYk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="963"/>
+            <point key="canvasLocation" x="1185.5" y="994"/>
         </scene>
         <!--Post Viewer View Controller-->
         <scene sceneID="8ri-v8-d4X">
             <objects>
                 <viewController storyboardIdentifier="postViewerViewController" id="Dl4-hN-sqw" userLabel="Post Viewer View Controller" customClass="KJPostViewerViewController" customModule="Keijiban" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="tSN-z5-Ow3">
+                    <view key="view" id="tSN-z5-Ow3">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView hidden="YES" misplaced="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClO-EF-UbR" userLabel="Scroll View - Catalog Collection View">
+                            <scrollView hidden="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClO-EF-UbR" userLabel="Scroll View - Catalog Collection View">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="oaB-0O-7rc">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -405,16 +405,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <scrollView misplaced="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-r9-FpL" userLabel="Scroll View - Posts Viewer Stack View">
+                            <scrollView hidden="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-r9-FpL" userLabel="Scroll View - Posts Viewer Stack View">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="u2x-w8-2eE">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
+                                        <view horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
-                                                <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="750" verticalStackHuggingPriority="250" verticalHuggingPriority="750" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
+                                                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 </stackView>
                                             </subviews>
@@ -433,8 +433,8 @@
                                         <constraint firstAttribute="trailing" secondItem="jIG-dS-30K" secondAttribute="trailing" id="dQk-3R-7la"/>
                                     </constraints>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Kxs-At-i1Q">
-                                    <rect key="frame" x="-100" y="-100" width="450" height="16"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="Kxs-At-i1Q">
+                                    <rect key="frame" x="0.0" y="284" width="450" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="dfD-fT-ocs">
@@ -606,7 +606,7 @@
                         <splitViewItem canCollapse="YES" id="0b1-Ol-Wca"/>
                         <splitViewItem id="D4m-mO-SN8"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="2YM-XF-PXO" userLabel="Split View" customClass="KJNoDividerSplitView" customModule="Keijiban" customModuleProvider="target">
+                    <splitView key="splitView" autosaveName="" dividerStyle="thin" vertical="YES" id="2YM-XF-PXO" userLabel="Split View" customClass="KJNoDividerSplitView" customModule="Keijiban" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </splitView>
@@ -771,7 +771,7 @@
                                     <constraint firstAttribute="trailing" secondItem="jqg-Vc-HAD" secondAttribute="trailing" id="yVa-Sj-wac"/>
                                 </constraints>
                             </customView>
-                            <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-0N-cXt" userLabel="Post Viewers Tab View">
+                            <tabView horizontalCompressionResistancePriority="250" drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-0N-cXt" userLabel="Post Viewers Tab View">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="239"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>

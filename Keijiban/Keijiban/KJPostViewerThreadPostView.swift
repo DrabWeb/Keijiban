@@ -38,6 +38,17 @@ class KJPostViewerThreadPostView: NSView {
         
         // Display the info
         // Display the thumbnail image
+        // If this is an OP post...
+        if((post as? KJ4COPPost) != nil) {
+            // Set the thumbnail image's width and height constraints to 150
+            thumbnailImageView.constraints[0].constant = 150;
+            thumbnailImageView.constraints[1].constant = 150;
+            
+            // Update the comment and poster info left margins
+            commentTextFieldLeftConstraint.constant = 170;
+            posterInfoTextFieldLeftConstraint.constant = 170;
+        }
+        
         // If the post's thumbnail image is already loaded...
         if(post.thumbnailImage != nil) {
             // Display the thumbnail image in the thumbnail image view
@@ -48,15 +59,20 @@ class KJPostViewerThreadPostView: NSView {
             // Download the image and display it in the thumbnail image view
             thumbnailImageView.image = NSImage(contentsOfURL: NSURL(string: post.imageThumbnailUrl)!);
         }
-            // If the post doesnt have a thumbnail image...
+        // If the post doesnt have a thumbnail image...
         else {
             // Hide the thumbnail image view
             thumbnailImageView.hidden = true;
             
             // Update the constraints
+            // Update the thumbnail image view's constant height
+            thumbnailImageView.constraints[0].constant = 0;
+            
+            // Update the comment and poster info text field left margins
             commentTextFieldLeftConstraint.constant = 10;
             posterInfoTextFieldLeftConstraint.constant = 10;
         }
+
         
         /// The string to display in the poster info text field
         var posterInfoString : String = post.name;
