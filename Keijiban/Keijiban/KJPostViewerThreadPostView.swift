@@ -37,16 +37,25 @@ class KJPostViewerThreadPostView: NSView {
         representedPost = post;
         
         // Display the info
+        /// The string to display in the poster info text field
+        var posterInfoString : String = "";
+        
         // Display the thumbnail image
         // If this is an OP post...
         if((post as? KJ4COPPost) != nil) {
-            // Set the thumbnail image's width and height constraints to 150
+            // Set the thumbnail image's width and height constraints to 150, so the user can easily see it's the OP post
             thumbnailImageView.constraints[0].constant = 150;
             thumbnailImageView.constraints[1].constant = 150;
             
             // Update the comment and poster info left margins
             commentTextFieldLeftConstraint.constant = 170;
             posterInfoTextFieldLeftConstraint.constant = 170;
+            
+            // If the post's subject isnt blank...
+            if((post as! KJ4COPPost).subject != "") {
+                // Add the subject to posterInfoString
+                posterInfoString += (post as! KJ4COPPost).subject + " - ";
+            }
         }
         
         // If the post's thumbnail image is already loaded...
@@ -72,10 +81,9 @@ class KJPostViewerThreadPostView: NSView {
             commentTextFieldLeftConstraint.constant = 10;
             posterInfoTextFieldLeftConstraint.constant = 10;
         }
-
         
-        /// The string to display in the poster info text field
-        var posterInfoString : String = post.name;
+        /// Add the poster's name to posterInfoString
+        posterInfoString += post.name;
         
         // If the poster has a tripcode...
         if(post.tripcode != "") {

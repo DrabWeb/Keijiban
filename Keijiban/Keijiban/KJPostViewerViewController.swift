@@ -51,7 +51,7 @@ class KJPostViewerViewController: NSViewController {
             print("KJPostViewerViewController: Displaying thread /\(currentBoard!.code)/\(currentThread!.opPost!.postNumber) - \(currentThread!.opPost!.subject)");
         }
         else {
-            print("KJPostViewerViewController: Displaying thread /\(currentBoard!.code)/\(currentThread!.opPost!.postNumber) - \(currentThread!.opPost!.comment)");
+            print("KJPostViewerViewController: Displaying thread /\(currentBoard!.code)/\(currentThread!.opPost!.postNumber) - \(currentThread!.opPost!.comment.stringByReplacingOccurrencesOfString("\n", withString: " "))");
         }
         
         // Remove all the current post items
@@ -92,13 +92,13 @@ class KJPostViewerViewController: NSViewController {
         
         // Add the leading and trailing constraints
         /// The constraint for the trailing edge of newPostView
-        let newPostViewTrailingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0);
+        let newPostViewTrailingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: -50);
         
         // Add the constraint
         postsViewerStackViewScrollView.addConstraint(newPostViewTrailingConstraint);
         
         /// The constraint for the leading edge of newPostView
-        let newPostViewLeadingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0);
+        let newPostViewLeadingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: -50);
         
         // Add the constraint
         postsViewerStackViewScrollView.addConstraint(newPostViewLeadingConstraint);
@@ -168,8 +168,8 @@ class KJPostViewerViewController: NSViewController {
         catalogCollectionView.minItemSize = NSSize(width: 150, height: 200);
         catalogCollectionView.maxItemSize = NSSize(width: 250, height: 250);
         
-        // Make the request to get the catalog
-        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142242691.json", encoding: .JSON).responseJSON { (responseData) -> Void in
+        // Make the request to get a thread from /a/ and display it
+        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142234895.json", encoding: .JSON).responseJSON { (responseData) -> Void in
             /// The string of JSON that will be returned when the GET request finishes
             let responseJsonString : NSString = NSString(data: responseData.data!, encoding: NSUTF8StringEncoding)!;
             
