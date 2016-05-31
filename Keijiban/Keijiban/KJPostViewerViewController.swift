@@ -24,14 +24,11 @@ class KJPostViewerViewController: NSViewController {
     /// The array of items in catalogCollectionViewArrayController
     var catalogCollectionViewItems : NSMutableArray = NSMutableArray();
     
-    /// The table view for displaying posts in the list style
-    @IBOutlet var postsTableView: NSTableView!
+    /// The stack view for showing the posts in the posts viewer stack view
+    @IBOutlet var postsViewerStackView: NSStackView!
     
-    /// The scroll view for postsTableView
-    @IBOutlet var postsTableViewScrollView: NSScrollView!
-    
-    /// The heights for the rows in postsTableView
-    var postsTableViewRowHeights : [CGFloat] = [];
+    /// The scroll view for postsViewerStackView
+    @IBOutlet var postsViewerStackViewScrollView: NSScrollView!
     
     /// The current mode that this post viewer is in
     var currentMode : KJPostViewerMode = KJPostViewerMode.None;
@@ -49,17 +46,26 @@ class KJPostViewerViewController: NSViewController {
         currentBoard = thread.board!;
         currentThread = thread;
         
-        // Relod the table view
-        postsTableView.reloadData();
+        // Remove all the current post items
+        postsViewerStackView.subviews.removeAll();
         
-        // Reload all the row's heights
-        postsTableView.noteHeightOfRowsWithIndexesChanged(NSIndexSet(indexesInRange: NSMakeRange(0, currentThread!.posts.count + 1)));
+        // For every post in the given thread...
+        for(_, currentThreadPost) in currentThread!.allPosts.enumerate() {
+            /// The new post view item for the stack view
+            let newPostView : KJPostViewerThreadPostView = (storyboard!.instantiateControllerWithIdentifier("postsViewerPostViewControllerTemplate") as! NSViewController).view.subviews[0] as! KJPostViewerThreadPostView;
+            
+            // Display the current post's info in the new post view
+            newPostView.displayInfoFromPost(currentThreadPost);
+            
+            // Add the new post view to postsViewerStackView
+            postsViewerStackView.addView(newPostView, inGravity: NSStackViewGravity.Top);
+        }
         
         // Hide all the other views
         catalogCollectionViewScrollView.hidden = true;
         
-        // Show the posts table view
-        postsTableViewScrollView.hidden = false;
+        // Show the posts view
+        postsViewerStackViewScrollView.hidden = false;
     }
     
     /// Displays the catalog for the given board. Only shows the amount of pages given(Minimum 0, maximum 9). Calls the given completion handler when done(If any)
@@ -103,7 +109,7 @@ class KJPostViewerViewController: NSViewController {
         }
         
         // Hide all the other views
-        postsTableViewScrollView.hidden = true;
+        postsViewerStackViewScrollView.hidden = true;
         
         // Show the catalog collection view
         catalogCollectionViewScrollView.hidden = false;
@@ -113,6 +119,9 @@ class KJPostViewerViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
+        // Set postsViewerStackViewScrollView's document view
+        postsViewerStackViewScrollView.documentView = postsViewerStackView;
+        
         // Set the catalog collection view's item prototype
         catalogCollectionView.itemPrototype = storyboard!.instantiateControllerWithIdentifier("catalogCollectionViewItem") as? NSCollectionViewItem;
         
@@ -121,7 +130,7 @@ class KJPostViewerViewController: NSViewController {
         catalogCollectionView.maxItemSize = NSSize(width: 250, height: 250);
         
         // Make the request to get the catalog
-        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142203161.json", encoding: .JSON).responseJSON { (responseData) -> Void in
+        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142198321.json", encoding: .JSON).responseJSON { (responseData) -> Void in
             /// The string of JSON that will be returned when the GET request finishes
             let responseJsonString : NSString = NSString(data: responseData.data!, encoding: NSUTF8StringEncoding)!;
             
@@ -133,55 +142,6 @@ class KJPostViewerViewController: NSViewController {
                 self.displayThread(KJ4CThread(json: responseJson, board: KJ4CBoard(code: "a", name: "Anime & Manga")), completionHandler: nil);
             }
         }
-    }
-}
-
-extension KJPostViewerViewController: NSTableViewDelegate {
-    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        // If the row is in range of postsTableViewRowHeights...
-        if(row < postsTableViewRowHeights.count) {
-            // Return the row height at the given row
-            return postsTableViewRowHeights[row];
-        }
-        
-        // Return a default value that doesnt break constraints
-        return 122;
-    }
-}
-
-extension KJPostViewerViewController: NSTableViewDataSource {
-    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
-        // If currentThread isnt nil and we are in thread mode...
-        if(currentThread != nil && currentMode == .Thread) {
-            // Return the amount of posts in currentThread
-            return 1 + currentThread!.posts.count;
-        }
-        
-        // Return 0
-        return 0;
-    }
-    
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        /// The cell view for the cell we want to modify
-        let cellView: NSTableCellView = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: nil) as! NSTableCellView;
-        
-        // If this is the posts column...
-        if(tableColumn!.identifier == "Posts Column") {
-            /// cellView as a KJPostViewerThreadTableCellView
-            let postCellView : KJPostViewerThreadTableCellView = cellView as! KJPostViewerThreadTableCellView;
-            
-            /// The data for this cell
-            let cellData : KJ4CPost = currentThread!.postAtIndex(row);
-            
-            // Display the data in the cell
-            postsTableViewRowHeights.append(postCellView.displayInfoFromPost(cellData));
-            
-            // Return the modified cell view
-            return postCellView as NSTableCellView;
-        }
-        
-        // Return the unmodified cell view, we dont need to do anything
-        return cellView;
     }
 }
 

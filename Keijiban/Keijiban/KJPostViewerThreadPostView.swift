@@ -1,5 +1,5 @@
 //
-//  KJPostViewerThreadTableCellView.swift
+//  KJPostViewerThreadPostView.swift
 //  Keijiban
 //
 //  Created by Seth on 2016-05-29.
@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class KJPostViewerThreadTableCellView: NSTableCellView {
+class KJPostViewerThreadPostView: NSView {
 
     /// The image view for the post's thumbnail image
-    @IBOutlet var thumbnailImageView: NSImageView!
+    @IBOutlet var thumbnailImageView: KJRasterizedImageView!
     
     /// The text field that shows info about the poster like there name they posted with, the date and time they posted and the post number
     @IBOutlet var posterInfoTextField: NSTextField!
@@ -31,8 +31,8 @@ class KJPostViewerThreadTableCellView: NSTableCellView {
     /// The post this cell rerpesents
     var representedPost : KJ4CPost? = nil;
     
-    /// Displays the info from the given post in this cell. Returns a float indicating the height the cell should be
-    func displayInfoFromPost(post : KJ4CPost) -> CGFloat {
+    /// Displays the info from the given post in this view
+    func displayInfoFromPost(post : KJ4CPost) {
         // Set representedPost
         representedPost = post;
         
@@ -43,12 +43,12 @@ class KJPostViewerThreadTableCellView: NSTableCellView {
             // Display the thumbnail image in the thumbnail image view
             thumbnailImageView.image = post.thumbnailImage!;
         }
-        // If the post has a thumbnail and it's not loaded...
+            // If the post has a thumbnail and it's not loaded...
         else if(post.hasFile && post.thumbnailImage == nil) {
             // Download the image and display it in the thumbnail image view
             thumbnailImageView.image = NSImage(contentsOfURL: NSURL(string: post.imageThumbnailUrl)!);
         }
-        // If the post doesnt have a thumbnail image...
+            // If the post doesnt have a thumbnail image...
         else {
             // Hide the thumbnail image view
             thumbnailImageView.hidden = true;
@@ -87,30 +87,6 @@ class KJPostViewerThreadTableCellView: NSTableCellView {
         posterInfoTextField.stringValue = posterInfoString;
         
         // Display the comment in the comment text field
-        commentTextField.stringValue = post.comment;
-        
-        // Size the comment field to fit properly
-        self.commentTextField.sizeToFit();
-        
-        /// The height this row should be
-        var contentHeight : CGFloat = 42 + self.commentTextField.bounds.height;
-        
-        // If this row has a file and the content height is less than 120...
-        if(post.hasFile && contentHeight < 120) {
-            // Set the content heigh to 120
-            contentHeight = 120;
-        }
-        
-        // Add 1 to contentHeight for the separator
-        contentHeight += 1;
-        
-        // Return the content height
-        return contentHeight;
-    }
-    
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
-
-        // Drawing code here.
+        commentTextField.attributedStringValue = post.attributedComment;
     }
 }

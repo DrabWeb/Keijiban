@@ -68,6 +68,28 @@ class KJ4CPost: NSObject {
     /// The text of this post
     var comment : String = "";
     
+    /// Returns comment as an attributed string
+    var attributedComment : NSAttributedString {
+        let attributedString : NSAttributedString = NSAttributedString(string: comment);
+        
+        var ranges : [NSRange] = [];
+        
+        do {
+            // Create the regular expression.
+            let regex = try NSRegularExpression(pattern: "<span class=\"quote\">", options: []);
+            
+            // Use the regular expression to get an array of NSTextCheckingResult.
+            // Use map to extract the range from each result.
+            ranges = regex.matchesInString(comment, options: [], range: NSMakeRange(0, comment.characters.count)).map {$0.range}
+        }
+        catch {
+            // There was a problem creating the regular expression
+            ranges = [];
+        }
+        
+        return attributedString;
+    }
+    
     // Override the print output to be useful
     override var description : String {
         if(board != nil) {

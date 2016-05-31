@@ -19,6 +19,14 @@ class KJ4CThread {
     /// All the posts in the thread besides the first
     var posts : [KJ4CPost] = [];
     
+    /// Returns all the posts for this thread(Including the OP post)
+    var allPosts : [KJ4CPost] {
+        var allPostsArray : [KJ4CPost] = [opPost!];
+        allPostsArray.appendContentsOf(posts);
+        
+        return allPostsArray;
+    }
+    
     /// Returns the post at the given index
     func postAtIndex(index : Int) -> KJ4CPost {
         if(index == 0) {

@@ -33,13 +33,15 @@
 		5DC106421CFA146C00F471A9 /* PXSourceListBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC106371CFA146C00F471A9 /* PXSourceListBadgeView.m */; };
 		5DC106431CFA146C00F471A9 /* PXSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1063B1CFA146C00F471A9 /* PXSourceListItem.m */; };
 		5DC106441CFA146C00F471A9 /* PXSourceListTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1063D1CFA146C00F471A9 /* PXSourceListTableCellView.m */; };
-		5DD050881CFB7ABC0087B499 /* KJPostViewerThreadTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD050871CFB7ABC0087B499 /* KJPostViewerThreadTableCellView.swift */; };
+		5DD050881CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD050871CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift */; };
 		5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF61CF75FA2001772BF /* AppDelegate.swift */; };
 		5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF81CF75FA2001772BF /* ViewController.swift */; };
 		5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFA1CF75FA2001772BF /* Assets.xcassets */; };
 		5DE69AFE1CF75FA2001772BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFC1CF75FA2001772BF /* Main.storyboard */; };
 		5DE69B091CF75FA2001772BF /* KeijibanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69B081CF75FA2001772BF /* KeijibanTests.swift */; };
 		5DE69B141CF75FA2001772BF /* KeijibanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */; };
+		5DF1B3F81CFCE81700DF15E1 /* KJThemingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1B3F71CFCE81700DF15E1 /* KJThemingEngine.swift */; };
+		5DF1B3FA1CFCE85F00DF15E1 /* NSColorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1B3F91CFCE85F00DF15E1 /* NSColorFromHex.swift */; };
 		A2A0ABBC4AF15446AF63AD36 /* Pods_KeijibanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D491B80E325BCAA4C2783710 /* Pods_KeijibanTests.framework */; };
 		B979DBA7306C15BD001D1433 /* Pods_Keijiban.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D88563671BA85086297832 /* Pods_Keijiban.framework */; };
 		F184E94ED3CE0AE3C97DA811 /* Pods_KeijibanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C251CEA02873653591170F6 /* Pods_KeijibanUITests.framework */; };
@@ -104,7 +106,7 @@
 		5DC1063B1CFA146C00F471A9 /* PXSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceListItem.m; sourceTree = "<group>"; };
 		5DC1063C1CFA146C00F471A9 /* PXSourceListTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXSourceListTableCellView.h; sourceTree = "<group>"; };
 		5DC1063D1CFA146C00F471A9 /* PXSourceListTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceListTableCellView.m; sourceTree = "<group>"; };
-		5DD050871CFB7ABC0087B499 /* KJPostViewerThreadTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPostViewerThreadTableCellView.swift; sourceTree = "<group>"; };
+		5DD050871CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPostViewerThreadPostView.swift; sourceTree = "<group>"; };
 		5DE69AF31CF75FA2001772BF /* Keijiban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keijiban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE69AF61CF75FA2001772BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE69AF81CF75FA2001772BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,8 @@
 		5DE69B0F1CF75FA2001772BF /* KeijibanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeijibanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeijibanUITests.swift; sourceTree = "<group>"; };
 		5DE69B151CF75FA2001772BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DF1B3F71CFCE81700DF15E1 /* KJThemingEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemingEngine.swift; sourceTree = "<group>"; };
+		5DF1B3F91CFCE85F00DF15E1 /* NSColorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSColorFromHex.swift; path = LITabControl/NSColorFromHex.swift; sourceTree = "<group>"; };
 		75D777992BDD323027ED194E /* Pods-KeijibanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C251CEA02873653591170F6 /* Pods_KeijibanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeijibanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86FA73CC2DB61F67EB993DA /* Pods-KeijibanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				5D8485501CFA11C5008A0F8F /* SwiftyJSON */,
 				5DC1062B1CFA146C00F471A9 /* PXSourceList */,
 				5D120F321CF786FA00BF41FE /* LITabControl */,
+				5DF1B3FB1CFCE86900DF15E1 /* NSColorFromHex */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				5D7F2E841CFA153D008FFAB2 /* 4chan */,
 				5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */,
 				5D7B52A31CFB4FF90033D2D4 /* KJPreferences.swift */,
+				5DF1B3F71CFCE81700DF15E1 /* KJThemingEngine.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -278,7 +284,7 @@
 				5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */,
 				5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */,
 				5D7B52A71CFB548D0033D2D4 /* KJPostViewerCatalogCollectionViewItem.swift */,
-				5DD050871CFB7ABC0087B499 /* KJPostViewerThreadTableCellView.swift */,
+				5DD050871CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift */,
 			);
 			name = Posts;
 			sourceTree = "<group>";
@@ -390,6 +396,14 @@
 				5DE69B151CF75FA2001772BF /* Info.plist */,
 			);
 			path = KeijibanUITests;
+			sourceTree = "<group>";
+		};
+		5DF1B3FB1CFCE86900DF15E1 /* NSColorFromHex */ = {
+			isa = PBXGroup;
+			children = (
+				5DF1B3F91CFCE85F00DF15E1 /* NSColorFromHex.swift */,
+			);
+			name = NSColorFromHex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -664,10 +678,11 @@
 				5DC106441CFA146C00F471A9 /* PXSourceListTableCellView.m in Sources */,
 				5DC1063F1CFA146C00F471A9 /* PXSourceListRuntimeAdditions.m in Sources */,
 				5D8485521CFA11CD008A0F8F /* SwiftyJSON.swift in Sources */,
+				5DF1B3F81CFCE81700DF15E1 /* KJThemingEngine.swift in Sources */,
 				5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */,
 				5D7B52A21CFB4DB80033D2D4 /* KJRasterizedImageView.swift in Sources */,
 				5DC106401CFA146C00F471A9 /* PXSourceList.m in Sources */,
-				5DD050881CFB7ABC0087B499 /* KJPostViewerThreadTableCellView.swift in Sources */,
+				5DD050881CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift in Sources */,
 				5D83AB141CF76AAF00B4F81B /* KJNoDividerSplitView.swift in Sources */,
 				5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */,
 				5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */,
@@ -681,6 +696,7 @@
 				5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */,
 				5DC1063E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m in Sources */,
 				5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */,
+				5DF1B3FA1CFCE85F00DF15E1 /* NSColorFromHex.swift in Sources */,
 				5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
