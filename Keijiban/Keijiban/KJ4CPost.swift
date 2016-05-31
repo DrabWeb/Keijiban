@@ -70,24 +70,27 @@ class KJ4CPost: NSObject {
     
     /// Returns comment as an attributed string
     var attributedComment : NSAttributedString {
-        let attributedString : NSAttributedString = NSAttributedString(string: comment);
+        /// The NSAttributedString for comment
+        let attributedComment : NSAttributedString = NSAttributedString(string: comment);
         
-        var ranges : [NSRange] = [];
+        // Color quotes(Green text)
+//        var ranges : [NSRange] = [];
+//        
+//        do {
+//            // Create the regular expression.
+//            let regex = try NSRegularExpression(pattern: "<span class=\"quote\">", options: []);
+//            
+//            // Use the regular expression to get an array of NSTextCheckingResult.
+//            // Use map to extract the range from each result.
+//            ranges = regex.matchesInString(comment, options: [], range: NSMakeRange(0, comment.characters.count)).map {$0.range}
+//        }
+//        catch {
+//            // There was a problem creating the regular expression
+//            ranges = [];
+//        }
         
-        do {
-            // Create the regular expression.
-            let regex = try NSRegularExpression(pattern: "<span class=\"quote\">", options: []);
-            
-            // Use the regular expression to get an array of NSTextCheckingResult.
-            // Use map to extract the range from each result.
-            ranges = regex.matchesInString(comment, options: [], range: NSMakeRange(0, comment.characters.count)).map {$0.range}
-        }
-        catch {
-            // There was a problem creating the regular expression
-            ranges = [];
-        }
-        
-        return attributedString;
+        // Return attributedComment
+        return attributedComment;
     }
     
     // Override the print output to be useful

@@ -288,7 +288,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="521" height="162"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DHm-7F-rU2" userLabel="Posts Viewer Post View Template" customClass="KJPostViewerThreadPostView" customModule="Keijiban" customModuleProvider="target">
+                            <customView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="DHm-7F-rU2" userLabel="Posts Viewer Post View Template" customClass="KJPostViewerThreadPostView" customModule="Keijiban" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="521" height="162"/>
                                 <subviews>
                                     <imageView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vKI-AZ-kdz" userLabel="Thumbnail Image View" customClass="KJRasterizedImageView" customModule="Keijiban" customModuleProvider="target">
@@ -323,7 +323,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <box verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="V9f-hf-rk7" userLabel="Separator">
+                                    <box horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="V9f-hf-rk7" userLabel="Separator" customClass="KJAlwaysVibrantBox" customModule="Keijiban" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-2" width="521" height="5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="EWD-21-qLy"/>
@@ -411,7 +411,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
+                                        <view horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
                                                 <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">

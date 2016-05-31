@@ -26,6 +26,7 @@
 		5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */; };
 		5D8485521CFA11CD008A0F8F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8485511CFA11CD008A0F8F /* SwiftyJSON.swift */; };
 		5D89F1CB1CF8E23F006752C5 /* KJPostViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */; };
+		5DBE947E1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBE947D1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift */; };
 		5DC1063E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1062E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m */; };
 		5DC1063F1CFA146C00F471A9 /* PXSourceListRuntimeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC106311CFA146C00F471A9 /* PXSourceListRuntimeAdditions.m */; };
 		5DC106401CFA146C00F471A9 /* PXSourceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC106331CFA146C00F471A9 /* PXSourceList.m */; };
@@ -89,6 +90,7 @@
 		5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowSplitViewController.swift; sourceTree = "<group>"; };
 		5D8485511CFA11CD008A0F8F /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPostViewerViewController.swift; sourceTree = "<group>"; };
+		5DBE947D1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJAlwaysVibrantBox.swift; sourceTree = "<group>"; };
 		5DC1062D1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXSourceListDelegateDataSourceProxy.h; sourceTree = "<group>"; };
 		5DC1062E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceListDelegateDataSourceProxy.m; sourceTree = "<group>"; };
 		5DC1062F1CFA146C00F471A9 /* PXSourceListPrivateConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXSourceListPrivateConstants.h; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				5D83AB111CF769EF00B4F81B /* KJColoredView.swift */,
 				5D83AB131CF76AAF00B4F81B /* KJNoDividerSplitView.swift */,
 				5D7B52A11CFB4DB80033D2D4 /* KJRasterizedImageView.swift */,
+				5DBE947D1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				5D7F2E861CFA154C008FFAB2 /* KJ4CPost.swift in Sources */,
 				5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift in Sources */,
 				5D7957BF1CF9F51C00CFE83E /* KJConstants.swift in Sources */,
+				5DBE947E1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift in Sources */,
 				5D7B52A61CFB527D0033D2D4 /* KJ4CThread.swift in Sources */,
 				5D89F1CB1CF8E23F006752C5 /* KJPostViewerViewController.swift in Sources */,
 				5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */,

@@ -55,37 +55,53 @@ class KJPostViewerViewController: NSViewController {
         }
         
         // Remove all the current post items
-        postsViewerStackView.subviews.removeAll();
+        clearPostsViewerStackView();
         
         // For every post in the given thread...
         for(_, currentThreadPost) in currentThread!.allPosts.enumerate() {
-            /// The new post view item for the stack view
-            let newPostView : KJPostViewerThreadPostView = (storyboard!.instantiateControllerWithIdentifier("postsViewerPostViewControllerTemplate") as! NSViewController).view.subviews[0] as! KJPostViewerThreadPostView;
-            
-            // Display the current post's info in the new post view
-            newPostView.displayInfoFromPost(currentThreadPost);
-            
-            // Add the post view to postsViewerStackView
-            postsViewerStackView.addView(newPostView, inGravity: .Top);
-            
-            /// The constraint for the trailing edge of newPostView
-            let newPostViewTrailingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0);
-            
-            // Add the constraint
-            postsViewerStackViewScrollView.addConstraint(newPostViewTrailingConstraint);
-            
-            /// The constraint for the leading edge of newPostView
-            let newPostViewLeadingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0);
-            
-            // Add the constraint
-            postsViewerStackViewScrollView.addConstraint(newPostViewLeadingConstraint);
+            // Add the current post to postsViewerStackView
+            addPostToPostsViewerStackView(currentThreadPost);
         }
+        
+        // Scroll to the top of postsViewerStackViewScrollView
+        // TODO: Make it so postsViewerStackViewScrollView scrolls to the top here
         
         // Hide all the other views
         catalogCollectionViewScrollView.hidden = true;
         
         // Show the posts view
         postsViewerStackViewScrollView.hidden = false;
+    }
+    
+    /// Clears all the items in postsViewerStackView
+    func clearPostsViewerStackView() {
+        // Remove all the subviews from postsViewerStackView
+        postsViewerStackView.subviews.removeAll();
+    }
+    
+    /// Adds the given post to postsViewerStackView
+    func addPostToPostsViewerStackView(post : KJ4CPost) {
+        /// The new post view item for the stack view
+        let newPostView : KJPostViewerThreadPostView = (storyboard!.instantiateControllerWithIdentifier("postsViewerPostViewControllerTemplate") as! NSViewController).view.subviews[0] as! KJPostViewerThreadPostView;
+        
+        // Display the post's info in the new post view
+        newPostView.displayInfoFromPost(post);
+        
+        // Add the post view to postsViewerStackView
+        postsViewerStackView.addView(newPostView, inGravity: .Top);
+        
+        // Add the leading and trailing constraints
+        /// The constraint for the trailing edge of newPostView
+        let newPostViewTrailingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0);
+        
+        // Add the constraint
+        postsViewerStackViewScrollView.addConstraint(newPostViewTrailingConstraint);
+        
+        /// The constraint for the leading edge of newPostView
+        let newPostViewLeadingConstraint = NSLayoutConstraint(item: newPostView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: postsViewerStackViewScrollView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0);
+        
+        // Add the constraint
+        postsViewerStackViewScrollView.addConstraint(newPostViewLeadingConstraint);
     }
     
     /// Displays the catalog for the given board. Only shows the amount of pages given(Minimum 0, maximum 9). Calls the given completion handler when done(If any)
