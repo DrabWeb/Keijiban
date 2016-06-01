@@ -20,6 +20,7 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
         /// The post that was clicked
         let clickedPost : KJ4COPPost = (self.representedObject as! KJ4COPPost);
         
+        // Open the clicked post in a new tab
         (self.collectionView.window!.contentViewController as! Keijiban.ViewController).contentPostsViewController.downloadThreadAndOpenNewTab(clickedPost, downloadCompletionHandler: nil, displayCompletionHandler: nil);
     }
     
