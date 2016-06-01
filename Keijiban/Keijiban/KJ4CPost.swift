@@ -241,7 +241,9 @@ class KJ4COPPost: KJ4CPost {
     var recentReplies : [KJ4CPost] = [];
     
     /// The string to display in the catalog that shows how many images and replies the thread has
-    var imageReplyDisplayString : String = "I: 00 / R: 00";
+    var imageReplyDisplayString : String {
+        return "I: \(imageCount) / R: \(replyCount)";
+    }
     
     /// The API URL of this thread
     var threadUrl : String {
@@ -298,11 +300,61 @@ class KJ4COPPost: KJ4CPost {
         // If there isnt a subject...
         else {
             // Make the name bold
-            attributedPosterInfoString.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.name.characters.count));
+            attributedPosterInfoString.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(2, self.name.characters.count));
         }
         
         // Return the attributed poster string
         return attributedPosterInfoString;
+    }
+    
+    /// The attributed string for the image/reply count label
+    var attributedImageReplyCountString : NSAttributedString {
+        /// The attributed string for the image reply count label
+        let attributedImageReplyCountString : NSMutableAttributedString = NSMutableAttributedString(string: imageReplyDisplayString);
+        
+        // Align the text to the center
+        /// The paragraph style for attributedImageReplyCountString
+        let attributedImageReplyCountStringParagraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle();
+        
+        // Set attributedImageReplyCountString to align to the center
+        attributedImageReplyCountStringParagraphStyle.alignment = .Center;
+        
+        // Add attributedImageReplyCountStringParagraphStyle to attributedImageReplyCountString
+        attributedImageReplyCountString.addAttribute(NSParagraphStyleAttributeName, value: attributedImageReplyCountStringParagraphStyle, range: NSMakeRange(0, imageReplyDisplayString.characters.count));
+        
+        // Return the attributed string
+        return attributedImageReplyCountString;
+    }
+    
+    /// The attributed string for the comment to display in the catalog view
+    var attributedCatalogComment : NSAttributedString {
+        /// This post's comment, attributed
+        let attributedComment : NSMutableAttributedString = super.attributedComment as! NSMutableAttributedString;
+        
+        // If there is a subject...
+        if(self.subject != "") {
+            // Add the subject in front of attributedComment(This is done as a replace because you cant directly set the string of an attributed string)
+            attributedComment.mutableString.replaceOccurrencesOfString(attributedComment.string, withString: self.subject + ": " + attributedComment.string, options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
+            
+            // Make the subject bold
+            attributedComment.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.subject.characters.count));
+            
+            // Make the subject the default text color(Quotes and stuff color it)
+            attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().textColor, range: NSMakeRange(0, self.subject.characters.count + 2));
+        }
+        
+        // Align the text to the center
+        /// The paragraph style for attributedComment
+        let attributedCommentParagraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle();
+        
+        // Set aattrbibutedCommentParagraphStyle to align to the center
+        attributedCommentParagraphStyle.alignment = .Center;
+        
+        // Add attributedCommentParagraphStyle to attributedComment
+        attributedComment.addAttribute(NSParagraphStyleAttributeName, value: attributedCommentParagraphStyle, range: NSMakeRange(0, attributedComment.string.characters.count));
+        
+        // Return attributedComment
+        return attributedComment;
     }
     
     // Override the print output to be useful
@@ -331,8 +383,6 @@ class KJ4COPPost: KJ4CPost {
         
         self.imageCount = json["images"].intValue;
         self.replyCount = json["replies"].intValue;
-        
-        imageReplyDisplayString = "I: \(imageCount) / R: \(replyCount)";
         
         self.reachedBumpLimit = Bool(json["bumplimit"].intValue);
         self.reachedImageLimit = Bool(json["imagelimit"].intValue);

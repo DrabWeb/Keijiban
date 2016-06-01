@@ -17,6 +17,9 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
     /// The selector to call when the user clicks this thread(Passed the KJ4COPPost that was clicked)
     var clickedAction : Selector = Selector("");
     
+    /// The text field that shows the amount of images and replies in this thread
+    @IBOutlet var imageReplyCountTextField: NSTextField!
+    
     override func mouseDown(theEvent: NSEvent) {
         super.mouseDown(theEvent);
         
@@ -30,5 +33,8 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        // Theme the view
+        self.textField?.textColor = KJThemingEngine().defaultEngine().textColor;
+        imageReplyCountTextField.textColor = KJThemingEngine().defaultEngine().catalogItemImageReplyCountTextColor;
     }
 }

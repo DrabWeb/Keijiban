@@ -819,7 +819,7 @@
                                     <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.thumbnailImage" id="UfA-Z1-9ZO"/>
                                 </connections>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Wzb-y0-Scr" userLabel="Image Reply Count Text Field">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wzb-y0-Scr" userLabel="Image Reply Count Text Field">
                                 <rect key="frame" x="8" y="141" width="234" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="cT5-U5-2r8"/>
@@ -830,10 +830,10 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.imageReplyDisplayString" id="9hJ-r6-ohQ"/>
+                                    <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.attributedImageReplyCountString" id="cRE-6e-O8G"/>
                                 </connections>
                             </textField>
-                            <textField horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IgV-v0-bW4" userLabel="Comment Text Field">
+                            <textField horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="IgV-v0-bW4" userLabel="Comment Text Field">
                                 <rect key="frame" x="8" y="10" width="234" height="131"/>
                                 <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" alignment="center" title="Here is a comment for this post and here is more comment content and here is more and one more" id="4Eo-4i-Vdc">
                                     <font key="font" metaFont="system"/>
@@ -841,7 +841,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.comment" id="afr-vK-gZA"/>
+                                    <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.attributedCatalogComment" id="GKT-ZU-e9L"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -859,6 +859,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageReplyCountTextField" destination="Wzb-y0-Scr" id="ucD-48-nIf"/>
                         <outlet property="imageView" destination="Ade-eb-UTk" id="CDe-93-zoD"/>
                         <outlet property="textField" destination="IgV-v0-bW4" id="DpH-Xn-tbU"/>
                     </connections>

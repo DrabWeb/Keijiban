@@ -233,21 +233,21 @@ class KJPostViewerViewController: NSViewController {
         catalogCollectionView.minItemSize = NSSize(width: 150, height: 200);
         catalogCollectionView.maxItemSize = NSSize(width: 250, height: 250);
         
-        // Make the request to get a thread from /a/ and display it
-        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142234895.json", encoding: .JSON).responseJSON { (responseData) -> Void in
-            /// The string of JSON that will be returned when the GET request finishes
-            let responseJsonString : NSString = NSString(data: responseData.data!, encoding: NSUTF8StringEncoding)!;
-            
-            // If the the response data isnt nil...
-            if let dataFromResponseJsonString = responseJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-                /// The JSON from the response string
-                let responseJson = JSON(data: dataFromResponseJsonString);
-                
-                self.displayThread(KJ4CThread(json: responseJson, board: KJ4CBoard(code: "a", name: "Anime & Manga")));
-            }
-        }
+//        // Make the request to get a thread from /a/ and display it
+//        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142234895.json", encoding: .JSON).responseJSON { (responseData) -> Void in
+//            /// The string of JSON that will be returned when the GET request finishes
+//            let responseJsonString : NSString = NSString(data: responseData.data!, encoding: NSUTF8StringEncoding)!;
+//            
+//            // If the the response data isnt nil...
+//            if let dataFromResponseJsonString = responseJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+//                /// The JSON from the response string
+//                let responseJson = JSON(data: dataFromResponseJsonString);
+//                
+//                self.displayThread(KJ4CThread(json: responseJson, board: KJ4CBoard(code: "a", name: "Anime & Manga")));
+//            }
+//        }
         
-//        displayCatalog(KJ4CBoard(code: "a", name: "Anime & Manga"), maxPages: 9, completionHandler: nil);
+        displayCatalog(KJ4CBoard(code: "a", name: "Anime & Manga"), maxPages: 1, completionHandler: nil);
     }
 }
 
