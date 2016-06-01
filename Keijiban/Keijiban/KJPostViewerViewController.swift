@@ -42,8 +42,8 @@ class KJPostViewerViewController: NSViewController {
     /// The last requests for downloading thumbnails in this view
     var lastThumbnailDownloadRequests : [Request] = [];
     
-    /// Displays the given thread in the posts table view. Returns the title that should be used in tabs
-    func displayThread(thread : KJ4CThread) -> String {
+    /// Displays the given thread in the posts stack view. Returns the title that should be used in tabs
+    func displayThread(thread : KJ4CThread, completionHandler: (() -> ())?) -> String {
         // Set the current mode, board and thread
         currentMode = .Thread;
         currentBoard = thread.board!;

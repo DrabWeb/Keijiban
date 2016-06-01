@@ -10,12 +10,6 @@ import Cocoa
 import Alamofire
 
 class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
-
-    /// The object to perform clickedAction
-    var clickedTarget : AnyObject? = nil;
-    
-    /// The selector to call when the user clicks this thread(Passed the KJ4COPPost that was clicked)
-    var clickedAction : Selector = Selector("");
     
     /// The text field that shows the amount of images and replies in this thread
     @IBOutlet var imageReplyCountTextField: NSTextField!
@@ -26,8 +20,7 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
         /// The post that was clicked
         let clickedPost : KJ4COPPost = (self.representedObject as! KJ4COPPost);
         
-        // Call the clicked action
-        clickedTarget?.performSelector(clickedAction, withObject: clickedPost);
+        (self.collectionView.window!.contentViewController as! Keijiban.ViewController).contentPostsViewController.downloadThreadAndOpenNewTab(clickedPost, downloadCompletionHandler: nil, displayCompletionHandler: nil);
     }
     
     override func viewDidLoad() {

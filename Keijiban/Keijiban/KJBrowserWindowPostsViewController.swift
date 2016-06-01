@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Alamofire
 
 /// The view controller for the posts view. Controls the tabs and creating new post viewer views
 class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
@@ -102,7 +103,31 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         }
     }
     
-    /// Opens a new tab with the given info. The tabObject should be a KJ4CBoard or KJ4CThread. The mode is either Index or Catalog if tabObject is a KJ4CBoard and Thread if tabObject is a KJ4CThread
+    /// Downloads the thread for the given KJ4COPPost and opens a new tab for it. Calls downloadCompletionHandler when the download is done and displayCompletionHandler when the display finishes.
+    func downloadThreadAndOpenNewTab(opPost : KJ4COPPost, downloadCompletionHandler: (() -> ())?, displayCompletionHandler: (() -> ())?) {
+        // Make the request to get the catalog
+        Alamofire.request(.GET, opPost.threadUrl, encoding: .JSON).responseJSON { (responseData) -> Void in
+            /// The string of JSON that will be returned when the GET request finishes
+            let responseJsonString : NSString = NSString(data: responseData.data!, encoding: NSUTF8StringEncoding)!;
+            
+            // If the the response data isnt nil...
+            if let dataFromResponseJsonString = responseJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                /// The JSON from the response string
+                let responseJson = JSON(data: dataFromResponseJsonString);
+                
+                // Call the downlaod completion handler
+                downloadCompletionHandler?();
+                
+                /// The downloaded thread
+                let downloadedThread : KJ4CThread = KJ4CThread(json: responseJson, board: opPost.board!);
+                
+                // Open the downloaded thread
+                self.openNewTab(downloadedThread, type: .Thread, completionHandler: nil);
+            }
+        }
+    }
+    
+    /// Opens a new tab with the given info. The tabObject should be a KJ4CBoard or KJ4CThread. The mode is either Index or Catalog if tabObject is a KJ4CBoard and Thread if tabObject is a KJ4CThread and is already downloaded(If you want to show a thread that isnt downloaded, use downloadThreadAndOpenNewTab)
     func openNewTab(tabObject : AnyObject, type : KJPostViewerMode, completionHandler : (() -> ())?) {
         // Add a new tab
         tabs.append(KJBrowserWindowPostsTabItem(title: "Loading..."));
@@ -125,16 +150,17 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         // If the passed type was the catalog...
         if(type == .Catalog) {
             // Open the catalog for the given board in the new tab
-            tabs.last!.title = tabs.last!.viewController!.displayCatalog(tabObject as! KJ4CBoard, maxPages: 9, completionHandler: completionHandler);
+            tabs.last!.title = tabs.last!.viewController!.displayCatalog(tabObject as! KJ4CBoard, maxPages: 0, completionHandler: completionHandler);
         }
         // If the passed type was the index...
         else if(type == .Index) {
             // Open the index for the given board in the new tab
-            tabs.last!.title = tabs.last!.viewController!.displayIndex(tabObject as! KJ4CBoard, maxPages: 9, completionHandler: completionHandler);
+            tabs.last!.title = tabs.last!.viewController!.displayIndex(tabObject as! KJ4CBoard, maxPages: 0, completionHandler: completionHandler);
         }
         // If the passed type was a thread...
         else if(type == .Thread) {
-            
+            // Open the given thread
+            tabs.last!.title = tabs.last!.viewController!.displayThread(tabObject as! KJ4CThread, completionHandler: completionHandler);
         }
         
         // Reload the tabs control
