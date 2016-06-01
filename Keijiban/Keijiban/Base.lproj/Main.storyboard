@@ -303,13 +303,13 @@
                                         </shadow>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="og9-H9-n0J" userLabel="Cell"/>
                                     </imageView>
-                                    <textField horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" alphaValue="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="ZkA-9w-Ag5" userLabel="Poster Info Text Field">
+                                    <textField horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZkA-9w-Ag5" userLabel="Poster Info Text Field">
                                         <rect key="frame" x="118" y="136" width="395" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tOe-td-5CZ"/>
                                         </constraints>
                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Anonymous  00/00/00(DDD)00:00:00 #000000000" id="4on-ah-UAP" userLabel="Cell">
-                                            <font key="font" metaFont="systemBold"/>
+                                            <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -414,7 +414,7 @@
                                         <view horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
-                                                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
+                                                <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 </stackView>
                                             </subviews>
@@ -771,7 +771,7 @@
                                     <constraint firstAttribute="trailing" secondItem="jqg-Vc-HAD" secondAttribute="trailing" id="yVa-Sj-wac"/>
                                 </constraints>
                             </customView>
-                            <tabView horizontalCompressionResistancePriority="250" drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-0N-cXt" userLabel="Post Viewers Tab View">
+                            <tabView appearanceType="aqua" horizontalCompressionResistancePriority="250" drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-0N-cXt" userLabel="Post Viewers Tab View">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="239"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>

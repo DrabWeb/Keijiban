@@ -11,7 +11,7 @@ import Cocoa
 class KJAlwaysVibrantBox: NSBox {
     
     override var allowsVibrancy : Bool {
-        return true;
+        return self.appearance != NSAppearance(named: NSAppearanceNameAqua);
     }
 
     override func drawRect(dirtyRect: NSRect) {

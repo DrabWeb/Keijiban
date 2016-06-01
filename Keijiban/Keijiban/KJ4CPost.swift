@@ -65,6 +65,46 @@ class KJ4CPost: NSObject {
         return "https://i.4cdn.org/\(board!.code)/\(imageCdnFilename)\(imageExtension)"
     }
     
+    /// Returns the poster info for displaying in an attributed string
+    var attributedPosterInfo : NSAttributedString {
+        /// The string for the poster info
+        var posterInfoString : String = "";
+        
+        /// Add the poster's name to posterInfoString
+        posterInfoString += self.name;
+        
+        // If the poster has a tripcode...
+        if(self.tripcode != "") {
+            // Add the tripcode the poster info string
+            posterInfoString += " \(self.tripcode)";
+        }
+        
+        /// The date this post was made
+        let date = NSDate(timeIntervalSince1970: NSTimeInterval(self.postTime));
+        
+        /// The date formatter for displaying date
+        let dateFormatter = NSDateFormatter();
+        
+        // Set the date formatter's locale and format
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US");
+        dateFormatter.dateFormat = "MM/dd/YY(E)HH:mm:ss";
+        
+        // Add the date to the poster info string
+        posterInfoString += " \(dateFormatter.stringFromDate(date))";
+        
+        // Add the post number to the poster info string
+        posterInfoString += " #\(self.postNumber)";
+        
+        /// This post's poster info as an attributed string
+        let attributedPosterInfoString : NSMutableAttributedString = NSMutableAttributedString(string: posterInfoString);
+        
+        // Make the name bold
+        attributedPosterInfoString.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.name.characters.count));
+        
+        // Return the attributed poster string
+        return attributedPosterInfoString;
+    }
+    
     /// The text of this post
     var comment : String = "";
     
@@ -206,6 +246,63 @@ class KJ4COPPost: KJ4CPost {
     /// The API URL of this thread
     var threadUrl : String {
         return "https://a.4cdn.org/\(board!.code)/thread/\(postNumber).json";
+    }
+    
+    /// Returns the poster info for displaying in an attributed string
+    override var attributedPosterInfo : NSAttributedString {
+        /// The string for the poster info
+        var posterInfoString : String = "";
+        
+        // If there is a subject...
+        if(self.subject != "") {
+            // Add the subject to the front
+            posterInfoString += self.subject + " ";
+        }
+        
+        /// Add the poster's name to posterInfoString
+        posterInfoString += self.name;
+        
+        // If the poster has a tripcode...
+        if(self.tripcode != "") {
+            // Add the tripcode the poster info string
+            posterInfoString += " \(self.tripcode)";
+        }
+        
+        /// The date this post was made
+        let date = NSDate(timeIntervalSince1970: NSTimeInterval(self.postTime));
+        
+        /// The date formatter for displaying date
+        let dateFormatter = NSDateFormatter();
+        
+        // Set the date formatter's locale and format
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US");
+        dateFormatter.dateFormat = "MM/dd/YY(E)HH:mm:ss";
+        
+        // Add the date to the poster info string
+        posterInfoString += " \(dateFormatter.stringFromDate(date))";
+        
+        // Add the post number to the poster info string
+        posterInfoString += " #\(self.postNumber)";
+        
+        /// This post's poster info as an attributed string
+        let attributedPosterInfoString : NSMutableAttributedString = NSMutableAttributedString(string: posterInfoString);
+        
+        // If there is a subject...
+        if(self.subject != "") {
+            // Make the name and subject bold
+            attributedPosterInfoString.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.subject.characters.count + 1 + self.name.characters.count));
+            
+            // Color the subject
+            attributedPosterInfoString.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().postSubjectColor, range: NSMakeRange(0, self.subject.characters.count));
+        }
+        // If there isnt a subject...
+        else {
+            // Make the name bold
+            attributedPosterInfoString.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.name.characters.count));
+        }
+        
+        // Return the attributed poster string
+        return attributedPosterInfoString;
     }
     
     // Override the print output to be useful

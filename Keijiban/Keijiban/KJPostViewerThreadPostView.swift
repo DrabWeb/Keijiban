@@ -37,8 +37,6 @@ class KJPostViewerThreadPostView: NSView {
         representedPost = post;
         
         // Display the info
-        /// The string to display in the poster info text field
-        var posterInfoString : String = "";
         
         // Display the thumbnail image
         // If this is an OP post...
@@ -50,12 +48,6 @@ class KJPostViewerThreadPostView: NSView {
             // Update the comment and poster info left margins
             commentTextFieldLeftConstraint.constant = 170;
             posterInfoTextFieldLeftConstraint.constant = 170;
-            
-            // If the post's subject isnt blank...
-            if((post as! KJ4COPPost).subject != "") {
-                // Add the subject to posterInfoString
-                posterInfoString += (post as! KJ4COPPost).subject + " - ";
-            }
         }
         
         // If we said to display the thumbnail image...
@@ -98,35 +90,20 @@ class KJPostViewerThreadPostView: NSView {
             posterInfoTextFieldLeftConstraint.constant = 10;
         }
         
-        /// Add the poster's name to posterInfoString
-        posterInfoString += post.name;
-        
-        // If the poster has a tripcode...
-        if(post.tripcode != "") {
-            // Add the tripcode the poster info string
-            posterInfoString += " \(post.tripcode)";
-        }
-        
-        /// The date this post was made
-        let date = NSDate(timeIntervalSince1970: NSTimeInterval(post.postTime));
-        
-        /// The date formatter for displaying date
-        let dateFormatter = NSDateFormatter();
-        
-        // Set the date formatter's locale and format
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US");
-        dateFormatter.dateFormat = "MM/dd/YY(E)HH:mm:ss";
-        
-        // Add the date to the poster info string
-        posterInfoString += " \(dateFormatter.stringFromDate(date))";
-        
-        // Add the post number to the poster info string
-        posterInfoString += " #\(post.postNumber)";
-        
-        // Display the poster info string in the poster info text field
-        posterInfoTextField.stringValue = posterInfoString;
+        // Display the poster info in the poster info text field
+        posterInfoTextField.attributedStringValue = post.attributedPosterInfo;
         
         // Display the comment in the comment text field
         commentTextField.attributedStringValue = post.attributedComment;
+    }
+    
+    override func drawRect(dirtyRect: NSRect) {
+        super.drawRect(dirtyRect);
+        
+        // Thme everything
+        self.layer?.backgroundColor = KJThemingEngine().defaultEngine().backgroundColor.CGColor;
+        self.commentTextField.textColor = KJThemingEngine().defaultEngine().textColor;
+        self.posterInfoTextField.textColor = KJThemingEngine().defaultEngine().textColor;
+        self.bottomSeparator.layer?.backgroundColor = KJThemingEngine().defaultEngine().postSeparatorColor.CGColor;
     }
 }

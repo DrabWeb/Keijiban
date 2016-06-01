@@ -214,6 +214,11 @@ class KJPostViewerViewController: NSViewController {
         postsViewerStackViewScrollView.addConstraint(newPostViewLeadingConstraint);
     }
     
+    override func viewWillAppear() {
+        // Theme the view
+        self.view.layer?.backgroundColor = KJThemingEngine().defaultEngine().backgroundColor.CGColor;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

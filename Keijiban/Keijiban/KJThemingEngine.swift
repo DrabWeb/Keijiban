@@ -9,7 +9,20 @@
 import Cocoa
 
 class KJThemingEngine {
-    var quoteColor : NSColor = NSColor(hexString: "#799C00")!;
+    /// The color for the background of a post view
+    var backgroundColor : NSColor = NSColor(hexString: "#1D1F21")!;
+    
+    /// The default text color(Used for comments, poster info, ETC.)
+    var textColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    
+    /// The color for a post info's subject(If there is one)
+    var postSubjectColor : NSColor = NSColor(hexString: "#B294BB")!;
+    
+    /// The color for quotes
+    var quoteColor : NSColor = NSColor(hexString: "#B5BD68")!;
+    
+    /// The color for post separators
+    var postSeparatorColor : NSColor = NSColor(hexString: "282A2E")!;
     
     /// Returns the default theming engine
     func defaultEngine() -> KJThemingEngine {
