@@ -336,11 +336,14 @@ class KJ4COPPost: KJ4CPost {
             // Add the subject in front of attributedComment(This is done as a replace because you cant directly set the string of an attributed string)
             attributedComment.mutableString.replaceOccurrencesOfString(attributedComment.string, withString: self.subject + ": " + attributedComment.string, options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
             
-            // Make the subject bold
-            attributedComment.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.subject.characters.count));
-            
-            // Make the subject the default text color(Quotes and stuff color it)
-            attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().textColor, range: NSMakeRange(0, self.subject.characters.count + 2));
+            // If the attributed comment's string length is greater than 0(For some reason its zero sometimes and crashes the app)...
+            if(self.attributedComment.string.characters.count > 0) {
+                // Make the subject bold
+                attributedComment.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.subject.characters.count));
+                
+                // Make the subject the default text color(Quotes and stuff color it)
+                attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().textColor, range: NSMakeRange(0, self.subject.characters.count + 2));
+            }
         }
         
         // Align the text to the center
