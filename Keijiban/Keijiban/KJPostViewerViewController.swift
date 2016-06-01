@@ -64,7 +64,7 @@ class KJPostViewerViewController: NSViewController {
         }
         
         // Scroll to the top of postsViewerStackViewScrollView
-        // TODO: Make it so postsViewerStackViewScrollView scrolls to the top here
+        postsViewerStackViewScrollView.contentView.scrollToPoint(NSPoint(x: 0, y: postsViewerStackView.subviews.count * 100000));
         
         // Hide all the other views
         catalogCollectionViewScrollView.hidden = true;
