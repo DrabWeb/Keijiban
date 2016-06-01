@@ -71,23 +71,53 @@ class KJ4CPost: NSObject {
     /// Returns comment as an attributed string
     var attributedComment : NSAttributedString {
         /// The NSAttributedString for comment
-        let attributedComment : NSAttributedString = NSAttributedString(string: comment);
+        let attributedComment : NSMutableAttributedString = NSMutableAttributedString(string: comment);
         
-        // Color quotes(Green text)
-//        var ranges : [NSRange] = [];
-//        
-//        do {
-//            // Create the regular expression.
-//            let regex = try NSRegularExpression(pattern: "<span class=\"quote\">", options: []);
-//            
-//            // Use the regular expression to get an array of NSTextCheckingResult.
-//            // Use map to extract the range from each result.
-//            ranges = regex.matchesInString(comment, options: [], range: NSMakeRange(0, comment.characters.count)).map {$0.range}
-//        }
-//        catch {
-//            // There was a problem creating the regular expression
-//            ranges = [];
-//        }
+        // Color the quotes(Green text)
+        
+        /// Every range of "<span class="quote">" in comment
+        var quoteRanges : [NSRange] = [];
+        
+        do {
+            /// The regex for looking for "<span class="quote">" in comment
+            let commentQuoteColorRegex = try NSRegularExpression(pattern: "<span class=\"quote\">", options: []);
+            
+            // Set quoteRanges to the every range of "<span class="quote">"
+            quoteRanges = commentQuoteColorRegex.matchesInString(comment, options: [], range: NSMakeRange(0, comment.characters.count)).map {$0.range}
+            
+            // For every range in quoteRanges...
+            for(_, currentRange) in quoteRanges.enumerate() {
+                /// The index for the end of the "<span class="quote">" tag
+                let quoteTagStartIndex = comment.startIndex.advancedBy(currentRange.location + currentRange.length);
+                
+                /// The substring from quoteStartIndex
+                let substringFromQuoteBegin : String = comment.substringFromIndex(quoteTagStartIndex);
+                
+                /// The range of the first </span> in substringFromQuoteBegin
+                let quoteEndRange : Range = substringFromQuoteBegin.rangeOfString("</span>")!;
+                
+                /// The integer index for the beginning of this quote in comment
+                let quoteStartIndex : Int = comment.startIndex.distanceTo(quoteTagStartIndex);
+                
+                /// The integer index for the end of this quote in comment
+                let quoteEndIndex : Int = comment.startIndex.distanceTo(quoteTagStartIndex) + comment.startIndex.distanceTo(quoteEndRange.startIndex);
+                
+                /// The range of this quote in comment
+                let quoteRange : NSRange = NSMakeRange(quoteStartIndex, quoteEndIndex - quoteStartIndex);
+                
+                // Color the quote in attributedComment
+                attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().quoteColor, range: quoteRange);
+            }
+            
+            // Remove all the tags in the comment that the user shouldnt see
+            attributedComment.mutableString.replaceOccurrencesOfString("<span class=\"quote\">", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
+            attributedComment.mutableString.replaceOccurrencesOfString("</span>", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
+        }
+        // If there was an error...
+        catch {
+            // Clear quoteRanges, there was a problem
+            quoteRanges = [];
+        }
         
         // Return attributedComment
         return attributedComment;
@@ -194,6 +224,12 @@ class KJ4COPPost: KJ4CPost {
         
         if(json["sub"].exists()) {
             self.subject = json["sub"].stringValue;
+            
+            // Format the subject
+            self.subject = self.subject.stringByReplacingOccurrencesOfString("<br>", withString: "\n");
+            self.subject = self.subject.stringByReplacingOccurrencesOfString("&#039;", withString: "'");
+            self.subject = self.subject.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
+            self.subject = self.subject.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
         }
         
         self.imageCount = json["images"].intValue;

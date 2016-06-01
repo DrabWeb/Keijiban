@@ -10,6 +10,16 @@ import Cocoa
 
 /// Represents a thread on 4chan
 class KJ4CThread {
+    /// The title to display for say a tab title
+    var displayTitle : String? {
+        if(opPost?.subject != "") {
+            return opPost?.subject;
+        }
+        else {
+            return opPost?.comment.stringByReplacingOccurrencesOfString("\n", withString: " ");
+        }
+    }
+    
     /// The board this thread is on
     var board : KJ4CBoard? = nil;
     

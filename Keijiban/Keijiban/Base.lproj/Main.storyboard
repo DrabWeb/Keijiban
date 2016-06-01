@@ -438,7 +438,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="dfD-fT-ocs">
-                                    <rect key="frame" x="435" y="0.0" width="15" height="300"/>
+                                    <rect key="frame" x="434" y="0.0" width="16" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -503,12 +503,12 @@
                             <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-wt-KwZ" userLabel="Titlebar Visual Effect View">
                                 <rect key="frame" x="0.0" y="443" width="640" height="37"/>
                                 <subviews>
-                                    <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="IWD-3H-CF7" userLabel="Board Chooser">
+                                    <popUpButton focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="IWD-3H-CF7" userLabel="Board Chooser">
                                         <rect key="frame" x="67" y="8" width="125" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="fLs-UG-7pe"/>
                                         </constraints>
-                                        <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="AFW-eE-7yh" userLabel="Cell">
+                                        <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="AFW-eE-7yh" userLabel="Cell">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="menu"/>
                                             <menu key="menu" id="OGN-L7-uAn">
@@ -523,13 +523,13 @@
                                             <action selector="titlebarBoardChooserPoupButtonInteracted:" target="XfG-lQ-9wD" id="tOo-0E-06x"/>
                                         </connections>
                                     </popUpButton>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p51-he-Zur" userLabel="Search Button">
+                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p51-he-Zur" userLabel="Search Button">
                                         <rect key="frame" x="553" y="8" width="21" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="WtT-2E-1id"/>
                                             <constraint firstAttribute="height" constant="21" id="mrI-UJ-eZ3"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="KJSearchIcon" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="gax-1u-j5y">
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="KJSearchIcon" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="gax-1u-j5y">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -547,13 +547,13 @@
                                             <action selector="titlebarToggleSidebarButtonPressed:" target="XfG-lQ-9wD" id="7Tw-e5-Voe"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-MU-26l" userLabel="Refresh Button">
+                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-MU-26l" userLabel="Refresh Button">
                                         <rect key="frame" x="582" y="8" width="21" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="JpH-Sr-se0"/>
                                             <constraint firstAttribute="height" constant="21" id="vqi-NH-Ww5"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="W6l-fc-8p4">
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="W6l-fc-8p4">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>

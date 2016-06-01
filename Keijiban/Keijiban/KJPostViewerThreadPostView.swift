@@ -31,8 +31,8 @@ class KJPostViewerThreadPostView: NSView {
     /// The post this cell rerpesents
     var representedPost : KJ4CPost? = nil;
     
-    /// Displays the info from the given post in this view
-    func displayInfoFromPost(post : KJ4CPost) {
+    /// Displays the info from the given post in this view. If displayImage is false it wont load or display the image for this cell
+    func displayInfoFromPost(post : KJ4CPost, displayImage : Bool) {
         // Set representedPost
         representedPost = post;
         
@@ -58,17 +58,33 @@ class KJPostViewerThreadPostView: NSView {
             }
         }
         
-        // If the post's thumbnail image is already loaded...
-        if(post.thumbnailImage != nil) {
-            // Display the thumbnail image in the thumbnail image view
-            thumbnailImageView.image = post.thumbnailImage!;
+        // If we said to display the thumbnail image...
+        if(displayImage) {
+            // If the post's thumbnail image is already loaded...
+            if(post.thumbnailImage != nil) {
+                // Display the thumbnail image in the thumbnail image view
+                thumbnailImageView.image = post.thumbnailImage!;
+            }
+                // If the post has a thumbnail and it's not loaded...
+            else if(post.hasFile && post.thumbnailImage == nil) {
+                // Download the image and display it in the thumbnail image view
+                thumbnailImageView.image = NSImage(contentsOfURL: NSURL(string: post.imageThumbnailUrl)!);
+            }
+            // If the post doesnt have a thumbnail image...
+            else {
+                // Hide the thumbnail image view
+                thumbnailImageView.hidden = true;
+                
+                // Update the constraints
+                // Update the thumbnail image view's constant height
+                thumbnailImageView.constraints[0].constant = 0;
+                
+                // Update the comment and poster info text field left margins
+                commentTextFieldLeftConstraint.constant = 10;
+                posterInfoTextFieldLeftConstraint.constant = 10;
+            }
         }
-            // If the post has a thumbnail and it's not loaded...
-        else if(post.hasFile && post.thumbnailImage == nil) {
-            // Download the image and display it in the thumbnail image view
-            thumbnailImageView.image = NSImage(contentsOfURL: NSURL(string: post.imageThumbnailUrl)!);
-        }
-        // If the post doesnt have a thumbnail image...
+        // If we said not to display the thumbnail image...
         else {
             // Hide the thumbnail image view
             thumbnailImageView.hidden = true;
