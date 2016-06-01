@@ -88,10 +88,24 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         }
     }
     
-    /// Adds a new tab with the users default new tab page(Catalog or Index). Also called when the user hits + or does CMD+T
-    func addNewTab() {
-        // Add a new example tab
-        tabs.append(KJBrowserWindowPostsTabItem(title: "Catalog"));
+    /// Opens a new tab with the users default new tab page(Catalog or Index) from the given board
+    func openNewDefaultTab(board : KJ4CBoard, completionHandler : (() -> ())?) {
+        // If the user has the default new tab page set to the Catalog...
+        if((NSApplication.sharedApplication().delegate as! AppDelegate).preferences.defaultNewTabPage == .Catalog) {
+            // Open the catalog for the given board in a new thread
+            openNewTab(board, type: .Catalog, completionHandler: completionHandler);
+        }
+        // If the user has the default new tab page set to the Index...
+        else if((NSApplication.sharedApplication().delegate as! AppDelegate).preferences.defaultNewTabPage == .Index) {
+            // Open the index for the given board in a new thread
+            openNewTab(board, type: .Catalog, completionHandler: completionHandler);
+        }
+    }
+    
+    /// Opens a new tab with the given info. The tabObject should be a KJ4CBoard or KJ4CThread. The mode is either Index or Catalog if tabObject is a KJ4CBoard and Thread if tabObject is a KJ4CThread
+    func openNewTab(tabObject : AnyObject, type : KJPostViewerMode, completionHandler : (() -> ())?) {
+        // Add a new tab
+        tabs.append(KJBrowserWindowPostsTabItem(title: "Loading..."));
         
         // Reload the tabs control
         tabsControl.reloadData();
@@ -104,6 +118,33 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         
         // Update postViewersTabView
         updatePostViewersTabView();
+        
+        // Call tabsControlTabSelectionChanged
+        tabsControlTabSelectionChanged();
+        
+        // If the passed type was the catalog...
+        if(type == .Catalog) {
+            // Open the catalog for the given board in the new tab
+            tabs.last!.title = tabs.last!.viewController!.displayCatalog(tabObject as! KJ4CBoard, maxPages: 9, completionHandler: completionHandler);
+        }
+        // If the passed type was the index...
+        else if(type == .Index) {
+            // Open the index for the given board in the new tab
+            tabs.last!.title = tabs.last!.viewController!.displayIndex(tabObject as! KJ4CBoard, maxPages: 9, completionHandler: completionHandler);
+        }
+        // If the passed type was a thread...
+        else if(type == .Thread) {
+            
+        }
+        
+        // Reload the tabs control
+        tabsControl.reloadData();
+        
+        // Select the new tab
+        tabsControl.selectedItem = tabs.last!;
+        
+        // Scroll to the end of the tab bar
+        ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).scrollToPoint(NSPoint(x: ((tabsControl.subviews[0] as! NSScrollView).subviews[0] as! NSClipView).frame.width * 1000000, y: 0));
         
         // Call tabsControlTabSelectionChanged
         tabsControlTabSelectionChanged();
@@ -168,10 +209,6 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         // Style the tabs
         tabsControl.borderWidth = 0;
         tabsControl.backgroundColor = NSColor(calibratedWhite: 0, alpha: 0.5);
-        
-        // Set the tabs control's add action and target
-        tabsControl.addTarget = self;
-        tabsControl.addAction = Selector("addNewTab");
         
         // Set tabsControl's data source
         tabsControl.dataSource = self;

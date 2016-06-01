@@ -39,8 +39,11 @@ class KJPostViewerViewController: NSViewController {
     /// The current thread we are displaying(If any)
     var currentThread : KJ4CThread? = nil;
     
-    /// Displays the given thread in the posts table view
-    func displayThread(thread : KJ4CThread) {
+    /// The last requests for downloading thumbnails in this view
+    var lastThumbnailDownloadRequests : [Request] = [];
+    
+    /// Displays the given thread in the posts table view. Returns the title that should be used in tabs
+    func displayThread(thread : KJ4CThread) -> String {
         // Set the current mode, board and thread
         currentMode = .Thread;
         currentBoard = thread.board!;
@@ -66,10 +69,13 @@ class KJPostViewerViewController: NSViewController {
         
         // Show the posts view
         postsViewerStackViewScrollView.hidden = false;
+        
+        // Return the title
+        return "/\(currentBoard!.code)/ - \(currentThread!.displayTitle!)";
     }
     
-    /// Displays the catalog for the given board. Only shows the amount of pages given(Minimum 0, maximum 9). Calls the given completion handler when done(If any)
-    func displayCatalog(forBoard : KJ4CBoard, maxPages : Int, completionHandler: (() -> ())?) {
+    /// Displays the catalog for the given board. Only shows the amount of pages given(Minimum 0, maximum 9). Calls the given completion handler when done(If any). Returns the title that should be used in tabs
+    func displayCatalog(forBoard : KJ4CBoard, maxPages : Int, completionHandler: (() -> ())?) -> String {
         // Set the current mode, board and thread
         currentMode = .Catalog;
         currentBoard = forBoard;
@@ -99,7 +105,31 @@ class KJPostViewerViewController: NSViewController {
                         let newOpPost : KJ4COPPost = KJ4COPPost(json: currentThread.1, board: self.currentBoard!);
                         
                         // Load the thumbnail image
-                        newOpPost.thumbnailImage = NSImage(contentsOfURL: NSURL(string: newOpPost.imageThumbnailUrl)!);
+                        self.lastThumbnailDownloadRequests.append(Alamofire.request(.GET, newOpPost.imageThumbnailUrl).response { (request, response, data, error) in
+                            // If data isnt nil...
+                            if(data != nil) {
+                                /// The downloaded image
+                                let image : NSImage? = NSImage(data: data!);
+                                
+                                // If image isnt nil...
+                                if(image != nil) {
+                                    // If there are any items in catalogCollectionViewArrayController...
+                                    if((self.catalogCollectionViewArrayController.arrangedObjects as! [AnyObject]).count > 0) {
+                                        // For ever item in the catalog collection view...
+                                        for currentIndex in 0...(self.catalogCollectionViewArrayController.arrangedObjects as! [AnyObject]).count - 1 {
+                                            // If the current item's represented object is equal to the item we downloaded the thumbnail for...
+                                            if(((self.catalogCollectionView.itemAtIndex(currentIndex)! as! KJPostViewerCatalogCollectionViewItem).representedObject as! KJ4COPPost) == newOpPost) {
+                                                // Update the image view of the item
+                                                self.catalogCollectionView.itemAtIndex(currentIndex)!.imageView?.image = image!;
+                                                
+                                                // Set the item's model's thumbnail image
+                                                ((self.catalogCollectionView.itemAtIndex(currentIndex)! as! KJPostViewerCatalogCollectionViewItem).representedObject as! KJ4COPPost).thumbnailImage = image!;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            });
                         
                         // Add the OP post to the catalog collection view
                         self.catalogCollectionViewArrayController.addObject(newOpPost);
@@ -116,16 +146,19 @@ class KJPostViewerViewController: NSViewController {
         
         // Show the catalog collection view
         catalogCollectionViewScrollView.hidden = false;
+        
+        // Return the title
+        return "/\(currentBoard!.code)/ - Catalog";
     }
     
-    /// Displays the index for the given board. Only shows the amount of pages given(Minimum 0, maximum 9). Calls the given completion handler when done(If any)
-    func displayIndex(forBoard : KJ4CBoard, maxPages : Int, completionHandler: (() -> ())?) {
+    /// Displays the index for the given board. Only shows the amount of pages given(Minimum 0, maximum 9). Calls the given completion handler when done(If any). Returns the title that should be used in tabs
+    func displayIndex(forBoard : KJ4CBoard, maxPages : Int, completionHandler: (() -> ())?) -> String {
         // Set the current mode, board and thread
         currentMode = .Index;
         currentBoard = forBoard;
         currentThread = nil;
         
-        // Print what catalog we are displaying
+        // Print what catalog we are displayinga
         print("KJPostViewerViewController: Displaying \(maxPages + 1) index pages for /\(currentBoard!.code)/");
         
         // Clear all the current items
@@ -175,6 +208,9 @@ class KJPostViewerViewController: NSViewController {
         
         // Show the posts view
         postsViewerStackViewScrollView.hidden = false;
+        
+        // Return the title
+        return "/\(currentBoard!.code)/ - Index";
     }
     
     /// Scrolls to the top of postsViewerStackViewScrollView
@@ -232,22 +268,6 @@ class KJPostViewerViewController: NSViewController {
         // Set the minimum and maximum item sizes
         catalogCollectionView.minItemSize = NSSize(width: 150, height: 200);
         catalogCollectionView.maxItemSize = NSSize(width: 250, height: 250);
-        
-//        // Make the request to get a thread from /a/ and display it
-//        Alamofire.request(.GET, "https://a.4cdn.org/a/thread/142234895.json", encoding: .JSON).responseJSON { (responseData) -> Void in
-//            /// The string of JSON that will be returned when the GET request finishes
-//            let responseJsonString : NSString = NSString(data: responseData.data!, encoding: NSUTF8StringEncoding)!;
-//            
-//            // If the the response data isnt nil...
-//            if let dataFromResponseJsonString = responseJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-//                /// The JSON from the response string
-//                let responseJson = JSON(data: dataFromResponseJsonString);
-//                
-//                self.displayThread(KJ4CThread(json: responseJson, board: KJ4CBoard(code: "a", name: "Anime & Manga")));
-//            }
-//        }
-        
-        displayCatalog(KJ4CBoard(code: "a", name: "Anime & Manga"), maxPages: 1, completionHandler: nil);
     }
 }
 

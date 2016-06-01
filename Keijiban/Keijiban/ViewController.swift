@@ -76,7 +76,7 @@ class ViewController: NSViewController, NSWindowDelegate {
     /// Called when the user does CMD+T. Adds a new tab
     func newTabAction() {
         // Add a new tab
-        contentPostsViewController.addNewTab();
+        contentPostsViewController.openNewDefaultTab(currentBoard, completionHandler: nil);
     }
     
     /// Called when the user does CMD+W. Closes the current tab if there are more than one, and if there is only one or less closes the window
@@ -134,11 +134,15 @@ class ViewController: NSViewController, NSWindowDelegate {
         
         // Update the current board
         currentBoard = chanUtilities.boards[titlebarBoardChooserPoupButton.selectedItem!.tag];
+        
+        // Open a new tab
+        contentPostsViewController.openNewDefaultTab(currentBoard, completionHandler: nil);
     }
     
     override func viewWillAppear() {
-        // Open a new tab
-        contentPostsViewController.addNewTab();
+        // Set the tabs control's add action and target
+        contentPostsViewController.tabsControl.addTarget = self;
+        contentPostsViewController.tabsControl.addAction = Selector("newTabAction");
     }
     
     func windowWillEnterFullScreen(notification: NSNotification) {
