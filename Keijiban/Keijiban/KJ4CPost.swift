@@ -71,7 +71,7 @@ class KJ4CPost: NSObject {
         var fileInfoString : String = fileFilename + fileExtension + " (";
         
         // Add the file size
-        fileInfoString += "\(Int(fileSize / 1024)) KB, ";
+        fileInfoString += "\(NSByteCountFormatter().stringFromByteCount(Int64(self.fileSize))), ";
         
         // Add the pixel size
         fileInfoString += "\(Int(filePixelSize.width))x\(Int(filePixelSize.height))";
@@ -126,12 +126,18 @@ class KJ4CPost: NSObject {
     /// The text of this post
     var comment : String = "";
     
+    /// The comment without any of the spans or HREFs, but not attributed
+    var cleanedComment : String {
+        // Return attributedComment, without the attributes
+        return attributedComment.string;
+    }
+    
     /// Returns comment as an attributed string
     var attributedComment : NSAttributedString {
         /// The NSAttributedString for comment
         let attributedComment : NSMutableAttributedString = NSMutableAttributedString(string: comment);
         
-        // Color the quotes(Green text)
+        // Color the quotes
         
         /// Every range of "<span class="quote">" in comment
         var quoteRanges : [NSRange] = [];
@@ -166,16 +172,113 @@ class KJ4CPost: NSObject {
                 // Color the quote in attributedComment
                 attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().quoteColor, range: quoteRange);
             }
-            
-            // Remove all the tags in the comment that the user shouldnt see
-            attributedComment.mutableString.replaceOccurrencesOfString("<span class=\"quote\">", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
-            attributedComment.mutableString.replaceOccurrencesOfString("</span>", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
         }
         // If there was an error...
         catch {
             // Clear quoteRanges, there was a problem
             quoteRanges = [];
         }
+        
+        /// Color the post quotes
+        
+        /// Every range of "<a href="#p*" class="quotelink">" in comment
+        var postQuoteRanges : [NSRange] = [];
+        
+        /// All the tags for the post quotes that should be removed from the comment
+        var postQuoteTags : [String] = [];
+        
+        do {
+            /// The regex for looking for "<a href="#p*" class="quotelink">" in comment
+            let postQuoteColorRegex = try NSRegularExpression(pattern: "<a href=\"#p.*\" class=\"quotelink\">", options: []);
+            
+            // Set quoteRanges to the every range of "<span class="quote">"
+            postQuoteRanges = postQuoteColorRegex.matchesInString(comment, options: [], range: NSMakeRange(0, comment.characters.count)).map {$0.range}
+            
+            // For every range in postQuoteRanges...
+            for(_, currentRange) in postQuoteRanges.enumerate() {
+                /// Add the beginning post quote tag for this post to postQuoteTags
+                postQuoteTags.append(comment.substringWithRange(Range<String.Index>(start: comment.startIndex.advancedBy(currentRange.location), end: comment.startIndex.advancedBy(currentRange.location + currentRange.length))));
+                
+                /// The index for the end of the "<a href="#p*" class="quotelink">" tag
+                let postQuoteTagStartIndex = comment.startIndex.advancedBy(currentRange.location + currentRange.length);
+                
+                /// The substring from postQuoteTagStartIndex
+                let substringFromPostQuoteBegin : String = comment.substringFromIndex(postQuoteTagStartIndex);
+                
+                /// The range of the first </a> in substringFromPostQuoteBegin
+                let postQuoteEndRange : Range = substringFromPostQuoteBegin.rangeOfString("</a>")!;
+                
+                /// The integer index for the beginning of this post quote in comment
+                let postQuoteStartIndex : Int = comment.startIndex.distanceTo(postQuoteTagStartIndex);
+                
+                /// The integer index for the end of this post quote in comment
+                let postQuoteEndIndex : Int = comment.startIndex.distanceTo(postQuoteTagStartIndex) + comment.startIndex.distanceTo(postQuoteEndRange.startIndex);
+                
+                /// The range of this post quote in comment
+                let postQuoteRange : NSRange = NSMakeRange(postQuoteStartIndex, postQuoteEndIndex - postQuoteStartIndex);
+                
+                // Color the post quote in attributedComment
+                attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().postQuoteColor, range: postQuoteRange);
+            }
+        }
+        // If there was an error...
+        catch {
+            // Clear postQuoteRanges, there was a problem
+            postQuoteRanges = [];
+        }
+        
+        /// Every range of "<span class="deadlink">" in comment
+        var postQuoteDeadRanges : [NSRange] = [];
+        
+        do {
+            /// The regex for looking for "<span class="deadlink">" in comment
+            let postQuoteDeadColorRegex = try NSRegularExpression(pattern: "<span class=\"deadlink\">", options: []);
+            
+            // Set postQuoteDeadRanges to the every range of "<span class="deadlink">"
+            postQuoteDeadRanges = postQuoteDeadColorRegex.matchesInString(comment, options: [], range: NSMakeRange(0, comment.characters.count)).map {$0.range}
+            
+            // For every range in postQuoteRanges...
+            for(_, currentRange) in postQuoteDeadRanges.enumerate() {
+                /// The index for the end of the "<span class="deadlink">"
+                let postQuoteDeadTagStartIndex = comment.startIndex.advancedBy(currentRange.location + currentRange.length);
+                
+                /// The substring from postQuoteDeadTagStartIndex
+                let substringFromPostQuoteDeadBegin : String = comment.substringFromIndex(postQuoteDeadTagStartIndex);
+                
+                /// The range of the first </span> in substringFromPostQuoteDeadBegin
+                let postQuoteDeadEndRange : Range = substringFromPostQuoteDeadBegin.rangeOfString("</span>")!;
+                
+                /// The integer index for the beginning of this dead post quote in comment
+                let postQuoteDeadStartIndex : Int = comment.startIndex.distanceTo(postQuoteDeadTagStartIndex);
+                
+                /// The integer index for the end of this dead post quote in comment
+                let postQuoteDeadEndIndex : Int = comment.startIndex.distanceTo(postQuoteDeadTagStartIndex) + comment.startIndex.distanceTo(postQuoteDeadEndRange.startIndex);
+                
+                /// The range of this dead post quote in comment
+                let postQuoteDeadRange : NSRange = NSMakeRange(postQuoteDeadStartIndex, postQuoteDeadEndIndex - postQuoteDeadStartIndex);
+                
+                // Color the dead post quote in attributedComment
+                attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().deadPostQuoteColor, range: postQuoteDeadRange);
+                
+                // Put a strike through the dead post quote in attributedComment
+                attributedComment.addAttribute(NSStrikethroughStyleAttributeName, value: NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue), range: postQuoteDeadRange);
+            }
+        }
+        // If there was an error...
+        catch {
+            // Clear postQuoteDeadRanges, there was a problem
+            postQuoteDeadRanges = [];
+        }
+        
+        // Remove all the tags in the comment that the user shouldnt see
+        for(_, currentPostQuoteTag) in postQuoteTags.enumerate() {
+            attributedComment.mutableString.replaceOccurrencesOfString(currentPostQuoteTag, withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
+        }
+        
+        attributedComment.mutableString.replaceOccurrencesOfString("<span class=\"quote\">", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
+        attributedComment.mutableString.replaceOccurrencesOfString("</span>", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
+        attributedComment.mutableString.replaceOccurrencesOfString("<span class=\"deadlink\">", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
+        attributedComment.mutableString.replaceOccurrencesOfString("</a>", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, attributedComment.mutableString.length));
         
         // Return attributedComment
         return attributedComment;
@@ -237,6 +340,9 @@ class KJ4CPost: NSObject {
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
+        
+        // Update the comment to tag if a post is quoting OP
+        self.comment = self.comment.stringByReplacingOccurrencesOfString(String(inThread), withString: "\(inThread)(OP)");
     }
 }
 
@@ -401,6 +507,7 @@ class KJ4COPPost: KJ4CPost {
             self.subject = self.subject.stringByReplacingOccurrencesOfString("<br>", withString: "\n");
             self.subject = self.subject.stringByReplacingOccurrencesOfString("&#039;", withString: "'");
             self.subject = self.subject.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
+            self.subject = self.subject.stringByReplacingOccurrencesOfString("&lt;", withString: "<");
             self.subject = self.subject.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
         }
         

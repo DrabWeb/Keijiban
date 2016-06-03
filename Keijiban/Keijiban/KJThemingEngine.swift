@@ -24,8 +24,14 @@ class KJThemingEngine {
     /// The color for a post info's subject(If there is one)
     var postSubjectColor : NSColor = NSColor(hexString: "#B294BB")!;
     
-    /// The color for quotes
+    /// The color for quotes(The >text ones)
     var quoteColor : NSColor = NSColor(hexString: "#B5BD68")!;
+    
+    /// The color for post quotes(The >>######### ones)
+    var postQuoteColor : NSColor = NSColor(hexString: "#81A2BE")!;
+    
+    /// The color for dead post quotes(The >>######### ones)
+    var deadPostQuoteColor : NSColor = NSColor(hexString: "#81A2BE")!;
     
     /// The color for post separators
     var postSeparatorColor : NSColor = NSColor(hexString: "282A2E")!;

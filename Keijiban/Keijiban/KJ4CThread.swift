@@ -16,7 +16,7 @@ class KJ4CThread {
             return opPost?.subject;
         }
         else {
-            return opPost?.comment.stringByReplacingOccurrencesOfString("\n", withString: " ");
+            return opPost?.cleanedComment.stringByReplacingOccurrencesOfString("\n", withString: " ");
         }
     }
     

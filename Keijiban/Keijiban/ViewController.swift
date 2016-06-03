@@ -136,7 +136,13 @@ class ViewController: NSViewController, NSWindowDelegate {
         currentBoard = chanUtilities.boards[titlebarBoardChooserPoupButton.selectedItem!.tag];
         
         // Open a new tab
-        contentPostsViewController.openNewDefaultTab(currentBoard, completionHandler: nil);
+//        contentPostsViewController.openNewDefaultTab(currentBoard, completionHandler: nil);
+        
+        let createdOpPost : KJ4COPPost = KJ4COPPost(json: nil, board: KJ4CBoard(code: "a", name: "Anime & Manga"));
+        createdOpPost.board = currentBoard;
+        createdOpPost.postNumber = 142369236;
+                
+        self.contentPostsViewController.downloadThreadAndOpenNewTab(createdOpPost, downloadCompletionHandler: nil, displayCompletionHandler: nil);
     }
     
     override func viewWillAppear() {
