@@ -430,7 +430,7 @@
                                         <view horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
-                                                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
+                                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 </stackView>
                                             </subviews>

@@ -71,7 +71,7 @@ class KJ4CPost: NSObject {
         var fileInfoString : String = fileFilename + fileExtension + " (";
         
         // Add the file size
-        fileInfoString += "\(Int(fileSize / 1024)) KB), ";
+        fileInfoString += "\(Int(fileSize / 1024)) KB, ";
         
         // Add the pixel size
         fileInfoString += "\(Int(filePixelSize.width))x\(Int(filePixelSize.height))";
