@@ -37,32 +37,46 @@ class KJ4CPost: NSObject {
     /// Is this post's file spoilered?
     var fileSpoilered : Bool = false;
     
-    /// The image of this post(If any)
-    var image : NSImage? = nil;
-    
     /// The thumbnail image of this post(If any)
     var thumbnailImage : NSImage? = nil;
     
-    /// The extension of this post's image(If any)(With a dot in front)
-    var imageExtension : String = "";
+    /// The extension of this post's file(If any)(With a dot in front)
+    var fileExtension : String = "";
     
-    /// The pixel size of this post's image(If any)
-    var imageSize : NSSize = NSSize.zero;
+    /// The pixel size of this post's file(If any)
+    var fileSize : NSSize = NSSize.zero;
     
-    /// The integer part of this post's image file name(If any) on 4cdn
-    var imageCdnFilename : Int = -1;
+    /// The integer part of this post's file's name(If any) on 4cdn
+    var fileCdnFilename : Int = -1;
     
-    /// The original name of the image file(If any) for this post
-    var imageFilename : String = "";
+    /// The original name of the file(If any) for this post
+    var fileFilename : String = "";
     
-    /// Returns the URL to this posts thumbnail URL
+    /// Returns the URL to this posts thumbnail
     var imageThumbnailUrl : String {
-        return "https://i.4cdn.org/\(board!.code)/\(imageCdnFilename)s.jpg"
+        return "https://i.4cdn.org/\(board!.code)/\(fileCdnFilename)s.jpg"
     }
     
-    /// Returns the URL to this posts image URL
+    /// Returns the URL to this posts file
     var imageUrl : String {
-        return "https://i.4cdn.org/\(board!.code)/\(imageCdnFilename)\(imageExtension)"
+        return "https://i.4cdn.org/\(board!.code)/\(fileCdnFilename)\(fileExtension)"
+    }
+    
+    /// Returns the file info of this post in a label, with the format "filename.extension (file size, pixel size)"
+    var fileInfo : String {
+        /// The file info to return
+        var fileInfoString : String = fileFilename + fileExtension + " (";
+        
+        // Add the file size
+        
+        // Add the pixel size
+        fileInfoString += "\(Int(fileSize.width))x\(Int(fileSize.height))";
+        
+        // Add the closing parenthesis
+        fileInfoString += ")";
+        
+        // Return the file info string
+        return fileInfoString;
     }
     
     /// Returns the poster info for displaying in an attributed string
@@ -202,10 +216,10 @@ class KJ4CPost: NSObject {
         }
         
         if(hasFile) {
-            self.imageExtension = json["ext"].stringValue;
-            self.imageSize = NSSize(width: json["w"].intValue, height: json["h"].intValue);
-            self.imageCdnFilename = json["tim"].intValue
-            self.imageFilename = json["filename"].stringValue;
+            self.fileExtension = json["ext"].stringValue;
+            self.fileSize = NSSize(width: json["w"].intValue, height: json["h"].intValue);
+            self.fileCdnFilename = json["tim"].intValue
+            self.fileFilename = json["filename"].stringValue;
         }
         
         self.comment = json["com"].stringValue;

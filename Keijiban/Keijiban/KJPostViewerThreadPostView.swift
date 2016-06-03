@@ -13,6 +13,9 @@ class KJPostViewerThreadPostView: NSView {
     /// The image view for the post's thumbnail image
     @IBOutlet var thumbnailImageView: KJRasterizedImageView!
     
+    /// The text field that shows the info for the file(Name, pixel size, size)(If there is one)
+    @IBOutlet var fileInfoTextField: NSTextField!
+    
     /// The text field that shows info about the poster like there name they posted with, the date and time they posted and the post number
     @IBOutlet var posterInfoTextField: NSTextField!
     
@@ -21,6 +24,9 @@ class KJPostViewerThreadPostView: NSView {
     
     /// The text field for the post's comment
     @IBOutlet var commentTextField: NSTextField!
+    
+    /// The constraint for the top of commentTextField
+    @IBOutlet var commentTextFieldTopConstraint: NSLayoutConstraint!
     
     /// The constraint for the left side of commentTextField
     @IBOutlet var commentTextFieldLeftConstraint: NSLayoutConstraint!
@@ -52,28 +58,39 @@ class KJPostViewerThreadPostView: NSView {
         
         // If we said to display the thumbnail image...
         if(displayImage) {
-            // If the post's thumbnail image is already loaded...
-            if(post.thumbnailImage != nil) {
-                // Display the thumbnail image in the thumbnail image view
-                thumbnailImageView.image = post.thumbnailImage!;
-            }
+            // If the post has a file...
+            if(post.hasFile) {
+                // If the post's thumbnail image is already loaded...
+                if(post.thumbnailImage != nil) {
+                    // Display the thumbnail image in the thumbnail image view
+                    thumbnailImageView.image = post.thumbnailImage!;
+                }
                 // If the post has a thumbnail and it's not loaded...
-            else if(post.hasFile && post.thumbnailImage == nil) {
-                // Download the image and display it in the thumbnail image view
-                thumbnailImageView.image = NSImage(contentsOfURL: NSURL(string: post.imageThumbnailUrl)!);
+                else if(post.thumbnailImage == nil) {
+                    // Download the image and display it in the thumbnail image view
+                    thumbnailImageView.image = NSImage(contentsOfURL: NSURL(string: post.imageThumbnailUrl)!);
+                }
+                
+                // Update the file info text field
+                fileInfoTextField.stringValue = post.fileInfo;
             }
-            // If the post doesnt have a thumbnail image...
+            // If the post doesnt have a file...
             else {
                 // Hide the thumbnail image view
                 thumbnailImageView.hidden = true;
+                
+                // Hide the file info text field
+                fileInfoTextField.hidden = true;
                 
                 // Update the constraints
                 // Update the thumbnail image view's constant height
                 thumbnailImageView.constraints[0].constant = 0;
                 
-                // Update the comment and poster info text field left margins
-                commentTextFieldLeftConstraint.constant = 10;
+                // Update the poster info and comment text field constraints
                 posterInfoTextFieldLeftConstraint.constant = 10;
+                
+                commentTextFieldTopConstraint.constant = 3;
+                commentTextFieldLeftConstraint.constant = 10;
             }
         }
         // If we said not to display the thumbnail image...
@@ -81,13 +98,18 @@ class KJPostViewerThreadPostView: NSView {
             // Hide the thumbnail image view
             thumbnailImageView.hidden = true;
             
+            // Hide the file info text field
+            fileInfoTextField.hidden = true;
+            
             // Update the constraints
             // Update the thumbnail image view's constant height
             thumbnailImageView.constraints[0].constant = 0;
             
-            // Update the comment and poster info text field left margins
-            commentTextFieldLeftConstraint.constant = 10;
+            // Update the poster info and comment text field constraints
             posterInfoTextFieldLeftConstraint.constant = 10;
+            
+            commentTextFieldTopConstraint.constant = 3;
+            commentTextFieldLeftConstraint.constant = 10;
         }
         
         // Display the poster info in the poster info text field
@@ -102,6 +124,7 @@ class KJPostViewerThreadPostView: NSView {
         
         // Thme everything
         self.layer?.backgroundColor = KJThemingEngine().defaultEngine().backgroundColor.CGColor;
+        self.fileInfoTextField.textColor = KJThemingEngine().defaultEngine().fileInfoTextColor;
         self.commentTextField.textColor = KJThemingEngine().defaultEngine().textColor;
         self.posterInfoTextField.textColor = KJThemingEngine().defaultEngine().textColor;
         self.bottomSeparator.layer?.backgroundColor = KJThemingEngine().defaultEngine().postSeparatorColor.CGColor;

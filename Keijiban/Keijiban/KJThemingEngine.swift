@@ -15,6 +15,9 @@ class KJThemingEngine {
     /// The default text color(Used for comments, poster info, ETC.)
     var textColor : NSColor = NSColor(hexString: "#C5C8C6")!;
     
+    /// The text color for the file info text field in post views
+    var fileInfoTextColor : NSColor = NSColor(hexString: "#C5C8C6,0.5")!;
+    
     /// The text color for the image/reply count text field on catalog items
     var catalogItemImageReplyCountTextColor : NSColor = NSColor(hexString: "#C5C8C6")!;
     
