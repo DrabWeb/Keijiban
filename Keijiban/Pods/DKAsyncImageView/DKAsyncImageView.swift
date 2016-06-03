@@ -45,14 +45,21 @@ public class DKAsyncImageView: NSImageView, NSURLConnectionDelegate, NSURLConnec
         cancelDownload()
     }
     
+    /// The last download completion handler passed to downloadImageFromURL
+    var lastDownloadCompletionHandler : ((downloadedImage : NSImage) -> ())? = nil;
+    
     /// Grab an image form a URL and asynchronously load it into the image view
     ///
     /// - parameter url: A String representing the URL of the image.
+    /// - parameter downloadCompletionHandler: The function to call when the image finishes downloading. Passes the downloaded image
     /// - parameter placeHolderImage: an optional NSImage to temporarily display while the image is downloading
     /// - parameter errorImage: an optional NSImage that displays if the download fails.
     /// - parameter usesSpinningWheel: A Bool that determines whether or not a spinning wheel indicator displays during download
-    public func downloadImageFromURL(url: String, placeHolderImage:NSImage? = nil, errorImage:NSImage? = nil, usesSpinningWheel: Bool = false) {
+    public func downloadImageFromURL(url: String, placeHolderImage:NSImage? = nil, errorImage:NSImage? = nil, usesSpinningWheel: Bool = false, downloadCompletionHandler: ((downloadedImage : NSImage?) -> ())? = nil) {
         cancelDownload()
+        
+        // Set lastDownloadCompletionHandler
+        lastDownloadCompletionHandler = downloadCompletionHandler;
         
         isLoadingImage = true
         didFailLoadingImage = false
@@ -155,6 +162,8 @@ public class DKAsyncImageView: NSImageView, NSURLConnectionDelegate, NSURLConnec
                 imageURLConnection = nil
                 errorImage = nil
                 
+                // Call lastDownloadCompletionHandler
+                lastDownloadCompletionHandler?(downloadedImage: img);
                 
             } else  {
                 Swift.print("Error forming image from data.")

@@ -71,7 +71,7 @@ class KJPostViewerThreadPostView: NSView {
                 // If the post has a thumbnail and it's not loaded...
                 else if(post.thumbnailImage == nil) {
                     // Download the image and display it in the thumbnail image view
-                    thumbnailImageView.downloadImageFromURL(post.imageThumbnailUrl, placeHolderImage: nil, errorImage: nil, usesSpinningWheel: true);
+                    thumbnailImageView.downloadImageFromURL(post.imageThumbnailUrl, placeHolderImage: nil, errorImage: nil, usesSpinningWheel: true, downloadCompletionHandler: thumbnailDownloadCompleted);
                 }
                 
                 // Update the file info text field
@@ -128,6 +128,12 @@ class KJPostViewerThreadPostView: NSView {
         
         // Display the comment in the comment text field
         commentTextField.attributedStringValue = post.attributedComment;
+    }
+    
+    /// Called when a thumbnail download request from displayInfoFromPost is finished
+    func thumbnailDownloadCompleted(downloadedImage : NSImage?) {
+        // Store the download image in the given post's thumbnailImage variable
+        representedPost?.thumbnailImage = downloadedImage;
     }
     
     override func drawRect(dirtyRect: NSRect) {
