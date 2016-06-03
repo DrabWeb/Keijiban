@@ -308,7 +308,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tOe-td-5CZ"/>
                                         </constraints>
-                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Anonymous  00/00/00(DDD)00:00:00 #000000000" id="4on-ah-UAP" userLabel="Cell">
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" title="Anonymous  00/00/00(DDD)00:00:00 #000000000" id="4on-ah-UAP" userLabel="Cell">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -316,10 +316,7 @@
                                     </textField>
                                     <textField verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="avv-5y-geO" userLabel="Image Info Label">
                                         <rect key="frame" x="118" y="131" width="395" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="RHK-Rk-gob"/>
-                                        </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="filename.extension (file size, pixel dimensions)" id="PEw-qz-SrH">
+                                        <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="filename.extension (file size, pixel dimensions)" id="PEw-qz-SrH">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -357,17 +354,17 @@
                                     <constraint firstItem="avv-5y-geO" firstAttribute="leading" secondItem="vKI-AZ-kdz" secondAttribute="trailing" constant="10" id="Yqa-PR-nQP"/>
                                     <constraint firstAttribute="trailing" secondItem="V9f-hf-rk7" secondAttribute="trailing" id="dVw-i0-2tj"/>
                                     <constraint firstAttribute="trailing" secondItem="sEO-XN-6pd" secondAttribute="trailing" constant="10" id="fKn-Nk-xdO"/>
-                                    <constraint firstItem="sEO-XN-6pd" firstAttribute="top" secondItem="ZkA-9w-Ag5" secondAttribute="bottom" constant="16" id="i9R-wy-9R7"/>
                                     <constraint firstItem="vKI-AZ-kdz" firstAttribute="centerY" secondItem="DHm-7F-rU2" secondAttribute="centerY" id="obK-Yj-smm"/>
                                     <constraint firstItem="avv-5y-geO" firstAttribute="top" secondItem="ZkA-9w-Ag5" secondAttribute="bottom" constant="2" id="occ-SL-eUo"/>
                                     <constraint firstAttribute="bottom" secondItem="sEO-XN-6pd" secondAttribute="bottom" constant="12" id="rJP-gy-6Qs"/>
+                                    <constraint firstItem="sEO-XN-6pd" firstAttribute="top" secondItem="avv-5y-geO" secondAttribute="bottom" id="rYS-yr-27m"/>
                                     <constraint firstAttribute="trailing" secondItem="ZkA-9w-Ag5" secondAttribute="trailing" constant="10" id="syU-In-kLc"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="bottomSeparator" destination="V9f-hf-rk7" id="kDG-ei-LoF"/>
                                     <outlet property="commentTextField" destination="sEO-XN-6pd" id="Z7U-iD-Uc4"/>
                                     <outlet property="commentTextFieldLeftConstraint" destination="LWw-cF-agn" id="2rP-Bq-u1v"/>
-                                    <outlet property="commentTextFieldTopConstraint" destination="i9R-wy-9R7" id="Ir7-Oy-FXu"/>
+                                    <outlet property="commentTextFieldTopConstraint" destination="rYS-yr-27m" id="4co-2e-1o8"/>
                                     <outlet property="fileInfoTextField" destination="avv-5y-geO" id="PaE-ow-HkA"/>
                                     <outlet property="posterInfoTextField" destination="ZkA-9w-Ag5" id="77f-c6-nDd"/>
                                     <outlet property="posterInfoTextFieldLeftConstraint" destination="Bmh-JB-AQ3" id="Zc1-lG-YbQ"/>
@@ -429,7 +426,7 @@
                                         <view horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
-                                                <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
+                                                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 </stackView>
                                             </subviews>

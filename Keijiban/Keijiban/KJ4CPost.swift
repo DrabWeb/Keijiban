@@ -44,7 +44,10 @@ class KJ4CPost: NSObject {
     var fileExtension : String = "";
     
     /// The pixel size of this post's file(If any)
-    var fileSize : NSSize = NSSize.zero;
+    var filePixelSize : NSSize = NSSize.zero;
+    
+    /// The size of this post's file in bytes(If any)
+    var fileSize : Int = -1;
     
     /// The integer part of this post's file's name(If any) on 4cdn
     var fileCdnFilename : Int = -1;
@@ -68,9 +71,10 @@ class KJ4CPost: NSObject {
         var fileInfoString : String = fileFilename + fileExtension + " (";
         
         // Add the file size
+        fileInfoString += "\(Int(fileSize / 1024)) KB), ";
         
         // Add the pixel size
-        fileInfoString += "\(Int(fileSize.width))x\(Int(fileSize.height))";
+        fileInfoString += "\(Int(filePixelSize.width))x\(Int(filePixelSize.height))";
         
         // Add the closing parenthesis
         fileInfoString += ")";
@@ -217,7 +221,8 @@ class KJ4CPost: NSObject {
         
         if(hasFile) {
             self.fileExtension = json["ext"].stringValue;
-            self.fileSize = NSSize(width: json["w"].intValue, height: json["h"].intValue);
+            self.fileSize = json["fsize"].intValue;
+            self.filePixelSize = NSSize(width: json["w"].intValue, height: json["h"].intValue);
             self.fileCdnFilename = json["tim"].intValue
             self.fileFilename = json["filename"].stringValue;
         }
@@ -231,6 +236,7 @@ class KJ4CPost: NSObject {
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&#039;", withString: "'");
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
         self.comment = self.comment.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
+        self.comment = self.comment.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
     }
 }
 
@@ -314,7 +320,7 @@ class KJ4COPPost: KJ4CPost {
         // If there isnt a subject...
         else {
             // Make the name bold
-            attributedPosterInfoString.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(2, self.name.characters.count));
+            attributedPosterInfoString.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.name.characters.count));
         }
         
         // Return the attributed poster string

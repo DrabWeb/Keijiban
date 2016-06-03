@@ -89,7 +89,14 @@ class KJPostViewerThreadPostView: NSView {
                 // Update the poster info and comment text field constraints
                 posterInfoTextFieldLeftConstraint.constant = 10;
                 
-                commentTextFieldTopConstraint.constant = 3;
+                // Update the values for the comment text field constraints
+                /// The constraint for the height of commentTextField
+                let fileInfoTextFieldHeightConstraint = NSLayoutConstraint(item: fileInfoTextField, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 0);
+                
+                // Add the constraint
+                fileInfoTextField.addConstraint(fileInfoTextFieldHeightConstraint);
+                
+                commentTextFieldTopConstraint.constant = 1;
                 commentTextFieldLeftConstraint.constant = 10;
             }
         }
