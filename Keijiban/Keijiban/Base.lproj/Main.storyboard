@@ -291,7 +291,7 @@
                             <customView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="DHm-7F-rU2" userLabel="Posts Viewer Post View Template" customClass="KJPostViewerThreadPostView" customModule="Keijiban" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="521" height="169"/>
                                 <subviews>
-                                    <imageView wantsLayer="YES" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vKI-AZ-kdz" userLabel="Thumbnail Image View" customClass="KJRasterizedImageView" customModule="Keijiban" customModuleProvider="target">
+                                    <imageView wantsLayer="YES" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vKI-AZ-kdz" userLabel="Thumbnail Image View" customClass="KJRasterizedAsyncImageView" customModule="Keijiban" customModuleProvider="target">
                                         <rect key="frame" x="10" y="35" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="DQW-Ty-MLl"/>
@@ -316,7 +316,10 @@
                                     </textField>
                                     <textField verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="avv-5y-geO" userLabel="Image Info Label">
                                         <rect key="frame" x="118" y="131" width="395" height="14"/>
-                                        <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="filename.extension (file size, pixel dimensions)" id="PEw-qz-SrH">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="pLz-rG-HNc"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" title="filename.extension (file size, pixel dimensions)" id="PEw-qz-SrH">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -324,7 +327,7 @@
                                     </textField>
                                     <textField verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="sEO-XN-6pd" userLabel="Comment Text Field">
                                         <rect key="frame" x="118" y="12" width="395" height="119"/>
-                                        <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" id="ch2-Td-t8e" userLabel="Cell">
+                                        <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" alignment="left" id="ch2-Td-t8e" userLabel="Cell">
                                             <font key="font" metaFont="system"/>
                                             <string key="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in porta augue. Nunc et blandit ante, ut vehicula odio. Quisque at lacinia dolor, eget iaculis dui. Vivamus suscipit ex et diam lacinia, sit amet laoreet dui scelerisque. Proin sed ex feugiat, vulputate arcu non, lacinia magna. Sed vulputate condimentum euismod. Sed at ultricies lorem. Mauris venenatis nisi non lacinia sollicitudin. Cras ullamcorper dapibus laoreet.</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -366,6 +369,7 @@
                                     <outlet property="commentTextFieldLeftConstraint" destination="LWw-cF-agn" id="2rP-Bq-u1v"/>
                                     <outlet property="commentTextFieldTopConstraint" destination="rYS-yr-27m" id="4co-2e-1o8"/>
                                     <outlet property="fileInfoTextField" destination="avv-5y-geO" id="PaE-ow-HkA"/>
+                                    <outlet property="fileInfoTextFieldHeightConstraint" destination="pLz-rG-HNc" id="dnD-D9-W9C"/>
                                     <outlet property="posterInfoTextField" destination="ZkA-9w-Ag5" id="77f-c6-nDd"/>
                                     <outlet property="posterInfoTextFieldLeftConstraint" destination="Bmh-JB-AQ3" id="Zc1-lG-YbQ"/>
                                     <outlet property="thumbnailImageView" destination="vKI-AZ-kdz" id="4Ox-9S-WOp"/>

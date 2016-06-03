@@ -7,9 +7,21 @@
 //
 
 import Cocoa
+import DKAsyncImageView
 
 class KJRasterizedImageView: NSImageView {
 
+    override func drawRect(dirtyRect: NSRect) {
+        super.drawRect(dirtyRect)
+        
+        // Drawing code here.
+        // Rasterize the layer
+        self.layer?.shouldRasterize = true;
+    }
+}
+
+class KJRasterizedAsyncImageView: DKAsyncImageView {
+    
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
         

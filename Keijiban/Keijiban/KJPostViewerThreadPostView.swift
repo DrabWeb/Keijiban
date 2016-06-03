@@ -11,10 +11,13 @@ import Cocoa
 class KJPostViewerThreadPostView: NSView {
 
     /// The image view for the post's thumbnail image
-    @IBOutlet var thumbnailImageView: KJRasterizedImageView!
+    @IBOutlet var thumbnailImageView: KJRasterizedAsyncImageView!
     
     /// The text field that shows the info for the file(Name, pixel size, size)(If there is one)
     @IBOutlet var fileInfoTextField: NSTextField!
+    
+    /// The height constraint for fileInfoTextField
+    @IBOutlet var fileInfoTextFieldHeightConstraint: NSLayoutConstraint!
     
     /// The text field that shows info about the poster like there name they posted with, the date and time they posted and the post number
     @IBOutlet var posterInfoTextField: NSTextField!
@@ -68,11 +71,14 @@ class KJPostViewerThreadPostView: NSView {
                 // If the post has a thumbnail and it's not loaded...
                 else if(post.thumbnailImage == nil) {
                     // Download the image and display it in the thumbnail image view
-                    thumbnailImageView.image = NSImage(contentsOfURL: NSURL(string: post.imageThumbnailUrl)!);
+                    thumbnailImageView.downloadImageFromURL(post.imageThumbnailUrl, placeHolderImage: nil, errorImage: nil, usesSpinningWheel: true);
                 }
                 
                 // Update the file info text field
                 fileInfoTextField.stringValue = post.fileInfo;
+                
+                // Set the file info text field's tooltip
+                fileInfoTextField.toolTip = fileInfoTextField.stringValue;
             }
             // If the post doesnt have a file...
             else {
@@ -89,13 +95,7 @@ class KJPostViewerThreadPostView: NSView {
                 // Update the poster info and comment text field constraints
                 posterInfoTextFieldLeftConstraint.constant = 10;
                 
-                // Update the values for the comment text field constraints
-                /// The constraint for the height of commentTextField
-                let fileInfoTextFieldHeightConstraint = NSLayoutConstraint(item: fileInfoTextField, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 0);
-                
-                // Add the constraint
-                fileInfoTextField.addConstraint(fileInfoTextFieldHeightConstraint);
-                
+                fileInfoTextFieldHeightConstraint.constant = 0;
                 commentTextFieldTopConstraint.constant = 1;
                 commentTextFieldLeftConstraint.constant = 10;
             }
@@ -115,12 +115,16 @@ class KJPostViewerThreadPostView: NSView {
             // Update the poster info and comment text field constraints
             posterInfoTextFieldLeftConstraint.constant = 10;
             
-            commentTextFieldTopConstraint.constant = 3;
+            fileInfoTextFieldHeightConstraint.constant = 0;
+            commentTextFieldTopConstraint.constant = 1;
             commentTextFieldLeftConstraint.constant = 10;
         }
         
         // Display the poster info in the poster info text field
         posterInfoTextField.attributedStringValue = post.attributedPosterInfo;
+        
+        // Set the poster info text field's tooltip
+        posterInfoTextField.toolTip = posterInfoTextField.stringValue;
         
         // Display the comment in the comment text field
         commentTextField.attributedStringValue = post.attributedComment;
