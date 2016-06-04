@@ -386,7 +386,7 @@
                 </viewController>
                 <customObject id="0PG-Oi-cYk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185.5" y="994"/>
+            <point key="canvasLocation" x="1185.5" y="993.5"/>
         </scene>
         <!--Post Viewer View Controller-->
         <scene sceneID="8ri-v8-d4X">
@@ -430,7 +430,7 @@
                                         <view horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
-                                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
+                                                <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 </stackView>
                                             </subviews>
@@ -454,7 +454,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="dfD-fT-ocs">
-                                    <rect key="frame" x="434" y="0.0" width="16" height="300"/>
+                                    <rect key="frame" x="435" y="0.0" width="15" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>

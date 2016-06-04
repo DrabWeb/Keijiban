@@ -275,6 +275,9 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         
         // Update the tab view
         updatePostViewersTabView();
+        
+        // Call tabsControlTabSelectionChanged
+        tabsControlTabSelectionChanged();
     }
     
     func tabControl(tabControl: LITabControl!, canEditItem item: AnyObject!) -> Bool {
