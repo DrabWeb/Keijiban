@@ -259,7 +259,9 @@
 
 - (NSRect)drawTitle:(NSAttributedString*)title withFrame:(NSRect)frame inView:(NSView*)controlView {
     NSRect titleRect = [self titleRectForBounds:frame];
+    
     [title drawInRect:titleRect];
+    
     return titleRect;
 }
 

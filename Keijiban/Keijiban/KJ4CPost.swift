@@ -332,17 +332,14 @@ class KJ4CPost: NSObject {
         
         self.comment = json["com"].stringValue;
         
-        // Format the comment
-        self.comment = self.comment.stringByReplacingOccurrencesOfString("<br>", withString: "\n");
+        // Clean the comment
+        self.comment = self.comment.cleanedString;
         
-        // What is the of &#X; called? Maybe there is a way to remove it already made. All I know is what some of them stand for
-        self.comment = self.comment.stringByReplacingOccurrencesOfString("&#039;", withString: "'");
-        self.comment = self.comment.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
-        self.comment = self.comment.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
-        self.comment = self.comment.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
+        // Clean the name
+        self.name = self.name.cleanedString;
         
         // Update the comment to tag if a post is quoting OP
-        self.comment = self.comment.stringByReplacingOccurrencesOfString(String(inThread), withString: "\(inThread)(OP)");
+        self.comment = self.comment.stringByReplacingOccurrencesOfString(">>\(String(inThread))", withString: ">>\(inThread)(OP)");
     }
 }
 
@@ -503,12 +500,8 @@ class KJ4COPPost: KJ4CPost {
         if(json["sub"].exists()) {
             self.subject = json["sub"].stringValue;
             
-            // Format the subject
-            self.subject = self.subject.stringByReplacingOccurrencesOfString("<br>", withString: "\n");
-            self.subject = self.subject.stringByReplacingOccurrencesOfString("&#039;", withString: "'");
-            self.subject = self.subject.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
-            self.subject = self.subject.stringByReplacingOccurrencesOfString("&lt;", withString: "<");
-            self.subject = self.subject.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
+            // Clean the subject
+            self.subject = self.subject.cleanedString;
         }
         
         self.imageCount = json["images"].intValue;

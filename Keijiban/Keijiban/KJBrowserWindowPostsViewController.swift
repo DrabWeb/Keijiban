@@ -272,6 +272,9 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     func tabControlDidReorderItems(tabControl: LITabControl!, orderedItems itemArray: [AnyObject]!) {
         // Set tabs to the given array as an array of KJBrowserWindowPostsTabItems
         tabs = itemArray as! [KJBrowserWindowPostsTabItem];
+        
+        // Update the tab view
+        updatePostViewersTabView();
     }
     
     func tabControl(tabControl: LITabControl!, canEditItem item: AnyObject!) -> Bool {
