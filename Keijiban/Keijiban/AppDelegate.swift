@@ -37,6 +37,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// View/Toggle Sidebar (⇧⌘L)
     @IBOutlet weak var menuItemToggleSidebar: NSMenuItem!
     
+    /// View/Toggle Titlebar (⌥⌘T)
+    @IBOutlet weak var menuItemToggleTitlebar: NSMenuItem!
+    
     /// View/Tabs/Tab 1 (⌘1)
     @IBOutlet weak var menuItemTabsTabOne: NSMenuItem!
     
@@ -92,6 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Set the actions
         menuItemClose.action = Selector("closeAction");
         menuItemToggleSidebar.action = Selector("toggleSidebarAction");
+        menuItemToggleTitlebar.action = Selector("actionToggleTitlebar");
         
         menuItemTabsTabOne.action = Selector("actionJumpToTabOne");
         menuItemTabsTabTwo.action = Selector("actionJumpToTabTwo");

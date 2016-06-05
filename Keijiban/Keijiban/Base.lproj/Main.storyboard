@@ -166,6 +166,9 @@
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
                                     <items>
                                         <menuItem title="Toggle Sidebar" keyEquivalent="L" id="czH-cD-X6Q"/>
+                                        <menuItem title="Toggle Titlebar" keyEquivalent="t" id="8BX-GE-W8S">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="FhZ-tp-Ocv"/>
                                         <menuItem title="Tabs" id="XfU-JP-DGT">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -245,6 +248,7 @@
                         <outlet property="menuItemTabsTabThree" destination="tlS-2q-muu" id="kWr-A0-SUQ"/>
                         <outlet property="menuItemTabsTabTwo" destination="rKi-yu-7b3" id="0M4-gC-huH"/>
                         <outlet property="menuItemToggleSidebar" destination="czH-cD-X6Q" id="BcI-Ol-Vzz"/>
+                        <outlet property="menuItemToggleTitlebar" destination="8BX-GE-W8S" id="ery-sh-mF9"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -557,7 +561,6 @@
                                         <rect key="frame" x="553" y="8" width="21" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="WtT-2E-1id"/>
-                                            <constraint firstAttribute="height" constant="21" id="mrI-UJ-eZ3"/>
                                         </constraints>
                                         <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="KJSearchIcon" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="gax-1u-j5y">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -581,7 +584,6 @@
                                         <rect key="frame" x="582" y="8" width="21" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="JpH-Sr-se0"/>
-                                            <constraint firstAttribute="height" constant="21" id="vqi-NH-Ww5"/>
                                         </constraints>
                                         <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="W6l-fc-8p4">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -622,6 +624,7 @@
                         <outlet property="titlebarBoardChooserPoupButtonLeftConstraint" destination="rJs-GD-dfn" id="NyE-S5-w17"/>
                         <outlet property="titlebarToggleSidebarButton" destination="FU9-X4-4ra" id="VHn-Dc-7Az"/>
                         <outlet property="titlebarVisualEffectView" destination="cxU-wt-KwZ" id="2HH-kE-xJP"/>
+                        <outlet property="titlebarVisualEffectViewTopConstraint" destination="Bvq-Z2-flY" id="8i1-GL-Bpe"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

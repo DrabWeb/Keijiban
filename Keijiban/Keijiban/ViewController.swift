@@ -20,6 +20,9 @@ class ViewController: NSViewController, NSWindowDelegate {
     /// The visual effect view for the titlebar of the window
     @IBOutlet var titlebarVisualEffectView: NSVisualEffectView!
     
+    /// The top constraint for titlebarVisualEffectView
+    @IBOutlet var titlebarVisualEffectViewTopConstraint: NSLayoutConstraint!
+    
     /// The split view controller for the content of this window(Sidebar and posts)
     var contentSplitViewController: KJBrowserWindowSplitViewController!
     
@@ -73,6 +76,50 @@ class ViewController: NSViewController, NSWindowDelegate {
         updateSidebarToggleButton();
     }
     
+    /// Is the titlebar visible?
+    var titlebarVisible : Bool = true;
+    
+    /// Toggles the visibility of the titlebar
+    func toggleTitlebar() {
+        // Toggle titlebarVisible
+        titlebarVisible = !titlebarVisible;
+        
+        // If the titlebar is now visible...
+        if(titlebarVisible) {
+            // Show the titlebar
+            showTitlebar();
+        }
+        // If the titlebar is now hidden...
+        else {
+            // Hide the titlebar
+            hideTitlebar();
+        }
+    }
+    
+    /// Hides the titlebar
+    func hideTitlebar() {
+        // Change the animation speed
+        NSAnimationContext.currentContext().duration = 0.1;
+        
+        // Animate up the titlebar
+        titlebarVisualEffectViewTopConstraint.animator().constant = -37;
+        
+        // Fade out the window buttons
+        window.standardWindowButton(.CloseButton)?.superview?.superview?.animator().alphaValue = 0;
+    }
+    
+    /// Shows the titlebar
+    func showTitlebar() {
+        // Change the animation speed
+        NSAnimationContext.currentContext().duration = 0.1;
+        
+        // Animate down the titlebar
+        titlebarVisualEffectViewTopConstraint.animator().constant = 0;
+        
+        // Fade in the window buttons
+        window.standardWindowButton(.CloseButton)?.superview?.superview?.animator().alphaValue = 1;
+    }
+    
     /// Called when the user does CMD+T. Adds a new tab
     func newTabAction() {
         // Add a new tab
@@ -97,6 +144,12 @@ class ViewController: NSViewController, NSWindowDelegate {
     func toggleSidebarAction() {
         // Toggle the sidebar
         toggleSidebar();
+    }
+    
+    /// Called when the user pressed CMD+ALT+T. Toggles the titlebar
+    func actionToggleTitlebar() {
+        // Toggle the titlebar
+        toggleTitlebar();
     }
     
     override func viewDidLoad() {
@@ -190,7 +243,6 @@ class ViewController: NSViewController, NSWindowDelegate {
         // Update the sidebar toggle button
         updateSidebarToggleButton();
     }
-    
     
     /// Called when the user presses CMD+1. Tries to jump to tab 1
     func actionJumpToTabOne() {
