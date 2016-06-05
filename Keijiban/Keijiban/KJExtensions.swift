@@ -27,3 +27,44 @@ extension String {
         return cleanedString;
     }
 }
+
+extension NSImage {
+    /// Returns this image overlayed with the given color
+    func withColorOverlay(overlayColor : NSColor) -> NSImage {
+        /// This image with the color overlay
+        let coloredImage : NSImage = self.copy() as! NSImage;
+        
+        /// The pixel size of this image
+        let imageSize : NSSize = self.pixelSize;
+        
+        // Lock drawing focus on coloredImage
+        coloredImage.lockFocus();
+        
+        // Draw the image
+        coloredImage.drawInRect(NSRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height), fromRect: NSRect.zero, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1);
+        
+        // Set the overlay color
+        overlayColor.set();
+        
+        // Fill the image with the overlay color
+        NSRectFillUsingOperation(NSRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height), NSCompositingOperation.CompositeSourceAtop);
+        
+        // Unlock drawing focus on coloredImage
+        coloredImage.unlockFocus();
+        
+        // Return the new image
+        return coloredImage;
+    }
+    
+    /// The pixel size of this image
+    var pixelSize : NSSize {
+        /// The NSBitmapImageRep to the image
+        let imageRep : NSBitmapImageRep = (NSBitmapImageRep(data: self.TIFFRepresentation!))!;
+        
+        /// The size of the iamge
+        let imageSize : NSSize = NSSize(width: imageRep.pixelsWide, height: imageRep.pixelsHigh);
+        
+        // Return the image size
+        return imageSize;
+    }
+}

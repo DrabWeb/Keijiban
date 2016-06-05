@@ -12,8 +12,14 @@ class KJThemingEngine {
     /// The color for the background of a post view
     var backgroundColor : NSColor = NSColor(hexString: "#1D1F21")!;
     
-    /// The default text color(Used for comments, poster info, ETC.)
-    var textColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    /// The text color for comments
+    var commentTextColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    
+    /// The text color for the poster info labels
+    var posterInfoTextColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    
+    /// The color for the reply button on post views
+    var replyButtonColor : NSColor = NSColor(hexString: "#C5C8C6,0.5")!;
     
     /// The text color for the file info text field in post views
     var fileInfoTextColor : NSColor = NSColor(hexString: "#C5C8C6,0.5")!;

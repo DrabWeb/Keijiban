@@ -28,7 +28,7 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         // Theme the view
-        self.textField?.textColor = KJThemingEngine().defaultEngine().textColor;
+        self.textField?.textColor = KJThemingEngine().defaultEngine().commentTextColor;
         imageReplyCountTextField.textColor = KJThemingEngine().defaultEngine().catalogItemImageReplyCountTextColor;
     }
 }

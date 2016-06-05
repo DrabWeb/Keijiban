@@ -304,7 +304,7 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="og9-H9-n0J" userLabel="Cell"/>
                                     </imageView>
                                     <textField horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZkA-9w-Ag5" userLabel="Poster Info Text Field">
-                                        <rect key="frame" x="118" y="147" width="395" height="17"/>
+                                        <rect key="frame" x="118" y="147" width="378" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tOe-td-5CZ"/>
                                         </constraints>
@@ -343,8 +343,20 @@
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <font key="titleFont" metaFont="system"/>
                                     </box>
+                                    <button toolTip="Reply to post" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7xS-o9-3qP" userLabel="Reply Button">
+                                        <rect key="frame" x="499" y="147" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="6oF-pf-QT2"/>
+                                            <constraint firstAttribute="width" constant="17" id="iaG-T2-Nu6"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="KJReplyIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="8u2-uf-cqK">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="7xS-o9-3qP" firstAttribute="top" secondItem="DHm-7F-rU2" secondAttribute="top" constant="5" id="9S6-e1-NSP"/>
                                     <constraint firstItem="ZkA-9w-Ag5" firstAttribute="leading" secondItem="DHm-7F-rU2" secondAttribute="leading" constant="120" id="Bmh-JB-AQ3"/>
                                     <constraint firstItem="ZkA-9w-Ag5" firstAttribute="top" secondItem="DHm-7F-rU2" secondAttribute="top" constant="5" id="EIt-jg-pbc"/>
                                     <constraint firstAttribute="bottom" secondItem="V9f-hf-rk7" secondAttribute="bottom" id="GZK-fG-vfa"/>
@@ -357,11 +369,12 @@
                                     <constraint firstItem="avv-5y-geO" firstAttribute="leading" secondItem="vKI-AZ-kdz" secondAttribute="trailing" constant="10" id="Yqa-PR-nQP"/>
                                     <constraint firstAttribute="trailing" secondItem="V9f-hf-rk7" secondAttribute="trailing" id="dVw-i0-2tj"/>
                                     <constraint firstAttribute="trailing" secondItem="sEO-XN-6pd" secondAttribute="trailing" constant="10" id="fKn-Nk-xdO"/>
+                                    <constraint firstItem="7xS-o9-3qP" firstAttribute="leading" secondItem="ZkA-9w-Ag5" secondAttribute="trailing" constant="5" id="geS-e6-TWA"/>
                                     <constraint firstItem="vKI-AZ-kdz" firstAttribute="centerY" secondItem="DHm-7F-rU2" secondAttribute="centerY" id="obK-Yj-smm"/>
                                     <constraint firstItem="avv-5y-geO" firstAttribute="top" secondItem="ZkA-9w-Ag5" secondAttribute="bottom" constant="2" id="occ-SL-eUo"/>
                                     <constraint firstAttribute="bottom" secondItem="sEO-XN-6pd" secondAttribute="bottom" constant="12" id="rJP-gy-6Qs"/>
                                     <constraint firstItem="sEO-XN-6pd" firstAttribute="top" secondItem="avv-5y-geO" secondAttribute="bottom" id="rYS-yr-27m"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZkA-9w-Ag5" secondAttribute="trailing" constant="10" id="syU-In-kLc"/>
+                                    <constraint firstAttribute="trailing" secondItem="7xS-o9-3qP" secondAttribute="trailing" constant="5" id="yMb-8G-5Dc"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="bottomSeparator" destination="V9f-hf-rk7" id="kDG-ei-LoF"/>
@@ -372,6 +385,7 @@
                                     <outlet property="fileInfoTextFieldHeightConstraint" destination="pLz-rG-HNc" id="dnD-D9-W9C"/>
                                     <outlet property="posterInfoTextField" destination="ZkA-9w-Ag5" id="77f-c6-nDd"/>
                                     <outlet property="posterInfoTextFieldLeftConstraint" destination="Bmh-JB-AQ3" id="Zc1-lG-YbQ"/>
+                                    <outlet property="replyButton" destination="7xS-o9-3qP" id="Ihd-WE-AMI"/>
                                     <outlet property="thumbnailImageView" destination="vKI-AZ-kdz" id="4Ox-9S-WOp"/>
                                 </connections>
                             </customView>
@@ -430,7 +444,7 @@
                                         <view horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
-                                                <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
+                                                <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 </stackView>
                                             </subviews>
@@ -454,7 +468,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="dfD-fT-ocs">
-                                    <rect key="frame" x="435" y="0.0" width="15" height="300"/>
+                                    <rect key="frame" x="434" y="0.0" width="16" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -500,10 +514,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="UoX-6a-bXZ" userLabel="Background Visual Effect View">
-                                <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="640" height="443"/>
                                 <subviews>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="EA9-Bd-bcp" userLabel="Content Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="640" height="443"/>
                                         <connections>
                                             <segue destination="piV-DZ-lxw" kind="embed" identifier="contentSplitViewControllerSegue" id="5NX-Je-q0K"/>
                                         </connections>
@@ -516,7 +530,7 @@
                                     <constraint firstItem="EA9-Bd-bcp" firstAttribute="leading" secondItem="UoX-6a-bXZ" secondAttribute="leading" id="jYn-kX-lg6"/>
                                 </constraints>
                             </visualEffectView>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-wt-KwZ" userLabel="Titlebar Visual Effect View">
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" state="inactive" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-wt-KwZ" userLabel="Titlebar Visual Effect View">
                                 <rect key="frame" x="0.0" y="443" width="640" height="37"/>
                                 <subviews>
                                     <popUpButton focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="IWD-3H-CF7" userLabel="Board Chooser">
@@ -593,11 +607,11 @@
                             </visualEffectView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="UoX-6a-bXZ" firstAttribute="top" secondItem="cxU-wt-KwZ" secondAttribute="bottom" id="121-b4-Fse"/>
                             <constraint firstItem="cxU-wt-KwZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Bvq-Z2-flY"/>
                             <constraint firstAttribute="trailing" secondItem="UoX-6a-bXZ" secondAttribute="trailing" id="FoB-HX-9od"/>
                             <constraint firstAttribute="bottom" secondItem="UoX-6a-bXZ" secondAttribute="bottom" id="Pqq-Fo-wB5"/>
                             <constraint firstItem="UoX-6a-bXZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="ed8-Iu-18a"/>
-                            <constraint firstItem="UoX-6a-bXZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="mbD-ez-6Q1"/>
                             <constraint firstAttribute="trailing" secondItem="cxU-wt-KwZ" secondAttribute="trailing" id="r5O-Vx-qMX"/>
                             <constraint firstItem="cxU-wt-KwZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="wSp-yr-8Mc"/>
                         </constraints>
@@ -763,7 +777,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="eej-2v-z8g" userLabel="Tab Bar">
-                                <rect key="frame" x="0.0" y="239" width="450" height="24"/>
+                                <rect key="frame" x="0.0" y="276" width="450" height="24"/>
                                 <subviews>
                                     <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="jqg-Vc-HAD" userLabel="Tab Background Visual Effect View">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="24"/>
@@ -788,7 +802,7 @@
                                 </constraints>
                             </customView>
                             <tabView appearanceType="aqua" horizontalCompressionResistancePriority="250" drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-0N-cXt" userLabel="Post Viewers Tab View">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="239"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="276"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>
                             </tabView>
@@ -796,7 +810,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qvp-0N-cXt" secondAttribute="trailing" id="6WY-bd-9Es"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
-                            <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" constant="37" id="INp-9G-rcV"/>
+                            <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="INp-9G-rcV"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="bottom" id="bf9-YQ-8YC"/>
                             <constraint firstAttribute="bottom" secondItem="Qvp-0N-cXt" secondAttribute="bottom" id="drf-bG-2DR"/>
                             <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
@@ -840,7 +854,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="cT5-U5-2r8"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="R: 00 / I: 00" id="3lU-9B-iYm">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="R: 000 / I: 000" id="3lU-9B-iYm">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -887,6 +901,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="KJReplyIcon" width="256" height="256"/>
         <image name="KJSearchIcon" width="256" height="256"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSCaution" width="32" height="32"/>

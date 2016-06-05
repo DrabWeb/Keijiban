@@ -465,7 +465,7 @@ class KJ4COPPost: KJ4CPost {
                 attributedComment.addAttribute(NSFontAttributeName, value: NSFont.boldSystemFontOfSize(13), range: NSMakeRange(0, self.subject.characters.count));
                 
                 // Make the subject the default text color(Quotes and stuff color it)
-                attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().textColor, range: NSMakeRange(0, self.subject.characters.count + 2));
+                attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().commentTextColor, range: NSMakeRange(0, self.subject.characters.count + 2));
             }
         }
         

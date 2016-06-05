@@ -25,6 +25,9 @@ class KJPostViewerThreadPostView: NSView {
     /// The constraint for the left side of posterInfoTextField
     @IBOutlet var posterInfoTextFieldLeftConstraint: NSLayoutConstraint!
     
+    /// The button to click for replying to this post
+    @IBOutlet var replyButton: NSButton!
+    
     /// The text field for the post's comment
     @IBOutlet var commentTextField: NSTextField!
     
@@ -139,11 +142,12 @@ class KJPostViewerThreadPostView: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect);
         
-        // Thme everything
+        // Theme everything
         self.layer?.backgroundColor = KJThemingEngine().defaultEngine().backgroundColor.CGColor;
         self.fileInfoTextField.textColor = KJThemingEngine().defaultEngine().fileInfoTextColor;
-        self.commentTextField.textColor = KJThemingEngine().defaultEngine().textColor;
-        self.posterInfoTextField.textColor = KJThemingEngine().defaultEngine().textColor;
+        self.commentTextField.textColor = KJThemingEngine().defaultEngine().commentTextColor;
+        self.posterInfoTextField.textColor = KJThemingEngine().defaultEngine().posterInfoTextColor;
         self.bottomSeparator.layer?.backgroundColor = KJThemingEngine().defaultEngine().postSeparatorColor.CGColor;
+        self.replyButton.image = self.replyButton.image!.withColorOverlay(KJThemingEngine().defaultEngine().replyButtonColor);
     }
 }
