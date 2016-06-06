@@ -65,5 +65,8 @@ class KJ4CThread {
                 posts.append(KJ4CPost(json: currentPost.1, board: self.board!));
             }
         }
+        
+        // Process the post's replies and replies to
+        KJ4CUtilities().processPostReplies(allPosts);
     }
 }

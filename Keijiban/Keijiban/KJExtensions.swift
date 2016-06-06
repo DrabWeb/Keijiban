@@ -68,3 +68,23 @@ extension NSImage {
         return imageSize;
     }
 }
+
+extension Array where Element:KJ4CPost {
+    /// Returns the KJ4CPost with the given post number in this array(If there is none it returns nil)
+    func findPostByNumber(postNumber : Int) -> KJ4CPost? {
+        /// The post that was possibly found in this array
+        var foundPost : KJ4CPost? = nil;
+        
+        // For every post in this array...
+        for(_, currentPost) in self.enumerate() {
+            // If the current post's post number is equal to the given post number...
+            if(currentPost.postNumber == postNumber) {
+                // Set foundPost to this post
+                foundPost = currentPost;
+            }
+        }
+        
+        // Return the post
+        return foundPost;
+    }
+}

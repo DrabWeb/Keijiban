@@ -234,7 +234,7 @@ class KJPostViewerViewController: NSViewController {
         newPostView.displayInfoFromPost(post, displayImage: displayImage);
         
         // Add the post view to postsViewerStackView
-        postsViewerStackView.addView(newPostView, inGravity: .Top);
+        postsViewerStackView.addView(newPostView, inGravity: NSStackViewGravity.Top);
         
         // Add the leading and trailing constraints
         /// The constraint for the trailing edge of newPostView

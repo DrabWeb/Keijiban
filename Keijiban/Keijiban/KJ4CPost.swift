@@ -28,6 +28,12 @@ class KJ4CPost: NSObject {
     /// The time this post was made(In UNIX epoch time)
     var postTime : Int = -1;
     
+    /// The replies to this post
+    var replies : [KJ4CPost] = [];
+    
+    /// The posts this post replies to
+    var repliesTo : [KJ4CPost] = [];
+    
     /// Does this post have a file?
     var hasFile : Bool = false;
     
