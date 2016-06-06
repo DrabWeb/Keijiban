@@ -9,6 +9,9 @@
 import Cocoa
 
 class KJPostViewerThreadPostView: NSView {
+    
+    /// The view that should hold any KJPostRepliesViewerView created by this post view
+    var repliesViewerViewContainer : NSView? = nil;
 
     /// The image view for the post's thumbnail image
     @IBOutlet var thumbnailImageView: KJRasterizedAsyncImageView!
@@ -30,6 +33,17 @@ class KJPostViewerThreadPostView: NSView {
     
     /// The button that shows how many replies the post has and lets you see the post's replies when clicked
     @IBOutlet var repliesButton: KJColoredTitleButton!
+    
+    // When the user presses repliesButton...
+    @IBAction func repliesButtonPressed(sender : NSButton) {
+        let newRepliesViewerView : KJPostRepliesViewerView = NSStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateControllerWithIdentifier("postRepliesViewerViewController").view.subviews[0] as! KJPostRepliesViewerView;
+        
+        repliesViewerViewContainer!.addSubview(newRepliesViewerView);
+        
+        newRepliesViewerView.addOuterConstraints();
+        
+        newRepliesViewerView.displayRepliesFromPost(representedPost!, darkenBackground: true);
+    }
     
     /// Thew width constraint for repliesButton
     @IBOutlet var repliesButtonWidthConstraint: NSLayoutConstraint!

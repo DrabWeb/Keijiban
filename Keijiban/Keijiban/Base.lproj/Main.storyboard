@@ -284,6 +284,65 @@
             </objects>
             <point key="canvasLocation" x="75" y="4"/>
         </scene>
+        <!--Post Replies View Controller-->
+        <scene sceneID="3Ar-4C-bMf">
+            <objects>
+                <viewController storyboardIdentifier="postRepliesViewerViewController" id="Ou9-0Q-gFM" userLabel="Post Replies View Controller" sceneMemberID="viewController">
+                    <view key="view" id="Qm4-kS-yeD">
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="PJi-7h-hn9" userLabel="Post Replies Viewer View" customClass="KJPostRepliesViewerView" customModule="Keijiban" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                                <subviews>
+                                    <button horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OV5-jh-oIO" userLabel="Dismiss Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="Km3-nC-jiX">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="dismissButtonPressed:" target="PJi-7h-hn9" id="qnW-Vo-dBS"/>
+                                        </connections>
+                                    </button>
+                                    <customView verticalHuggingPriority="750" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="Dw8-3N-FdE" userLabel="Viewing Replies For Post">
+                                        <rect key="frame" x="20" y="360" width="600" height="100"/>
+                                    </customView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="9bv-iK-SOe" userLabel="Replies Container">
+                                        <rect key="frame" x="20" y="20" width="600" height="330"/>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Dw8-3N-FdE" firstAttribute="top" secondItem="PJi-7h-hn9" secondAttribute="top" constant="20" id="DxK-U0-fav"/>
+                                    <constraint firstItem="OV5-jh-oIO" firstAttribute="top" secondItem="PJi-7h-hn9" secondAttribute="top" id="HPz-2Z-ZU0"/>
+                                    <constraint firstAttribute="bottom" secondItem="OV5-jh-oIO" secondAttribute="bottom" id="Yoj-fS-aXs"/>
+                                    <constraint firstAttribute="trailing" secondItem="9bv-iK-SOe" secondAttribute="trailing" constant="20" id="a46-U2-XW0"/>
+                                    <constraint firstItem="9bv-iK-SOe" firstAttribute="top" secondItem="Dw8-3N-FdE" secondAttribute="bottom" constant="10" id="aFh-5Z-lFk"/>
+                                    <constraint firstAttribute="bottom" secondItem="9bv-iK-SOe" secondAttribute="bottom" constant="20" id="ccZ-Pn-Uop"/>
+                                    <constraint firstItem="9bv-iK-SOe" firstAttribute="leading" secondItem="PJi-7h-hn9" secondAttribute="leading" constant="20" id="fhP-fB-IWf"/>
+                                    <constraint firstItem="OV5-jh-oIO" firstAttribute="leading" secondItem="PJi-7h-hn9" secondAttribute="leading" id="kt7-3m-cdp"/>
+                                    <constraint firstAttribute="trailing" secondItem="OV5-jh-oIO" secondAttribute="trailing" id="pLX-2S-i9F"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dw8-3N-FdE" secondAttribute="trailing" constant="20" id="qQb-q9-mxO"/>
+                                    <constraint firstItem="Dw8-3N-FdE" firstAttribute="leading" secondItem="PJi-7h-hn9" secondAttribute="leading" constant="20" id="uMW-VR-vIA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="repliesContainer" destination="9bv-iK-SOe" id="z6u-NQ-Zif"/>
+                                    <outlet property="viewingRepliesForPostViewContainer" destination="Dw8-3N-FdE" id="tTN-LO-ZWW"/>
+                                </connections>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="PJi-7h-hn9" firstAttribute="top" secondItem="Qm4-kS-yeD" secondAttribute="top" id="C1i-qQ-97P"/>
+                            <constraint firstItem="PJi-7h-hn9" firstAttribute="leading" secondItem="Qm4-kS-yeD" secondAttribute="leading" id="TwB-TS-VZs"/>
+                            <constraint firstAttribute="bottom" secondItem="PJi-7h-hn9" secondAttribute="bottom" id="Uqk-be-6of"/>
+                            <constraint firstAttribute="trailing" secondItem="PJi-7h-hn9" secondAttribute="trailing" id="dR1-Rc-nKl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="ioj-Mm-I6r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1185" y="589"/>
+        </scene>
         <!--Posts Viewer Post View Controller Template-->
         <scene sceneID="Vb5-4U-DpK">
             <objects>
@@ -368,6 +427,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="repliesButtonPressed:" target="DHm-7F-rU2" id="1PJ-NF-i6k"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -419,7 +481,7 @@
                 </viewController>
                 <customObject id="0PG-Oi-cYk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185.5" y="993.5"/>
+            <point key="canvasLocation" x="1185.5" y="981.5"/>
         </scene>
         <!--Post Viewer View Controller-->
         <scene sceneID="8ri-v8-d4X">
@@ -456,14 +518,14 @@
                             </scrollView>
                             <scrollView hidden="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-r9-FpL" userLabel="Scroll View - Posts Viewer Stack View">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="u2x-w8-2eE">
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="u2x-w8-2eE" customClass="KJFloatAtTopClipView" customModule="Keijiban" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-dS-30K" userLabel="View">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <subviews>
-                                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
+                                                <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="300" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ji-97-duZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 </stackView>
                                             </subviews>
@@ -487,7 +549,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="dfD-fT-ocs">
-                                    <rect key="frame" x="434" y="0.0" width="16" height="300"/>
+                                    <rect key="frame" x="435" y="0.0" width="15" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -915,7 +977,7 @@
                 <customObject id="eIt-gh-8At" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="QLd-TA-Iag"/>
             </objects>
-            <point key="canvasLocation" x="1568" y="1288"/>
+            <point key="canvasLocation" x="1585" y="1288"/>
         </scene>
     </scenes>
     <resources>

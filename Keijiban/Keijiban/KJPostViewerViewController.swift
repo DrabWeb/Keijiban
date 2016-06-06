@@ -230,6 +230,9 @@ class KJPostViewerViewController: NSViewController {
         /// The new post view item for the stack view
         let newPostView : KJPostViewerThreadPostView = (storyboard!.instantiateControllerWithIdentifier("postsViewerPostViewControllerTemplate") as! NSViewController).view.subviews[0] as! KJPostViewerThreadPostView;
         
+        // Set the post view's replies viewer view container
+        newPostView.repliesViewerViewContainer = self.view;
+        
         // Display the post's info in the new post view
         newPostView.displayInfoFromPost(post, displayImage: displayImage);
         

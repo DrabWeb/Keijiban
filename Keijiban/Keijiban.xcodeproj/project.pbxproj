@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0A418A1D0628CB0070C452 /* KJFloatAtTopScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A41891D0628CB0070C452 /* KJFloatAtTopScrollView.swift */; };
 		5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F351CF786FA00BF41FE /* LITabCell.m */; };
 		5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F371CF786FA00BF41FE /* LITabControl.m */; };
 		5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */; };
 		5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */; };
 		5D2AE0B91D032B8E00B5A7B4 /* KJExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AE0B81D032B8E00B5A7B4 /* KJExtensions.swift */; };
 		5D2E1F0D1D0607BD00D4802A /* KJColoredTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */; };
+		5D2E1F0F1D06141500D4802A /* KJPostRepliesViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E1F0E1D06141500D4802A /* KJPostRepliesViewerView.swift */; };
 		5D7957BF1CF9F51C00CFE83E /* KJConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7957BE1CF9F51C00CFE83E /* KJConstants.swift */; };
 		5D7B17E61CFA11130062705C /* KJ4CUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B17E51CFA11130062705C /* KJ4CUtilities.swift */; };
 		5D7B52A21CFB4DB80033D2D4 /* KJRasterizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B52A11CFB4DB80033D2D4 /* KJRasterizedImageView.swift */; };
@@ -69,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		306B504F624CC5439ADE3E07 /* Pods-Keijiban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keijiban.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keijiban/Pods-Keijiban.release.xcconfig"; sourceTree = "<group>"; };
+		5D0A41891D0628CB0070C452 /* KJFloatAtTopScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJFloatAtTopScrollView.swift; sourceTree = "<group>"; };
 		5D120F1E1CF7867B00BF41FE /* Keijiban-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keijiban-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D120F341CF786FA00BF41FE /* LITabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITabCell.h; sourceTree = "<group>"; };
 		5D120F351CF786FA00BF41FE /* LITabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LITabCell.m; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPostsTabItem.swift; sourceTree = "<group>"; };
 		5D2AE0B81D032B8E00B5A7B4 /* KJExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJExtensions.swift; sourceTree = "<group>"; };
 		5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJColoredTitleButton.swift; sourceTree = "<group>"; };
+		5D2E1F0E1D06141500D4802A /* KJPostRepliesViewerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPostRepliesViewerView.swift; sourceTree = "<group>"; };
 		5D7957BE1CF9F51C00CFE83E /* KJConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJConstants.swift; sourceTree = "<group>"; };
 		5D7B17E51CFA11130062705C /* KJ4CUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJ4CUtilities.swift; sourceTree = "<group>"; };
 		5D7B52A11CFB4DB80033D2D4 /* KJRasterizedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJRasterizedImageView.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 				5D7B52A11CFB4DB80033D2D4 /* KJRasterizedImageView.swift */,
 				5DBE947D1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift */,
 				5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */,
+				5D0A41891D0628CB0070C452 /* KJFloatAtTopScrollView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */,
 				5D7B52A71CFB548D0033D2D4 /* KJPostViewerCatalogCollectionViewItem.swift */,
 				5DD050871CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift */,
+				5D2E1F0E1D06141500D4802A /* KJPostRepliesViewerView.swift */,
 			);
 			name = Posts;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				5D8485521CFA11CD008A0F8F /* SwiftyJSON.swift in Sources */,
 				5DF1B3F81CFCE81700DF15E1 /* KJThemingEngine.swift in Sources */,
 				5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */,
+				5D2E1F0F1D06141500D4802A /* KJPostRepliesViewerView.swift in Sources */,
 				5D7B52A21CFB4DB80033D2D4 /* KJRasterizedImageView.swift in Sources */,
 				5DC106401CFA146C00F471A9 /* PXSourceList.m in Sources */,
 				5DD050881CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift in Sources */,
@@ -707,6 +714,7 @@
 				5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */,
 				5DC1063E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m in Sources */,
 				5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */,
+				5D0A418A1D0628CB0070C452 /* KJFloatAtTopScrollView.swift in Sources */,
 				5DF1B3FA1CFCE85F00DF15E1 /* NSColorFromHex.swift in Sources */,
 				5D2AE0B91D032B8E00B5A7B4 /* KJExtensions.swift in Sources */,
 				5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */,
