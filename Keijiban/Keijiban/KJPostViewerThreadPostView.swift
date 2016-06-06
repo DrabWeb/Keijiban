@@ -28,6 +28,12 @@ class KJPostViewerThreadPostView: NSView {
     /// The button to click for replying to this post
     @IBOutlet var replyButton: NSButton!
     
+    /// The button that shows how many replies the post has and lets you see the post's replies when clicked
+    @IBOutlet var repliesButton: KJColoredTitleButton!
+    
+    /// Thew width constraint for repliesButton
+    @IBOutlet var repliesButtonWidthConstraint: NSLayoutConstraint!
+    
     /// The text field for the post's comment
     @IBOutlet var commentTextField: NSTextField!
     
@@ -123,6 +129,42 @@ class KJPostViewerThreadPostView: NSView {
             commentTextFieldLeftConstraint.constant = 10;
         }
         
+        // Update the replies button's title
+        repliesButton.title = String(post.replies.count);
+        
+        // If the given post has any replies...
+        if(post.replies.count > 0) {
+            // Update the width constraint for the replies button
+            // Yes I know im cheating with constant values, but it works
+            // Each value has two extra pixels for spacing
+            // One character - 32
+            // Two characters - 49
+            // Three characters - 47
+            // Four characters - 55
+            
+            switch(String(post.replies.count).characters.count) {
+                case 1:
+                    repliesButtonWidthConstraint.constant = 32;
+                    break;
+                case 2:
+                    repliesButtonWidthConstraint.constant = 39;
+                    break;
+                case 3:
+                    repliesButtonWidthConstraint.constant = 47;
+                    break;
+                case 4:
+                    repliesButtonWidthConstraint.constant = 55;
+                    break;
+                default:
+                    break;
+            }
+        }
+        // If the given post doesnt have any replies...
+        else {
+            // Set the replies button's width constraint to 0
+            repliesButtonWidthConstraint.constant = 0;
+        }
+        
         // Display the poster info in the poster info text field
         posterInfoTextField.attributedStringValue = post.attributedPosterInfo;
         
@@ -149,5 +191,7 @@ class KJPostViewerThreadPostView: NSView {
         self.posterInfoTextField.textColor = KJThemingEngine().defaultEngine().posterInfoTextColor;
         self.bottomSeparator.layer?.backgroundColor = KJThemingEngine().defaultEngine().postSeparatorColor.CGColor;
         self.replyButton.image = self.replyButton.image!.withColorOverlay(KJThemingEngine().defaultEngine().replyButtonColor);
+        self.repliesButton.image = self.repliesButton.image!.withColorOverlay(KJThemingEngine().defaultEngine().repliesButtonColor);
+        self.repliesButton.titleColor = KJThemingEngine().defaultEngine().repliesButtonColor;
     }
 }

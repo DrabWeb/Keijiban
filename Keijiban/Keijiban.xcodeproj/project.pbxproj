@@ -12,6 +12,7 @@
 		5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */; };
 		5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */; };
 		5D2AE0B91D032B8E00B5A7B4 /* KJExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AE0B81D032B8E00B5A7B4 /* KJExtensions.swift */; };
+		5D2E1F0D1D0607BD00D4802A /* KJColoredTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */; };
 		5D7957BF1CF9F51C00CFE83E /* KJConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7957BE1CF9F51C00CFE83E /* KJConstants.swift */; };
 		5D7B17E61CFA11130062705C /* KJ4CUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B17E51CFA11130062705C /* KJ4CUtilities.swift */; };
 		5D7B52A21CFB4DB80033D2D4 /* KJRasterizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B52A11CFB4DB80033D2D4 /* KJRasterizedImageView.swift */; };
@@ -77,6 +78,7 @@
 		5D120F3C1CF786FA00BF41FE /* NSImage+LITabControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+LITabControl.m"; sourceTree = "<group>"; };
 		5D120F451CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJBrowserWindowPostsTabItem.swift; sourceTree = "<group>"; };
 		5D2AE0B81D032B8E00B5A7B4 /* KJExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJExtensions.swift; sourceTree = "<group>"; };
+		5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJColoredTitleButton.swift; sourceTree = "<group>"; };
 		5D7957BE1CF9F51C00CFE83E /* KJConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJConstants.swift; sourceTree = "<group>"; };
 		5D7B17E51CFA11130062705C /* KJ4CUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJ4CUtilities.swift; sourceTree = "<group>"; };
 		5D7B52A11CFB4DB80033D2D4 /* KJRasterizedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJRasterizedImageView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				5D83AB131CF76AAF00B4F81B /* KJNoDividerSplitView.swift */,
 				5D7B52A11CFB4DB80033D2D4 /* KJRasterizedImageView.swift */,
 				5DBE947D1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift */,
+				5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				5DD050881CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift in Sources */,
 				5D83AB141CF76AAF00B4F81B /* KJNoDividerSplitView.swift in Sources */,
 				5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */,
+				5D2E1F0D1D0607BD00D4802A /* KJColoredTitleButton.swift in Sources */,
 				5D120F431CF786FA00BF41FE /* NSImage+LITabControl.m in Sources */,
 				5D7F2E881CFA1580008FFAB2 /* KJ4CBoard.swift in Sources */,
 				5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */,

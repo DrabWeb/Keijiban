@@ -308,7 +308,7 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="og9-H9-n0J" userLabel="Cell"/>
                                     </imageView>
                                     <textField horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZkA-9w-Ag5" userLabel="Poster Info Text Field">
-                                        <rect key="frame" x="118" y="147" width="378" height="17"/>
+                                        <rect key="frame" x="118" y="147" width="336" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tOe-td-5CZ"/>
                                         </constraints>
@@ -338,15 +338,6 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <box verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="V9f-hf-rk7" userLabel="Separator" customClass="KJAlwaysVibrantBox" customModule="Keijiban" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-2" width="521" height="5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="EWD-21-qLy"/>
-                                        </constraints>
-                                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <font key="titleFont" metaFont="system"/>
-                                    </box>
                                     <button toolTip="Reply to this post" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7xS-o9-3qP" userLabel="Reply Button">
                                         <rect key="frame" x="499" y="147" width="17" height="17"/>
                                         <constraints>
@@ -358,12 +349,35 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <box verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="V9f-hf-rk7" userLabel="Separator" customClass="KJAlwaysVibrantBox" customModule="Keijiban" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-2" width="521" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="EWD-21-qLy"/>
+                                        </constraints>
+                                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <font key="titleFont" metaFont="system"/>
+                                    </box>
+                                    <button horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="7J7-Ls-O2P" userLabel="Replies Button" customClass="KJColoredTitleButton" customModule="Keijiban" customModuleProvider="target">
+                                        <rect key="frame" x="457" y="147" width="42" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="CvD-KR-jea"/>
+                                            <constraint firstAttribute="height" constant="17" id="vkl-Om-DX4"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="bevel" title="00" bezelStyle="rounded" image="KJRepliesIcon" imagePosition="left" alignment="left" scrollable="YES" lineBreakMode="clipping" imageScaling="proportionallyUpOrDown" inset="2" id="5Cb-zb-JLF" userLabel="Cell">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="7xS-o9-3qP" firstAttribute="leading" secondItem="7J7-Ls-O2P" secondAttribute="trailing" id="6vl-ip-CFb"/>
+                                    <constraint firstItem="7J7-Ls-O2P" firstAttribute="top" secondItem="DHm-7F-rU2" secondAttribute="top" constant="5" id="7Z5-2O-C4q"/>
                                     <constraint firstItem="7xS-o9-3qP" firstAttribute="top" secondItem="DHm-7F-rU2" secondAttribute="top" constant="5" id="9S6-e1-NSP"/>
                                     <constraint firstItem="ZkA-9w-Ag5" firstAttribute="leading" secondItem="DHm-7F-rU2" secondAttribute="leading" constant="120" id="Bmh-JB-AQ3"/>
                                     <constraint firstItem="ZkA-9w-Ag5" firstAttribute="top" secondItem="DHm-7F-rU2" secondAttribute="top" constant="5" id="EIt-jg-pbc"/>
                                     <constraint firstAttribute="bottom" secondItem="V9f-hf-rk7" secondAttribute="bottom" id="GZK-fG-vfa"/>
+                                    <constraint firstItem="7J7-Ls-O2P" firstAttribute="leading" secondItem="ZkA-9w-Ag5" secondAttribute="trailing" constant="5" id="Gmn-oa-2mU"/>
                                     <constraint firstItem="sEO-XN-6pd" firstAttribute="leading" secondItem="DHm-7F-rU2" secondAttribute="leading" constant="120" id="LWw-cF-agn"/>
                                     <constraint firstAttribute="trailing" secondItem="avv-5y-geO" secondAttribute="trailing" constant="10" id="Pjh-Hg-24h"/>
                                     <constraint firstItem="V9f-hf-rk7" firstAttribute="leading" secondItem="DHm-7F-rU2" secondAttribute="leading" id="RT5-E4-PdK"/>
@@ -373,7 +387,6 @@
                                     <constraint firstItem="avv-5y-geO" firstAttribute="leading" secondItem="vKI-AZ-kdz" secondAttribute="trailing" constant="10" id="Yqa-PR-nQP"/>
                                     <constraint firstAttribute="trailing" secondItem="V9f-hf-rk7" secondAttribute="trailing" id="dVw-i0-2tj"/>
                                     <constraint firstAttribute="trailing" secondItem="sEO-XN-6pd" secondAttribute="trailing" constant="10" id="fKn-Nk-xdO"/>
-                                    <constraint firstItem="7xS-o9-3qP" firstAttribute="leading" secondItem="ZkA-9w-Ag5" secondAttribute="trailing" constant="5" id="geS-e6-TWA"/>
                                     <constraint firstItem="vKI-AZ-kdz" firstAttribute="centerY" secondItem="DHm-7F-rU2" secondAttribute="centerY" id="obK-Yj-smm"/>
                                     <constraint firstItem="avv-5y-geO" firstAttribute="top" secondItem="ZkA-9w-Ag5" secondAttribute="bottom" constant="2" id="occ-SL-eUo"/>
                                     <constraint firstAttribute="bottom" secondItem="sEO-XN-6pd" secondAttribute="bottom" constant="12" id="rJP-gy-6Qs"/>
@@ -389,6 +402,8 @@
                                     <outlet property="fileInfoTextFieldHeightConstraint" destination="pLz-rG-HNc" id="dnD-D9-W9C"/>
                                     <outlet property="posterInfoTextField" destination="ZkA-9w-Ag5" id="77f-c6-nDd"/>
                                     <outlet property="posterInfoTextFieldLeftConstraint" destination="Bmh-JB-AQ3" id="Zc1-lG-YbQ"/>
+                                    <outlet property="repliesButton" destination="7J7-Ls-O2P" id="bZm-aO-M8R"/>
+                                    <outlet property="repliesButtonWidthConstraint" destination="CvD-KR-jea" id="a0z-Df-zlG"/>
                                     <outlet property="replyButton" destination="7xS-o9-3qP" id="Ihd-WE-AMI"/>
                                     <outlet property="thumbnailImageView" destination="vKI-AZ-kdz" id="4Ox-9S-WOp"/>
                                 </connections>
@@ -472,7 +487,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="dfD-fT-ocs">
-                                    <rect key="frame" x="435" y="0.0" width="15" height="300"/>
+                                    <rect key="frame" x="434" y="0.0" width="16" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -904,6 +919,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="KJRepliesIcon" width="256" height="256"/>
         <image name="KJReplyIcon" width="256" height="256"/>
         <image name="KJSearchIcon" width="256" height="256"/>
         <image name="NSActionTemplate" width="14" height="14"/>

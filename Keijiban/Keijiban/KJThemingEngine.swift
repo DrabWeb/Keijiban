@@ -19,10 +19,13 @@ class KJThemingEngine {
     var posterInfoTextColor : NSColor = NSColor(hexString: "#C5C8C6")!;
     
     /// The color for the reply button on post views
-    var replyButtonColor : NSColor = NSColor(hexString: "#C5C8C6,0.5")!;
+    var replyButtonColor : NSColor = NSColor(hexString: "#757777")!;
+    
+    /// The color for the replies button and its text on post views
+    var repliesButtonColor : NSColor = NSColor(hexString: "#757777")!;
     
     /// The text color for the file info text field in post views
-    var fileInfoTextColor : NSColor = NSColor(hexString: "#C5C8C6,0.5")!;
+    var fileInfoTextColor : NSColor = NSColor(hexString: "#757777")!;
     
     /// The text color for the image/reply count text field on catalog items
     var catalogItemImageReplyCountTextColor : NSColor = NSColor(hexString: "#C5C8C6")!;
