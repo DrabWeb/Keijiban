@@ -10,8 +10,17 @@ import Cocoa
 
 class KJPostView: NSView {
     
-    /// The image view for displaying the post's possible image
-    var imageView : NSImageView? = nil;
+    /// The image view for displaying the post's possible thumbnail image
+    var imageView : KJRasterizedAsyncImageView? = nil;
+    
+    /// The width constraint for imageView
+    var imageViewWidthConstraint : NSLayoutConstraint? = nil;
+    
+    /// The height constraint for imageView
+    var imageViewHeightConstraint : NSLayoutConstraint? = nil;
+    
+    /// The leading constraint for imageView
+    var imageViewLeadingConstraint : NSLayoutConstraint? = nil;
     
     /// The text field for showing the poster info
     var posterInfoTextField : NSTextField? = nil;
@@ -19,11 +28,20 @@ class KJPostView: NSView {
     /// The button for letting the user see how many replies a post has and see the replies when pressed
     var repliesButton : KJColoredTitleButton? = nil;
     
+    /// The width constraint for repliesButton
+    var repliesButtonWidthConstraint : NSLayoutConstraint? = nil;
+    
     /// The button for letting the user press and reply to this post
     var replyButton : NSButton? = nil;
     
     /// The text field for showing the post's possible file's info
     var fileInfoTextField : NSTextField? = nil;
+
+    /// The height constraint for fileInfoTextField
+    var fileInfoTextFieldHeightConstraint : NSLayoutConstraint? = nil;
+    
+    /// The top constraint for fileInfoTextField
+    var fileInfoTextFieldTopConstraint : NSLayoutConstraint? = nil;
     
     /// The text field for showing the post's comment
     var commentTextField : NSTextField? = nil;
@@ -31,17 +49,64 @@ class KJPostView: NSView {
     /// The separator for the bottom of this view
     var bottomSeparator : NSView? = nil;
     
+    /// The post this view is displaying
+    var representedPost : KJ4CPost? = nil;
+    
+    /// Should the image be displayed?
+    private var displayImage : Bool = true;
+    
+    /// Displays the given post in this view. If there is an image and displayImage is false, it will not display it
+    func displayPost(post : KJ4CPost, displayImage : Bool) {
+        // Set representedPost
+        representedPost = post;
+        
+        // Set displayImage
+        self.displayImage = displayImage;
+        
+        // Display the content
+        
+        // Display the thumbnail image
+        // If we said to display the image...
+        if(displayImage) {
+            // If the post has a file...
+            if(post.hasFile) {
+                // If the post's thumbnail image is already loaded...
+                if(post.thumbnailImage != nil) {
+                    // Display the thumbnail image in the thumbnail image view
+                    imageView!.image = post.thumbnailImage!;
+                }
+                // If the post has a thumbnail and it's not loaded...
+                else if(post.thumbnailImage == nil) {
+                    // Download the image and display it in the thumbnail image view
+                    imageView!.downloadImageFromURL(post.imageThumbnailUrl, placeHolderImage: nil, errorImage: nil, usesSpinningWheel: true, downloadCompletionHandler: thumbnailDownloadCompleted);
+                }
+                
+                // Update the file info text field
+                fileInfoTextField!.stringValue = post.fileInfo;
+            }
+        }
+        
+        // Set the poster info text field's string value
+        posterInfoTextField!.attributedStringValue = post.attributedPosterInfo;
+        
+        // Set the replies button's title
+        repliesButton!.title = String(post.replies.count);
+        
+        // Set the comment text field's string value
+        commentTextField!.attributedStringValue = post.attributedComment;
+        
+        // Update the tooltips
+        posterInfoTextField!.toolTip = posterInfoTextField!.stringValue;
+        fileInfoTextField!.toolTip = fileInfoTextField!.stringValue;
+        
+        // Update the constraints
+        adjustConstraints();
+    }
+    
     /// Creates everything needed for the view and initializes it
     func initializeView() {
         // Create the views
         createViews();
-        
-        // Load in some sample content
-        imageView!.image = NSImage(named: "NSCaution");
-        posterInfoTextField!.stringValue = "Anonymous 00/00/00(DDD)00:00:00 #000000000";
-        repliesButton!.title = "00";
-        fileInfoTextField!.stringValue = "filename.extension (file size, pixel dimensions)";
-        commentTextField!.stringValue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in porta augue. Nunc et blandit ante, ut vehicula odio. Quisque at lacinia dolor, eget iaculis dui. Vivamus suscipit ex et diam lacinia, sit amet laoreet dui scelerisque. Proin sed ex feugiat, vulputate arcu non, lacinia magna. Sed vulputate condimentum euismod. Sed at ultricies lorem. Mauris venenatis nisi non lacinia sollicitudin. Cras ullamcorper dapibus laoreet.";
         
         // Theme the views
         themeViews();
@@ -53,7 +118,7 @@ class KJPostView: NSView {
     /// Creates the views needed for displaying post info
     func createViews() {
         // Create the image view
-        imageView = NSImageView();
+        imageView = KJRasterizedAsyncImageView();
         
         // Set the scaling
         imageView!.imageScaling = .ScaleProportionallyUpOrDown;
@@ -150,23 +215,23 @@ class KJPostView: NSView {
         bottomSeparator!.translatesAutoresizingMaskIntoConstraints = false;
         
         // Add the constraints to the image view
-        /// The constraint for the width of the image view
-        let imageViewWidthConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 100);
+        // Create the height constraint for the image view
+        imageViewWidthConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 100);
         
         // Add the constraint
-        imageView!.addConstraint(imageViewWidthConstraint);
+        imageView!.addConstraint(imageViewWidthConstraint!);
         
-        /// The constraint for the height of the image view
-        let imageViewHeightConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 100);
-        
-        // Add the constraint
-        imageView!.addConstraint(imageViewHeightConstraint);
-        
-        /// The constraint for the leading edge of the image view
-        let imageViewLeadingConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 10);
+        // Create the width constraint for the image view
+        imageViewHeightConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 100);
         
         // Add the constraint
-        self.addConstraint(imageViewLeadingConstraint);
+        imageView!.addConstraint(imageViewHeightConstraint!);
+        
+        // Create the leading constraint for the image view
+        imageViewLeadingConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 10);
+        
+        // Add the constraint
+        self.addConstraint(imageViewLeadingConstraint!);
         
         /// The constraint for the Y centering of the image view
         let imageViewCenterYConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY
@@ -211,11 +276,11 @@ class KJPostView: NSView {
         posterInfoTextField!.setContentCompressionResistancePriority(250, forOrientation: .Vertical);
         
         // Add the constraints to the repliess button
-        /// The constraint for the width of the replies button
-        let repliesButtonWidthConstraint = NSLayoutConstraint(item: repliesButton!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 42);
+        // Create the constraint for the width of the replies button
+        repliesButtonWidthConstraint = NSLayoutConstraint(item: repliesButton!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 42);
         
         // Add the constraint
-        repliesButton!.addConstraint(repliesButtonWidthConstraint);
+        repliesButton!.addConstraint(repliesButtonWidthConstraint!);
         
         /// The constraint for the height of the replies button
         let repliesButtonHeightConstraint = NSLayoutConstraint(item: repliesButton!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 17);
@@ -273,17 +338,17 @@ class KJPostView: NSView {
         // Add the constraint
         self.addConstraint(fileInfoTextFieldTrailingConstraint);
         
-        /// The constraint for the top edge of the file info text field
-        let fileInfoTextFieldTopConstraint = NSLayoutConstraint(item: posterInfoTextField!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: fileInfoTextField, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: -2);
+        // Create the constraint for the top edge of the file info text field
+        fileInfoTextFieldTopConstraint = NSLayoutConstraint(item: posterInfoTextField!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: fileInfoTextField, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: -2);
         
         // Add the constraint
-        self.addConstraint(fileInfoTextFieldTopConstraint);
+        self.addConstraint(fileInfoTextFieldTopConstraint!);
         
-        /// The constraint for the height of the file info text field
-        let fileInfoTextFieldHeightConstraint = NSLayoutConstraint(item: fileInfoTextField!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 15);
+        // Create the constraint for the height of the file info text field
+        fileInfoTextFieldHeightConstraint = NSLayoutConstraint(item: fileInfoTextField!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 15);
         
         // Add the constraint
-        fileInfoTextField!.addConstraint(fileInfoTextFieldHeightConstraint);
+        fileInfoTextField!.addConstraint(fileInfoTextFieldHeightConstraint!);
         
         // Set the content compression priorities
         fileInfoTextField!.setContentCompressionResistancePriority(250, forOrientation: .Horizontal);
@@ -309,7 +374,7 @@ class KJPostView: NSView {
         self.addConstraint(commentTextFieldTopConstraint);
         
         /// The constraint for the bottom edge of the comment text field
-        let commentTextFieldBottomConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: commentTextField!, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 12);
+        let commentTextFieldBottomConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: commentTextField!, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 10);
         
         // Add the constraint
         self.addConstraint(commentTextFieldBottomConstraint);
@@ -344,6 +409,102 @@ class KJPostView: NSView {
         
         // Add the constraint
         bottomSeparator!.addConstraint(bottomSeparatorHeightConstraint);
+    }
+    
+    /// Updates the constraints to match the content in representedPost(If it isnt nil)
+    func adjustConstraints() {
+        // If representedPost isnt nil...
+        if(representedPost != nil) {
+            // Update the constraints
+            // If this post has a file...
+            if(representedPost!.hasFile) {
+                // Update the image view leading constraint
+                imageViewLeadingConstraint!.constant = 10;
+                
+                // Update the file info text field constraints
+                fileInfoTextFieldHeightConstraint!.constant = 14;
+                
+                // Show the image view
+                imageView!.hidden = false;
+                
+                // Show the file info text field
+                fileInfoTextField!.hidden = false;
+                
+                // If the represented post is an OP post...
+                if((representedPost! as? KJ4COPPost) != nil) {
+                    // Update the image view size
+                    imageViewWidthConstraint!.constant = 150;
+                    imageViewHeightConstraint!.constant = 150;
+                }
+                    // If the represented post isnt an OP post...
+                else {
+                    // Update the image view size
+                    imageViewWidthConstraint!.constant = 100;
+                    imageViewHeightConstraint!.constant = 100;
+                }
+            }
+            // If this post doesnt have a file...
+            else {
+                // Update the image view constraints
+                imageViewWidthConstraint!.constant = 0;
+                imageViewHeightConstraint!.constant = 0;
+                imageViewLeadingConstraint!.constant = -2;
+                
+                // Hide the image view
+                imageView!.hidden = true;
+                
+                // Hide the file info text field
+                fileInfoTextField!.hidden = false;
+                
+                // Update the file info text field constraints
+                fileInfoTextFieldHeightConstraint!.constant = 0;
+            }
+            
+            // If this post has at least one reply...
+            if(representedPost!.replies.count > 0) {
+                // Show the replies button
+                repliesButton!.hidden = true;
+                
+                // Update the replies button constraints
+                // Yes I know im cheating with constant values, but content hugging priroities on buttons are wierd
+                // Each value has two extra pixels for spacing
+                // One character - 32
+                // Two characters - 49
+                // Three characters - 47
+                // Four characters - 55
+                
+                switch(String(representedPost!.replies.count).characters.count) {
+                    case 1:
+                        repliesButtonWidthConstraint!.constant = 32;
+                        break;
+                    case 2:
+                        repliesButtonWidthConstraint!.constant = 39;
+                        break;
+                    case 3:
+                        repliesButtonWidthConstraint!.constant = 47;
+                        break;
+                    case 4:
+                        repliesButtonWidthConstraint!.constant = 55;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            // If this post doesnt have any replies...
+            else {
+                // Hide the replies button
+                repliesButton!.hidden = true;
+                
+                // Update the replies button constraints
+                repliesButtonWidthConstraint!.constant = 0;
+            }
+        }
+    }
+    
+    /// Called when a thumbnail download request from displayPost is finished
+    func thumbnailDownloadCompleted(downloadedImage : NSImage?) {
+        // Store the download image in the represented post's thumbnailImage variable
+        representedPost?.thumbnailImage = downloadedImage;
     }
     
     override func drawRect(dirtyRect: NSRect) {

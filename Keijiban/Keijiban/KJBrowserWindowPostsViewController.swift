@@ -11,7 +11,7 @@ import Alamofire
 
 /// The view controller for the posts view. Controls the tabs and creating new post viewer views
 class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
-
+    
     /// The tabs control for this browser window
     @IBOutlet var tabsControl: LITabControl!
     

@@ -204,8 +204,8 @@ class KJPostViewerThreadPostView: NSView {
         self.commentTextField.textColor = KJThemingEngine().defaultEngine().commentTextColor;
         self.posterInfoTextField.textColor = KJThemingEngine().defaultEngine().posterInfoTextColor;
         self.bottomSeparator.layer?.backgroundColor = KJThemingEngine().defaultEngine().postSeparatorColor.CGColor;
-        self.replyButton.image = self.replyButton.image!.withColorOverlay(KJThemingEngine().defaultEngine().replyButtonColor);
-        self.repliesButton.image = self.repliesButton.image!.withColorOverlay(KJThemingEngine().defaultEngine().repliesButtonColor);
+        self.replyButton.image = NSImage(named: "KJReplyIcon")!.withColorOverlay(KJThemingEngine().defaultEngine().replyButtonColor);
+        self.repliesButton.image = NSImage(named: "KJRepliesIcon")!.withColorOverlay(KJThemingEngine().defaultEngine().repliesButtonColor);
         self.repliesButton.titleColor = KJThemingEngine().defaultEngine().repliesButtonColor;
     }
 }

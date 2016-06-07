@@ -886,18 +886,12 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>
                             </tabView>
-                            <customView placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="120" translatesAutoresizingMaskIntoConstraints="NO" id="fWE-C2-TFQ" userLabel="Post View" customClass="KJPostView" customModule="Keijiban" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="156" width="450" height="120"/>
-                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qvp-0N-cXt" secondAttribute="trailing" id="6WY-bd-9Es"/>
-                            <constraint firstItem="fWE-C2-TFQ" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="bottom" id="8OA-Um-7YJ"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="INp-9G-rcV"/>
-                            <constraint firstItem="fWE-C2-TFQ" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="VAT-AB-GQW"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="bottom" id="bf9-YQ-8YC"/>
-                            <constraint firstAttribute="trailing" secondItem="fWE-C2-TFQ" secondAttribute="trailing" id="dCZ-Cx-W8Q"/>
                             <constraint firstAttribute="bottom" secondItem="Qvp-0N-cXt" secondAttribute="bottom" id="drf-bG-2DR"/>
                             <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="z1r-FO-VO9"/>
