@@ -371,7 +371,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tOe-td-5CZ"/>
                                         </constraints>
-                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" title="Anonymous  00/00/00(DDD)00:00:00 #000000000" id="4on-ah-UAP" userLabel="Cell">
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" title="Anonymous 00/00/00(DDD)00:00:00 #000000000" id="4on-ah-UAP" userLabel="Cell">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -397,6 +397,20 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <button horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="7J7-Ls-O2P" userLabel="Replies Button" customClass="KJColoredTitleButton" customModule="Keijiban" customModuleProvider="target">
+                                        <rect key="frame" x="457" y="147" width="42" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="CvD-KR-jea"/>
+                                            <constraint firstAttribute="height" constant="17" id="vkl-Om-DX4"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="bevel" title="00" bezelStyle="regularSquare" alignment="center" scrollable="YES" lineBreakMode="clipping" imageScaling="proportionallyUpOrDown" inset="2" id="5Cb-zb-JLF" userLabel="Cell">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="repliesButtonPressed:" target="DHm-7F-rU2" id="1PJ-NF-i6k"/>
+                                        </connections>
+                                    </button>
                                     <button toolTip="Reply to this post" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7xS-o9-3qP" userLabel="Reply Button">
                                         <rect key="frame" x="499" y="147" width="17" height="17"/>
                                         <constraints>
@@ -417,20 +431,6 @@
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <font key="titleFont" metaFont="system"/>
                                     </box>
-                                    <button horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="7J7-Ls-O2P" userLabel="Replies Button" customClass="KJColoredTitleButton" customModule="Keijiban" customModuleProvider="target">
-                                        <rect key="frame" x="457" y="147" width="42" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="42" id="CvD-KR-jea"/>
-                                            <constraint firstAttribute="height" constant="17" id="vkl-Om-DX4"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="bevel" title="00" bezelStyle="rounded" image="KJRepliesIcon" imagePosition="left" alignment="left" scrollable="YES" lineBreakMode="clipping" imageScaling="proportionallyUpOrDown" inset="2" id="5Cb-zb-JLF" userLabel="Cell">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="repliesButtonPressed:" target="DHm-7F-rU2" id="1PJ-NF-i6k"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7xS-o9-3qP" firstAttribute="leading" secondItem="7J7-Ls-O2P" secondAttribute="trailing" id="6vl-ip-CFb"/>
@@ -886,12 +886,18 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>
                             </tabView>
+                            <customView placeholderIntrinsicWidth="450" placeholderIntrinsicHeight="120" translatesAutoresizingMaskIntoConstraints="NO" id="fWE-C2-TFQ" userLabel="Post View" customClass="KJPostView" customModule="Keijiban" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="156" width="450" height="120"/>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qvp-0N-cXt" secondAttribute="trailing" id="6WY-bd-9Es"/>
+                            <constraint firstItem="fWE-C2-TFQ" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="bottom" id="8OA-Um-7YJ"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="INp-9G-rcV"/>
+                            <constraint firstItem="fWE-C2-TFQ" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="VAT-AB-GQW"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="bottom" id="bf9-YQ-8YC"/>
+                            <constraint firstAttribute="trailing" secondItem="fWE-C2-TFQ" secondAttribute="trailing" id="dCZ-Cx-W8Q"/>
                             <constraint firstAttribute="bottom" secondItem="Qvp-0N-cXt" secondAttribute="bottom" id="drf-bG-2DR"/>
                             <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="z1r-FO-VO9"/>
@@ -981,7 +987,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="KJRepliesIcon" width="256" height="256"/>
         <image name="KJReplyIcon" width="256" height="256"/>
         <image name="KJSearchIcon" width="256" height="256"/>
         <image name="NSActionTemplate" width="14" height="14"/>
