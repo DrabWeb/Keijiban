@@ -39,7 +39,6 @@
 		5DC106421CFA146C00F471A9 /* PXSourceListBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC106371CFA146C00F471A9 /* PXSourceListBadgeView.m */; };
 		5DC106431CFA146C00F471A9 /* PXSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1063B1CFA146C00F471A9 /* PXSourceListItem.m */; };
 		5DC106441CFA146C00F471A9 /* PXSourceListTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1063D1CFA146C00F471A9 /* PXSourceListTableCellView.m */; };
-		5DD050881CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD050871CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift */; };
 		5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF61CF75FA2001772BF /* AppDelegate.swift */; };
 		5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF81CF75FA2001772BF /* ViewController.swift */; };
 		5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFA1CF75FA2001772BF /* Assets.xcassets */; };
@@ -118,7 +117,6 @@
 		5DC1063B1CFA146C00F471A9 /* PXSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceListItem.m; sourceTree = "<group>"; };
 		5DC1063C1CFA146C00F471A9 /* PXSourceListTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXSourceListTableCellView.h; sourceTree = "<group>"; };
 		5DC1063D1CFA146C00F471A9 /* PXSourceListTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceListTableCellView.m; sourceTree = "<group>"; };
-		5DD050871CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPostViewerThreadPostView.swift; sourceTree = "<group>"; };
 		5DE69AF31CF75FA2001772BF /* Keijiban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keijiban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE69AF61CF75FA2001772BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE69AF81CF75FA2001772BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				5D83AB1E1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift */,
 				5D89F1CA1CF8E23F006752C5 /* KJPostViewerViewController.swift */,
 				5D7B52A71CFB548D0033D2D4 /* KJPostViewerCatalogCollectionViewItem.swift */,
-				5DD050871CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift */,
 				5D8EDED11D0716FE00168917 /* KJPostView.swift */,
 				5D2E1F0E1D06141500D4802A /* KJPostRepliesViewerView.swift */,
 			);
@@ -702,7 +699,6 @@
 				5D2E1F0F1D06141500D4802A /* KJPostRepliesViewerView.swift in Sources */,
 				5D7B52A21CFB4DB80033D2D4 /* KJRasterizedImageView.swift in Sources */,
 				5DC106401CFA146C00F471A9 /* PXSourceList.m in Sources */,
-				5DD050881CFB7ABC0087B499 /* KJPostViewerThreadPostView.swift in Sources */,
 				5D83AB141CF76AAF00B4F81B /* KJNoDividerSplitView.swift in Sources */,
 				5D83AB221CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift in Sources */,
 				5D2E1F0D1D0607BD00D4802A /* KJColoredTitleButton.swift in Sources */,

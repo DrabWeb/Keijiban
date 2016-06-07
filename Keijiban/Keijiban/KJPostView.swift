@@ -10,6 +10,9 @@ import Cocoa
 
 class KJPostView: NSView {
     
+    /// The container for KJPostRepliesViewerViews that are created by this post view and it's children
+    var repliesViewerViewContainer : NSView? = nil;
+    
     /// The image view for displaying the post's possible thumbnail image
     var imageView : KJRasterizedAsyncImageView? = nil;
     
@@ -31,8 +34,24 @@ class KJPostView: NSView {
     /// The width constraint for repliesButton
     var repliesButtonWidthConstraint : NSLayoutConstraint? = nil;
     
+    /// Called when repliesButton is pressed
+    func repliesButtonPressed() {
+        let newRepliesViewerView : KJPostRepliesViewerView = KJPostRepliesViewerView();
+        
+        repliesViewerViewContainer!.addSubview(newRepliesViewerView);
+        
+        newRepliesViewerView.addOuterConstraints();
+        
+        newRepliesViewerView.displayRepliesFromPost(representedPost!, darkenBackground: true);
+    }
+    
     /// The button for letting the user press and reply to this post
     var replyButton : NSButton? = nil;
+    
+    /// Called when replyButton is pressed
+    func replyButtonPressed() {
+        
+    }
     
     /// The text field for showing the post's possible file's info
     var fileInfoTextField : NSTextField? = nil;
@@ -129,8 +148,22 @@ class KJPostView: NSView {
         // Create the replies button
         repliesButton = KJColoredTitleButton();
         
+        // Set it's tooltip
+        repliesButton!.toolTip = "View replies";
+        
+        // Set it's target and action
+        repliesButton!.target = self;
+        repliesButton!.action = Selector("repliesButtonPressed");
+        
         // Create the reply button
         replyButton = NSButton();
+        
+        // Set it's tooltip
+        replyButton!.toolTip = "Reply to post";
+        
+        // Set it's target and action
+        replyButton!.target = self;
+        replyButton!.action = Selector("replyButtonPressed");
         
         // Create the file info text field
         fileInfoTextField = NSTextField();
@@ -190,7 +223,7 @@ class KJPostView: NSView {
         fileInfoTextField!.backgroundColor = NSColor.clearColor();
         fileInfoTextField!.textColor = KJThemingEngine().defaultEngine().fileInfoTextColor;
         fileInfoTextField!.font = NSFont.systemFontOfSize(11);
-        fileInfoTextField!.lineBreakMode = NSLineBreakMode.ByTruncatingTail;
+        fileInfoTextField!.lineBreakMode = NSLineBreakMode.ByTruncatingMiddle;
         
         // Theme the comment text field
         commentTextField!.bordered = false;
@@ -463,7 +496,7 @@ class KJPostView: NSView {
             // If this post has at least one reply...
             if(representedPost!.replies.count > 0) {
                 // Show the replies button
-                repliesButton!.hidden = true;
+                repliesButton!.hidden = false;
                 
                 // Update the replies button constraints
                 // Yes I know im cheating with constant values, but content hugging priroities on buttons are wierd
@@ -517,10 +550,15 @@ class KJPostView: NSView {
         bottomSeparator?.layer?.backgroundColor = KJThemingEngine().defaultEngine().postSeparatorColor.CGColor;
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib();
+    // Blank init
+    init() {
+        super.init(frame: NSRect.zero);
         
         // Initialize the view
         initializeView();
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder);
     }
 }

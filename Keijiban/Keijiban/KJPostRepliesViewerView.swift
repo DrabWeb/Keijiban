@@ -11,13 +11,16 @@ import Cocoa
 class KJPostRepliesViewerView: NSView {
     
     /// The container for the post view that shows viewingRepliesForPost
-    @IBOutlet var viewingRepliesForPostViewContainer: NSView!
+    var viewingRepliesForPostViewContainer : NSView? = nil;
     
     /// The container that holds the scroll view and stack view for the replies to viewingRepliesForPost
-    @IBOutlet var repliesContainer : NSView!
+    var repliesContainer : NSView? = nil;
     
-    /// When the user presses behind this replies viewer view...
-    @IBAction func dismissButtonPressed(sender : NSButton) {
+    /// The button behind the entire view that captures clicks outside of this view
+    var dismissButton : NSButton? = nil;
+    
+    /// Called when the user presses dismissButton
+    func dismissButtonPressed() {
         // Close the view
         close();
     }
@@ -29,10 +32,6 @@ class KJPostRepliesViewerView: NSView {
     func displayRepliesFromPost(post : KJ4CPost, darkenBackground : Bool) {
         // Print what we are displaying
         Swift.print("KJPostRepliesViewerView: Displaying replies for \(post.description)");
-        
-        // Set the radius of the corners of the post view containers
-        viewingRepliesForPostViewContainer.layer?.cornerRadius = 5;
-        repliesContainer.layer?.cornerRadius = 5;
         
         // Set viewingRepliesForPost
         viewingRepliesForPost = post;
@@ -47,22 +46,22 @@ class KJPostRepliesViewerView: NSView {
         }
         
         /// The new post view item for the stack view
-        let newPostView : KJPostViewerThreadPostView = (NSStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateControllerWithIdentifier("postsViewerPostViewControllerTemplate") as! NSViewController).view.subviews[0] as! KJPostViewerThreadPostView;
+        let newPostView : KJPostView = KJPostView();
         
         // Set the post view's replies viewer view container
         newPostView.repliesViewerViewContainer = self;
         
         // Display the post's info in the new post view
-        newPostView.displayInfoFromPost(post, displayImage: true);
+        newPostView.displayPost(post, displayImage: true);
         
         // Add the post view to viewingRepliesForPostViewContainer
-        viewingRepliesForPostViewContainer.addSubview(newPostView);
+        viewingRepliesForPostViewContainer!.addSubview(newPostView);
         
         // Hide the separator on the post view
-        newPostView.bottomSeparator.hidden = true;
+        newPostView.bottomSeparator!.hidden = true;
         
         // Hide the replies button on the post view
-        newPostView.repliesButtonWidthConstraint.constant = 0;
+        newPostView.repliesButtonWidthConstraint!.constant = 0;
         
         // Add the outer constraints to newPostView
         addOuterConstraintsToView(newPostView);
@@ -74,15 +73,15 @@ class KJPostRepliesViewerView: NSView {
         for(_, currentReply) in post.replies.enumerate() {
             // Add the current reply to the postsViewerStackView of repliesPostViewerViewController
             repliesPostViewerViewController.addPostToPostsViewerStackView(currentReply, displayImage: true);
-            (repliesPostViewerViewController.postsViewerStackView.subviews.last! as! KJPostViewerThreadPostView).repliesViewerViewContainer = self;
+            (repliesPostViewerViewController.postsViewerStackView.subviews.last! as! KJPostView).repliesViewerViewContainer = self;
         }
         
         // Unhide postsViewerStackViewScrollView
         repliesPostViewerViewController.postsViewerStackViewScrollView.hidden = false;
         
         // Add the posts viewer view to repliesContainer and add the outer constraints
-        repliesContainer.addSubview(repliesPostViewerViewController.postsViewerStackViewScrollView);
-        addOuterConstraintsToView(repliesContainer.subviews[0]);
+        repliesContainer!.addSubview(repliesPostViewerViewController.postsViewerStackViewScrollView);
+        addOuterConstraintsToView(repliesContainer!.subviews[0]);
         
         // Scroll to the top of postsViewerStackViewScrollView
         repliesPostViewerViewController.scrollToTopOfPostsViewerStackViewScrollView();
@@ -116,6 +115,123 @@ class KJPostRepliesViewerView: NSView {
         }
         
         return true;
+    }
+    
+    /// Creates everything needed for the view and initializes it
+    func initializeView() {
+        // Create the views
+        createViews();
+        
+        // Create the constraints
+        createConstraints();
+    }
+    
+    /// Creates the views needed for displaying replies
+    func createViews() {
+        // Create viewingRepliesForPostViewContainer
+        viewingRepliesForPostViewContainer = NSView();
+        
+        // Create repliesContainer
+        repliesContainer = NSView();
+        
+        // Create dismissButton
+        dismissButton = NSButton();
+        
+        // Style dismissButton
+        dismissButton!.bordered = false;
+        (dismissButton!.cell as! NSButtonCell).setButtonType(NSButtonType.MomentaryPushInButton);
+        
+        // Set dismissButton's target and action
+        dismissButton!.target = self;
+        dismissButton!.action = Selector("dismissButtonPressed");
+        
+        // Move everything into this view
+        self.addSubview(dismissButton!);
+        self.addSubview(viewingRepliesForPostViewContainer!);
+        self.addSubview(repliesContainer!);
+    }
+    
+    /// Creates the constraints for the view
+    func createConstraints() {
+        // Disable all the autoresizing mask to constraint translation
+        self.translatesAutoresizingMaskIntoConstraints = false;
+        dismissButton?.translatesAutoresizingMaskIntoConstraints = false;
+        viewingRepliesForPostViewContainer?.translatesAutoresizingMaskIntoConstraints = false;
+        repliesContainer?.translatesAutoresizingMaskIntoConstraints = false;
+        
+        // Create the constraints for the viewing replies for post view
+        /// The constraint for the leading edge of the viewing replies for post view
+        let viewingRepliesForPostViewContainerLeadingConstraint = NSLayoutConstraint(item: viewingRepliesForPostViewContainer!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 20);
+        
+        // Add the constraint
+        self.addConstraint(viewingRepliesForPostViewContainerLeadingConstraint);
+        
+        /// The constraint for the trailing edge of the viewing replies for post view
+        let viewingRepliesForPostViewContainerTrailingConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: viewingRepliesForPostViewContainer!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 20);
+        
+        // Add the constraint
+        self.addConstraint(viewingRepliesForPostViewContainerTrailingConstraint);
+        
+        /// The constraint for the top edge of the viewing replies for post view
+        let viewingRepliesForPostViewContainerTopConstraint = NSLayoutConstraint(item: viewingRepliesForPostViewContainer!, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 20);
+        
+        // Add the constraint
+        self.addConstraint(viewingRepliesForPostViewContainerTopConstraint);
+        
+        // Set the content compression priorities
+        viewingRepliesForPostViewContainer!.setContentCompressionResistancePriority(750, forOrientation: .Vertical);
+        
+        // Create the constraints for the replies container view
+        /// The constraint for the leading edge of the replies container view
+        let repliesContainerLeadingConstraint = NSLayoutConstraint(item: repliesContainer!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 20);
+        
+        // Add the constraint
+        self.addConstraint(repliesContainerLeadingConstraint);
+        
+        /// The constraint for the trailing edge of the replies container view
+        let repliesContainerTrailingConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: repliesContainer!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 20);
+        
+        // Add the constraint
+        self.addConstraint(repliesContainerTrailingConstraint);
+        
+        /// The constraint for the top edge of the replies container view
+        let repliesContainerTopConstraint = NSLayoutConstraint(item: viewingRepliesForPostViewContainer!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: repliesContainer!, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: -10);
+        
+        // Add the constraint
+        self.addConstraint(repliesContainerTopConstraint);
+        
+        /// The constraint for the bottom edge of the replies container view
+        let repliesContainerBottomConstraint = NSLayoutConstraint(item: repliesContainer!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: -20);
+        
+        // Add the constraint
+        self.addConstraint(repliesContainerBottomConstraint);
+        
+        // Set the hugging priority
+        dismissButton!.setContentHuggingPriority(250, forOrientation: .Horizontal);
+        dismissButton!.setContentHuggingPriority(250, forOrientation: .Vertical);
+        
+        // Add the constraints for dismissButonn
+        addOuterConstraintsToView(dismissButton!);
+    }
+    
+    override func drawRect(dirtyRect: NSRect) {
+        super.drawRect(dirtyRect);
+        
+        // Set the radius of the corners of the post view containers
+        viewingRepliesForPostViewContainer?.layer?.cornerRadius = 5;
+        repliesContainer?.layer?.cornerRadius = 5;
+    }
+    
+    // Blank init
+    init() {
+        super.init(frame: NSRect.zero);
+        
+        // Initialize the view
+        initializeView();
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder);
     }
     
     /// Adds constraints for the top, bottom, leading and trailing edges for this view(All with a constant of 0)

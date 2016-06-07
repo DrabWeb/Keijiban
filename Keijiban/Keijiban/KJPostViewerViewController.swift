@@ -228,13 +228,13 @@ class KJPostViewerViewController: NSViewController {
     /// Adds the given post to postsViewerStackView. ALso only shows the thumbnail if displayImage is true
     func addPostToPostsViewerStackView(post : KJ4CPost, displayImage : Bool) {
         /// The new post view item for the stack view
-        let newPostView : KJPostViewerThreadPostView = (storyboard!.instantiateControllerWithIdentifier("postsViewerPostViewControllerTemplate") as! NSViewController).view.subviews[0] as! KJPostViewerThreadPostView;
-        
-        // Set the post view's replies viewer view container
-        newPostView.repliesViewerViewContainer = self.view;
+        let newPostView : KJPostView = KJPostView();
         
         // Display the post's info in the new post view
-        newPostView.displayInfoFromPost(post, displayImage: displayImage);
+        newPostView.displayPost(post, displayImage: displayImage);
+        
+        // Set newPostView's repliesViewerViewContainer
+        newPostView.repliesViewerViewContainer = self.view;
         
         // Add the post view to postsViewerStackView
         postsViewerStackView.addView(newPostView, inGravity: NSStackViewGravity.Top);
