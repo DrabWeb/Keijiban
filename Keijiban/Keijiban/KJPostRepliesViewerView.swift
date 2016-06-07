@@ -93,9 +93,6 @@ class KJPostRepliesViewerView: NSView {
     
     /// Closes this replies viewer
     func close() {
-        // Remove the local key monitor
-        NSEvent.removeMonitor(keyDownMonitor!);
-        
         // Fade out the view
         self.animator().alphaValue = 0;
         
@@ -109,24 +106,16 @@ class KJPostRepliesViewerView: NSView {
         self.removeFromSuperview();
     }
     
-    /// The local key down monitor
-    var keyDownMonitor : AnyObject?;
-    
-    override func awakeFromNib() {
-        // Subscribe to any local key presses
-        keyDownMonitor = NSEvent.addLocalMonitorForEventsMatchingMask(NSEventMask.KeyDownMask, handler: localKeyPressed);
-    }
-    
-    /// Called when the user prese
-    func localKeyPressed(event : NSEvent) -> NSEvent {
+    override func performKeyEquivalent(theEvent: NSEvent) -> Bool {
+        super.performKeyEquivalent(theEvent);
+        
         // If we pressed escape...
-        if(event.keyCode == 53) {
+        if(theEvent.keyCode == 53) {
             // Close the view
             close();
         }
         
-        // Return the event
-        return event;
+        return true;
     }
     
     /// Adds constraints for the top, bottom, leading and trailing edges for this view(All with a constant of 0)
