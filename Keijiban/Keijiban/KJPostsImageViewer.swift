@@ -19,17 +19,37 @@ class KJPostsImageViewer: NSView {
     /// The button in the toolbar that lets the user see a grid with all the images in the posts
     var galleryButton : NSButton? = nil;
     
+    /// Called when the user presses galleryButton
+    func galleryButtonPressed() {
+        
+    }
+    
     /// The text field in the toolbar that shows the current file's info(Name, size and file size)
     var fileInfoTextField : NSTextField? = nil;
     
     /// The button in the toolbar for dowloading the current image(Instead of using the keybind)
     var downloadButton : NSButton? = nil;
     
+    /// Called when the user presses downloadButton
+    func downloadButtonPressed() {
+        
+    }
+    
     /// The button in the toolbar for going to the next image(Instead of using the keybind)
     var nextButton : NSButton? = nil;
     
+    /// Called when the user presses nextButton
+    func nextButtonPressed() {
+        
+    }
+    
     /// The button in the toolbar for going to the previous image(Instead of using the keybind)
     var previousButton : NSButton? = nil;
+    
+    /// Called when the user presses previousButton
+    func previousButtonPressed() {
+        
+    }
     
     /// Shows this image browser with the images of the given posts
     func showImagesForPosts(posts : [KJ4CPost]) {
@@ -63,15 +83,30 @@ class KJPostsImageViewer: NSView {
         // Create the gallery button
         galleryButton = NSButton();
         
+        // Set the target and action
+        galleryButton!.target = self;
+        galleryButton!.action = Selector("galleryButtonPressed");
+        
         // Create the file info text field
         fileInfoTextField = NSTextField();
         
         // Create the download button
         downloadButton = NSButton();
         
+        // Set the target and action
+        downloadButton!.target = self;
+        downloadButton!.action = Selector("downloadButtonPressed");
+        
         // Create the next and previous buttons
         nextButton = NSButton();
         previousButton = NSButton();
+        
+        // Set the targets and actions
+        nextButton!.target = self;
+        nextButton!.action = Selector("nextButtonPressed");
+        
+        previousButton!.target = self;
+        previousButton!.action = Selector("previousButtonPressed");
         
         // Move everything into this view
         self.addSubview(toolbar!);

@@ -39,6 +39,7 @@
 		5DC106421CFA146C00F471A9 /* PXSourceListBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC106371CFA146C00F471A9 /* PXSourceListBadgeView.m */; };
 		5DC106431CFA146C00F471A9 /* PXSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1063B1CFA146C00F471A9 /* PXSourceListItem.m */; };
 		5DC106441CFA146C00F471A9 /* PXSourceListTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1063D1CFA146C00F471A9 /* PXSourceListTableCellView.m */; };
+		5DC119361D08D9D100EE79BF /* KJFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC119351D08D9D100EE79BF /* KJFileView.swift */; };
 		5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF61CF75FA2001772BF /* AppDelegate.swift */; };
 		5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69AF81CF75FA2001772BF /* ViewController.swift */; };
 		5DE69AFB1CF75FA2001772BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE69AFA1CF75FA2001772BF /* Assets.xcassets */; };
@@ -118,6 +119,7 @@
 		5DC1063B1CFA146C00F471A9 /* PXSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceListItem.m; sourceTree = "<group>"; };
 		5DC1063C1CFA146C00F471A9 /* PXSourceListTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXSourceListTableCellView.h; sourceTree = "<group>"; };
 		5DC1063D1CFA146C00F471A9 /* PXSourceListTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceListTableCellView.m; sourceTree = "<group>"; };
+		5DC119351D08D9D100EE79BF /* KJFileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJFileView.swift; sourceTree = "<group>"; };
 		5DE69AF31CF75FA2001772BF /* Keijiban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keijiban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE69AF61CF75FA2001772BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE69AF81CF75FA2001772BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				5DBE947D1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift */,
 				5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */,
 				5D0A41891D0628CB0070C452 /* KJFloatAtTopScrollView.swift */,
+				5DC119351D08D9D100EE79BF /* KJFileView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				5D89F1CB1CF8E23F006752C5 /* KJPostViewerViewController.swift in Sources */,
 				5DE69AF91CF75FA2001772BF /* ViewController.swift in Sources */,
 				5DC1063E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m in Sources */,
+				5DC119361D08D9D100EE79BF /* KJFileView.swift in Sources */,
 				5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */,
 				5D0A418A1D0628CB0070C452 /* KJFloatAtTopScrollView.swift in Sources */,
 				5DF203231D07848100557BD6 /* KJPostsImageViewer.swift in Sources */,
