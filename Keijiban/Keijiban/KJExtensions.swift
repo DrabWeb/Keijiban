@@ -9,7 +9,7 @@
 import Cocoa
 
 extension String {
-    /// Returns this string without any special HTML characters
+    /// Returns this string without any special HTML characters/tags that arent needed for parsing
     var cleanedString : String {
         /// This string, cleaned
         var cleanedString : String = self;
@@ -22,6 +22,7 @@ extension String {
         cleanedString = cleanedString.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
         cleanedString = cleanedString.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
         cleanedString = cleanedString.stringByReplacingOccurrencesOfString("<br>", withString: "\n");
+        cleanedString = cleanedString.stringByReplacingOccurrencesOfString("<wbr>", withString: "");
         
         // Return the cleaned string
         return cleanedString;
@@ -86,5 +87,34 @@ extension Array where Element:KJ4CPost {
         
         // Return the post
         return foundPost;
+    }
+}
+
+extension NSView {
+    /// Adds constraints for the top, bottom, leading and trailing edges of this view with the given constant
+    func addOuterConstraints(constant : CGFloat) {
+        /// The constraint for the bottom edge
+        let bottomConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.superview!, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: constant);
+        
+        // Add the constraint
+        self.superview!.addConstraint(bottomConstraint);
+        
+        /// The constraint for the top edge
+        let topConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.superview!, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: constant);
+        
+        // Add the constraint
+        self.superview!.addConstraint(topConstraint);
+        
+        /// The constraint for the trailing edge
+        let trailingConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.superview!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: constant);
+        
+        // Add the constraint
+        self.superview!.addConstraint(trailingConstraint);
+        
+        /// The constraint for the leading edge
+        let leadingConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.superview!, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: constant);
+        
+        // Add the constraint
+        self.superview!.addConstraint(leadingConstraint);
     }
 }

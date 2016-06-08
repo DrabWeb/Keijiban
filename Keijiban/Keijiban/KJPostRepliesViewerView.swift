@@ -64,7 +64,7 @@ class KJPostRepliesViewerView: NSView {
         newPostView.repliesButtonWidthConstraint!.constant = 0;
         
         // Add the outer constraints to newPostView
-        addOuterConstraintsToView(newPostView);
+        newPostView.addOuterConstraints(0);
         
         /// The KJPostViewerViewController for showing the replies to viewingRepliesForPost
         let repliesPostViewerViewController : KJPostViewerViewController = (NSStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateControllerWithIdentifier("postViewerViewController")) as! KJPostViewerViewController;
@@ -81,7 +81,7 @@ class KJPostRepliesViewerView: NSView {
         
         // Add the posts viewer view to repliesContainer and add the outer constraints
         repliesContainer!.addSubview(repliesPostViewerViewController.postsViewerStackViewScrollView);
-        addOuterConstraintsToView(repliesContainer!.subviews[0]);
+        repliesContainer!.subviews[0].addOuterConstraints(0);
         
         // Scroll to the top of postsViewerStackViewScrollView
         repliesPostViewerViewController.scrollToTopOfPostsViewerStackViewScrollView();
@@ -112,9 +112,11 @@ class KJPostRepliesViewerView: NSView {
         if(theEvent.keyCode == 53) {
             // Close the view
             close();
+            
+            return true;
         }
         
-        return true;
+        return false;
     }
     
     /// Creates everything needed for the view and initializes it
@@ -211,7 +213,7 @@ class KJPostRepliesViewerView: NSView {
         dismissButton!.setContentHuggingPriority(250, forOrientation: .Vertical);
         
         // Add the constraints for dismissButonn
-        addOuterConstraintsToView(dismissButton!);
+        dismissButton!.addOuterConstraints(0);
     }
     
     override func drawRect(dirtyRect: NSRect) {
@@ -237,33 +239,6 @@ class KJPostRepliesViewerView: NSView {
     /// Adds constraints for the top, bottom, leading and trailing edges for this view(All with a constant of 0)
     func addOuterConstraints() {
         // Add the constraints
-        addOuterConstraintsToView(self);
-    }
-    
-    /// Adds constraints for the top, bottom, leading and trailing edges for the given view(All with a constant of 0)
-    private func addOuterConstraintsToView(view : NSView) {
-        /// The constraint for the bottom edge
-        let bottomConstraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view.superview!, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0);
-        
-        // Add the constraint
-        view.superview!.addConstraint(bottomConstraint);
-        
-        /// The constraint for the top edge
-        let topConstraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view.superview!, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0);
-        
-        // Add the constraint
-        view.superview!.addConstraint(topConstraint);
-        
-        /// The constraint for the trailing edge
-        let trailingConstraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: view.superview!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0);
-        
-        // Add the constraint
-        view.superview!.addConstraint(trailingConstraint);
-        
-        /// The constraint for the leading edge
-        let leadingConstraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: view.superview!, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0);
-        
-        // Add the constraint
-        view.superview!.addConstraint(leadingConstraint);
+        self.addOuterConstraints(0);
     }
 }

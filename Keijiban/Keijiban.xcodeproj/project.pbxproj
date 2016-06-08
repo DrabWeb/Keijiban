@@ -47,6 +47,7 @@
 		5DE69B141CF75FA2001772BF /* KeijibanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE69B131CF75FA2001772BF /* KeijibanUITests.swift */; };
 		5DF1B3F81CFCE81700DF15E1 /* KJThemingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1B3F71CFCE81700DF15E1 /* KJThemingEngine.swift */; };
 		5DF1B3FA1CFCE85F00DF15E1 /* NSColorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1B3F91CFCE85F00DF15E1 /* NSColorFromHex.swift */; };
+		5DF203231D07848100557BD6 /* KJPostsImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF203221D07848100557BD6 /* KJPostsImageViewer.swift */; };
 		A2A0ABBC4AF15446AF63AD36 /* Pods_KeijibanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D491B80E325BCAA4C2783710 /* Pods_KeijibanTests.framework */; };
 		B979DBA7306C15BD001D1433 /* Pods_Keijiban.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D88563671BA85086297832 /* Pods_Keijiban.framework */; };
 		F184E94ED3CE0AE3C97DA811 /* Pods_KeijibanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C251CEA02873653591170F6 /* Pods_KeijibanUITests.framework */; };
@@ -131,6 +132,7 @@
 		5DE69B151CF75FA2001772BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DF1B3F71CFCE81700DF15E1 /* KJThemingEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemingEngine.swift; sourceTree = "<group>"; };
 		5DF1B3F91CFCE85F00DF15E1 /* NSColorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSColorFromHex.swift; path = LITabControl/NSColorFromHex.swift; sourceTree = "<group>"; };
+		5DF203221D07848100557BD6 /* KJPostsImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPostsImageViewer.swift; sourceTree = "<group>"; };
 		75D777992BDD323027ED194E /* Pods-KeijibanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C251CEA02873653591170F6 /* Pods_KeijibanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeijibanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86FA73CC2DB61F67EB993DA /* Pods-KeijibanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeijibanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeijibanTests/Pods-KeijibanTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				5D83AB211CF7758A00B4F81B /* KJBrowserWindowSplitViewController.swift */,
+				5DF203241D07848600557BD6 /* Image Viewer */,
 				5D83AB1D1CF7707300B4F81B /* Posts */,
 				5D83AB1A1CF7703A00B4F81B /* Sidebar */,
 			);
@@ -419,6 +422,14 @@
 				5DF1B3F91CFCE85F00DF15E1 /* NSColorFromHex.swift */,
 			);
 			name = NSColorFromHex;
+			sourceTree = "<group>";
+		};
+		5DF203241D07848600557BD6 /* Image Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				5DF203221D07848100557BD6 /* KJPostsImageViewer.swift */,
+			);
+			name = "Image Viewer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,6 +726,7 @@
 				5DC1063E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m in Sources */,
 				5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */,
 				5D0A418A1D0628CB0070C452 /* KJFloatAtTopScrollView.swift in Sources */,
+				5DF203231D07848100557BD6 /* KJPostsImageViewer.swift in Sources */,
 				5DF1B3FA1CFCE85F00DF15E1 /* NSColorFromHex.swift in Sources */,
 				5D2AE0B91D032B8E00B5A7B4 /* KJExtensions.swift in Sources */,
 				5DE69AF71CF75FA2001772BF /* AppDelegate.swift in Sources */,
@@ -853,7 +865,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Keijiban/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Keijiban;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Keijiban/Keijiban-Bridging-Header.h";
@@ -870,7 +882,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Keijiban/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Keijiban;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Keijiban/Keijiban-Bridging-Header.h";

@@ -43,7 +43,28 @@ class KJThemingEngine {
     var deadPostQuoteColor : NSColor = NSColor(hexString: "#81A2BE")!;
     
     /// The color for post separators
-    var postSeparatorColor : NSColor = NSColor(hexString: "282A2E")!;
+    var postSeparatorColor : NSColor = NSColor(hexString: "#282A2E")!;
+    
+    /// The toolbar color for image browsers
+    var imageBrowserToolbarColor : NSColor = NSColor(hexString: "#141414")!;
+    
+    /// The height of the toolbar in any image browser
+    var imageBrowserToolbarHeight : CGFloat = 37;
+    
+    /// The color for the file info text field in the toolbar in an image browser
+    var imageBrowserToolbarFileInfoTextFieldColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    
+    // The color for the download button in the toolbar in an image browser
+    var imageBrowserToolbarDownloadButtonColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    
+    /// The color for the next image button in the toolbar in an image browser
+    var imageBrowserToolbarNextButtonColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    
+    /// The color for the previous image button in the toolbar in an image browser
+    var imageBrowserToolbarPreviousButtonColor : NSColor = NSColor(hexString: "#C5C8C6")!;
+    
+    /// The color for the gallery button in the toolbar in an image browser
+    var imageBrowserToolbarGalleryButtonColor : NSColor = NSColor(hexString: "#C5C8C6")!;
     
     /// Returns the default theming engine
     func defaultEngine() -> KJThemingEngine {

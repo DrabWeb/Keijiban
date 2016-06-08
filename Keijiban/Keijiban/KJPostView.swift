@@ -248,13 +248,13 @@ class KJPostView: NSView {
         bottomSeparator!.translatesAutoresizingMaskIntoConstraints = false;
         
         // Add the constraints to the image view
-        // Create the height constraint for the image view
+        // Create the width constraint for the image view
         imageViewWidthConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 100);
         
         // Add the constraint
         imageView!.addConstraint(imageViewWidthConstraint!);
         
-        // Create the width constraint for the image view
+        // Create the height constraint for the image view
         imageViewHeightConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 100);
         
         // Add the constraint

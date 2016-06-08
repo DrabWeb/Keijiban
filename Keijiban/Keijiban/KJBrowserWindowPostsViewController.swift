@@ -12,6 +12,9 @@ import Alamofire
 /// The view controller for the posts view. Controls the tabs and creating new post viewer views
 class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     
+    /// The KJPostsImageViewer for testing(REMOVEME)
+    @IBOutlet var testingPostsImageViewer: KJPostsImageViewer!
+    
     /// The tabs control for this browser window
     @IBOutlet var tabsControl: LITabControl!
     
@@ -34,6 +37,16 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         // Do view setup here.
         // Style the view
         styleView();
+    }
+    
+    override func viewDidAppear() {
+        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(3), target: self, selector: Selector("openExampleImageBrowser"), userInfo: nil, repeats: false);
+    }
+    
+    func openExampleImageBrowser() {
+        // Init the testing image browser(REMOVEME)
+        testingPostsImageViewer.initializeView();
+        testingPostsImageViewer.showImagesForPosts([]);
     }
     
     /// Updates postViewersTabView to match the current tabs
