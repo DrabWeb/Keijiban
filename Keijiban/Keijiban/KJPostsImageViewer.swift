@@ -43,7 +43,8 @@ class KJPostsImageViewer: NSView {
     
     /// Called when the user presses nextButton
     func nextButtonPressed() {
-        
+        // Display the next post
+        nextPost();
     }
     
     /// The button in the toolbar for going to the previous image(Instead of using the keybind)
@@ -51,14 +52,35 @@ class KJPostsImageViewer: NSView {
     
     /// Called when the user presses previousButton
     func previousButtonPressed() {
-        
+        // Display the previous post
+        previousPost();
     }
     
     /// The post that this image browser is currently displaying
     var currentBrowsingPosts : [KJ4CPost] = [];
     
-    /// Shows this image browser with the images of the given posts
-    func showImagesForPosts(posts : [KJ4CPost]) {
+    /// The current post we are viewing the file of
+    var currentBrowsingPost : KJ4CPost? = nil;
+    
+    /// The index of currentBrowsingPost
+    var currentBrowsingPostIndex : Int {
+        get {
+            if(currentBrowsingPost == nil) {
+                return -1;
+            }
+            else {
+                if(currentBrowsingPost != nil) {
+                    return NSMutableArray(array: currentBrowsingPosts).indexOfObject(currentBrowsingPost!);
+                }
+                else {
+                    return -1;
+                }
+            }
+        }
+    }
+    
+    /// Shows this image browser with the images of the given posts. If displayFirstPost it automatically displays the first post in posts
+    func showImagesForPosts(posts : [KJ4CPost], displayFirstPost : Bool) {
         // Clear currentBrowsingPosts
         currentBrowsingPosts.removeAll();
         
@@ -77,7 +99,11 @@ class KJPostsImageViewer: NSView {
             // Show the view
             self.hidden = false;
             
-            displayPost(currentBrowsingPosts[0]);
+            // If we said to display the first post...
+            if(displayFirstPost) {
+                // Display the first post
+                displayPostAtIndex(0);
+            }
         }
         // If currentBrowsingPosts is empty...
         else {
@@ -88,11 +114,75 @@ class KJPostsImageViewer: NSView {
     
     /// Displays the given post in this browser
     func displayPost(post : KJ4CPost) {
-        // Show the post's file in the file view
-        postFileViewer!.displayFileFromPost(post);
+        // If the post has a file...
+        if(post.hasFile) {
+            // Set currentBrowsingPost
+            currentBrowsingPost = post;
+            
+            // Show the post's file in the file view
+            postFileViewer!.displayFileFromPost(post);
+            
+            // Display the post's file info in the toolbar
+            displayPostFileInfoInToolbar(post);
+        }
+        // If the post doesnt have a file...
+        else {
+            // Print that we cant view this post
+            Swift.print("KJPostsImageViewer: Cant display \(post) because it doesnt have a file");
+        }
+    }
+    
+    /// Displays the post at the given index in currentBrowsingPosts in this browser. Also rounds off(If less than 0, displays first image. If greater than currentBrowsingPosts's item count displays last)
+    func displayPostAtIndex(index : Int) {
+        // If the index is greater than 0 and less than currentBrowsingPosts's item count...
+        if(index >= 0 && index < currentBrowsingPosts.count) {
+            // Display the post at the given index
+            displayPost(currentBrowsingPosts[index]);
+        }
+        // If the index is less than 0...
+        else if(index <= 0) {
+            // Display the first item in currentBrowsingPosts
+            displayPost(currentBrowsingPosts[0]);
+        }
+        // If the index is greater than currentBrowsingPosts's item count...
+        else if(index >= currentBrowsingPosts.count) {
+            // Display the last item in currentBrowsingPosts
+            displayPost(currentBrowsingPosts[currentBrowsingPosts.count - 1]);
+        }
+    }
+    
+    /// Displays the next post in this browser
+    func nextPost() {
+        // Print that we are showing the next post
+        Swift.print("KJPostsImageViewer: Showing next post");
         
-        // Display the post's file info in the toolbar
-        displayPostFileInfoInToolbar(post);
+        // If we add one to currentBrowsingPostIndex and its less than currentBrowsingPostIndex's item count...
+        if(currentBrowsingPostIndex + 1 < currentBrowsingPosts.count) {
+            // Display the next post
+            displayPostAtIndex(currentBrowsingPostIndex + 1);
+        }
+        // If we add one to currentBrowsingPostIndex and its greater than currentBrowsingPostIndex's item count...
+        else {
+            // Display the first post
+            displayPostAtIndex(0);
+        }
+    }
+    
+    /// Displays the previous post in this browser
+    func previousPost() {
+        // Print that we are showing the previous post
+        Swift.print("KJPostsImageViewer: Showing previous post");
+        
+        // If we subtract one from currentBrowsingPostIndex and its greater than -1...
+        if(currentBrowsingPostIndex - 1 >= 0) {
+            // Display the previous post
+            displayPostAtIndex(currentBrowsingPostIndex - 1);
+        }
+        // If we subtract one from currentBrowsingPostIndex and its less than 0...
+        else {
+            // Display the last post
+            displayPostAtIndex(currentBrowsingPosts.count - 1);
+        }
     }
     
     /// Displays the info for the given post's file in the toolbar
@@ -101,7 +191,7 @@ class KJPostsImageViewer: NSView {
         if(post.hasFile) {
             // Update the toolbar
             // Set the file info text field's string value
-            fileInfoTextField!.stringValue = post.fileInfo;
+            fileInfoTextField!.stringValue = post.fileInfo + " \(currentBrowsingPostIndex + 1)/\(currentBrowsingPosts.count)";
             
             // Update the tooltip for the file info text field
             fileInfoTextField!.toolTip = post.fileInfo;
@@ -111,6 +201,12 @@ class KJPostsImageViewer: NSView {
             // Print that we cant display info for a post that doesnt have a file
             Swift.print("KJPostsImageViewer: Cant display file info for \(post) in the toolbar because it doesnt have a file");
         }
+    }
+    
+    /// Closes this browser
+    func close() {
+        // Destroy this view
+        self.removeFromSuperview();
     }
 
     /// Creates everything needed for the view and initializes it
@@ -430,6 +526,32 @@ class KJPostsImageViewer: NSView {
         
         // Set the background color of this view to 50% opaque black
         self.layer?.backgroundColor = NSColor(calibratedWhite: 0, alpha: 0.5).CGColor;
+    }
+    
+    override func performKeyEquivalent(theEvent: NSEvent) -> Bool {
+        // If we pressed the left arrow...
+        if(theEvent.keyCode == 123) {
+            // Display the the previous post
+            previousPost();
+            
+            return true;
+        }
+        // If we pressed the right arrow...
+        else if(theEvent.keyCode == 124) {
+            // Display the the next post
+            nextPost();
+            
+            return true;
+        }
+        // If we pressed escape...
+        else if(theEvent.keyCode == 53) {
+            // Close the view
+            close();
+            
+            return true;
+        }
+        
+        return false;
     }
     
     override func awakeFromNib() {

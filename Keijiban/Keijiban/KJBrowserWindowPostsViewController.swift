@@ -125,7 +125,7 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
                 let downloadedThread : KJ4CThread = KJ4CThread(json: responseJson, board: opPost.board!);
                 
                 // Init the testing image browser(REMOVEME)
-                self.testingPostsImageViewer.showImagesForPosts([downloadedThread.opPost!]);
+                self.testingPostsImageViewer.showImagesForPosts(downloadedThread.allPosts, displayFirstPost: true);
                 
                 // Open the downloaded thread
                 self.openNewTab(downloadedThread, type: .Thread, completionHandler: nil);

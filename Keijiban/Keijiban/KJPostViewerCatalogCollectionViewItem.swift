@@ -17,11 +17,14 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
     override func mouseDown(theEvent: NSEvent) {
         super.mouseDown(theEvent);
         
-        /// The post that was clicked
-        let clickedPost : KJ4COPPost = (self.representedObject as! KJ4COPPost);
-        
-        // Open the clicked post in a new tab
-        (self.collectionView.window!.contentViewController as! Keijiban.ViewController).contentPostsViewController.downloadThreadAndOpenNewTab(clickedPost, downloadCompletionHandler: nil, displayCompletionHandler: nil);
+        // If we double clicked...
+        if(theEvent.clickCount >= 2) {
+            /// The post that was clicked
+            let clickedPost : KJ4COPPost = (self.representedObject as! KJ4COPPost);
+            
+            // Open the clicked post in a new tab
+            (self.collectionView.window!.contentViewController as! Keijiban.ViewController).contentPostsViewController.downloadThreadAndOpenNewTab(clickedPost, downloadCompletionHandler: nil, displayCompletionHandler: nil);
+        }
     }
     
     override func viewDidLoad() {

@@ -336,7 +336,7 @@ class KJ4CPost: NSObject {
             self.fileSize = json["fsize"].intValue;
             self.filePixelSize = NSSize(width: json["w"].intValue, height: json["h"].intValue);
             self.fileCdnFilename = json["tim"].intValue
-            self.fileFilename = json["filename"].stringValue;
+            self.fileFilename = json["filename"].stringValue.cleanedString;
         }
         
         self.comment = json["com"].stringValue;
