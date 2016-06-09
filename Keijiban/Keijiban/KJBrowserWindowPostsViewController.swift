@@ -39,16 +39,6 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         styleView();
     }
     
-    override func viewDidAppear() {
-        NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(3), target: self, selector: Selector("openExampleImageBrowser"), userInfo: nil, repeats: false);
-    }
-    
-    func openExampleImageBrowser() {
-        // Init the testing image browser(REMOVEME)
-        testingPostsImageViewer.initializeView();
-        testingPostsImageViewer.showImagesForPosts([]);
-    }
-    
     /// Updates postViewersTabView to match the current tabs
     func updatePostViewersTabView() {
         // Clear all the current tab view items
@@ -134,6 +124,9 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
                 /// The downloaded thread
                 let downloadedThread : KJ4CThread = KJ4CThread(json: responseJson, board: opPost.board!);
                 
+                // Init the testing image browser(REMOVEME)
+                self.testingPostsImageViewer.showImagesForPosts([downloadedThread.opPost!]);
+                
                 // Open the downloaded thread
                 self.openNewTab(downloadedThread, type: .Thread, completionHandler: nil);
             }
@@ -163,12 +156,12 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
         // If the passed type was the catalog...
         if(type == .Catalog) {
             // Open the catalog for the given board in the new tab
-            tabs.last!.title = tabs.last!.viewController!.displayCatalog(tabObject as! KJ4CBoard, maxPages: 0, completionHandler: completionHandler);
+            tabs.last!.title = tabs.last!.viewController!.displayCatalog(tabObject as! KJ4CBoard, maxPages: 9, completionHandler: completionHandler);
         }
         // If the passed type was the index...
         else if(type == .Index) {
             // Open the index for the given board in the new tab
-            tabs.last!.title = tabs.last!.viewController!.displayIndex(tabObject as! KJ4CBoard, maxPages: 0, completionHandler: completionHandler);
+            tabs.last!.title = tabs.last!.viewController!.displayIndex(tabObject as! KJ4CBoard, maxPages: 9, completionHandler: completionHandler);
         }
         // If the passed type was a thread...
         else if(type == .Thread) {

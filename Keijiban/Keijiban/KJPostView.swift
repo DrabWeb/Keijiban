@@ -97,7 +97,7 @@ class KJPostView: NSView {
                 // If the post has a thumbnail and it's not loaded...
                 else if(post.thumbnailImage == nil) {
                     // Download the image and display it in the thumbnail image view
-                    imageView!.downloadImageFromURL(post.imageThumbnailUrl, placeHolderImage: nil, errorImage: nil, usesSpinningWheel: true, downloadCompletionHandler: thumbnailDownloadCompleted);
+                    imageView!.downloadImageFromURL(post.fileThumbnailUrl, placeHolderImage: nil, errorImage: nil, usesSpinningWheel: true, downloadCompletionHandler: thumbnailDownloadCompleted);
                 }
                 
                 // Update the file info text field
@@ -550,14 +550,30 @@ class KJPostView: NSView {
         bottomSeparator?.layer?.backgroundColor = KJThemingEngine().defaultEngine().postSeparatorColor.CGColor;
     }
     
+    /// Was this post view inited from init(As apposed to awakeFromNib)?
+    private var initedFromInit : Bool = false;
+    
+    override func awakeFromNib() {
+        super.awakeFromNib();
+        
+        // If we didnt init from init...
+        if(!initedFromInit) {
+            // Initialize the view
+            initializeView();
+        }
+    }
+    
     // Blank init
     init() {
         super.init(frame: NSRect.zero);
         
+        // Set initedFromInit to true
+        initedFromInit = true;
+        
         // Initialize the view
         initializeView();
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder);
     }

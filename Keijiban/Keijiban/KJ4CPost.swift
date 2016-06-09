@@ -46,6 +46,9 @@ class KJ4CPost: NSObject {
     /// The thumbnail image of this post(If any)
     var thumbnailImage : NSImage? = nil;
     
+    /// The data of this post's file(If any)
+    var fileData : NSData? = nil;
+    
     /// The extension of this post's file(If any)(With a dot in front)
     var fileExtension : String = "";
     
@@ -62,12 +65,12 @@ class KJ4CPost: NSObject {
     var fileFilename : String = "";
     
     /// Returns the URL to this posts thumbnail
-    var imageThumbnailUrl : String {
+    var fileThumbnailUrl : String {
         return "https://i.4cdn.org/\(board!.code)/\(fileCdnFilename)s.jpg"
     }
     
     /// Returns the URL to this posts file
-    var imageUrl : String {
+    var fileUrl : String {
         return "https://i.4cdn.org/\(board!.code)/\(fileCdnFilename)\(fileExtension)"
     }
     

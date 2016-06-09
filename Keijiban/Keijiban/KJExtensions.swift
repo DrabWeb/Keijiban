@@ -68,6 +68,27 @@ extension NSImage {
         // Return the image size
         return imageSize;
     }
+    
+    /// Saves this image to the given path with the given file type
+    func saveTo(filePath : String, fileType : NSBitmapImageFileType) {
+        // Save the image data to the given path
+        self.dataForFileType(fileType)?.writeToFile(filePath, atomically: false);
+    }
+    
+    /// Returns the NSData for this image with the given NSBitmapImageFileType
+    func dataForFileType(fileType : NSBitmapImageFileType) -> NSData? {
+        // If the bitmap representation isnt nil...
+        if let imageRepresentation = self.representations[0] as? NSBitmapImageRep {
+            // If the data using the given file type isnt nil...
+            if let data = imageRepresentation.representationUsingType(fileType, properties: [:]) {
+               // Return the data
+                return data;
+            }
+        }
+        
+        // Return nil
+        return nil;
+    }
 }
 
 extension Array where Element:KJ4CPost {

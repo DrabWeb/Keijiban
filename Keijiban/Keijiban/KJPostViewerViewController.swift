@@ -105,7 +105,7 @@ class KJPostViewerViewController: NSViewController {
                         let newOpPost : KJ4COPPost = KJ4COPPost(json: currentThread.1, board: self.currentBoard!);
                         
                         // Load the thumbnail image
-                        self.lastThumbnailDownloadRequests.append(Alamofire.request(.GET, newOpPost.imageThumbnailUrl).response { (request, response, data, error) in
+                        self.lastThumbnailDownloadRequests.append(Alamofire.request(.GET, newOpPost.fileThumbnailUrl).response { (request, response, data, error) in
                             // If data isnt nil...
                             if(data != nil) {
                                 /// The downloaded image
@@ -182,7 +182,7 @@ class KJPostViewerViewController: NSViewController {
                         let newOpPost : KJ4COPPost = KJ4COPPost(json: currentThread.1, board: self.currentBoard!);
                         
                         // Load the thumbnail image
-                        newOpPost.thumbnailImage = NSImage(contentsOfURL: NSURL(string: newOpPost.imageThumbnailUrl)!);
+                        newOpPost.thumbnailImage = NSImage(contentsOfURL: NSURL(string: newOpPost.fileThumbnailUrl)!);
                         
                         // Add the OP post to the posts view
                         self.addPostToPostsViewerStackView(newOpPost, displayImage: true);

@@ -10,6 +10,9 @@ import Cocoa
 
 class KJPostsImageViewer: NSView {
     
+    /// The file view for displaying the full size image
+    var postFileViewer : KJFileView? = nil;
+    
     /// The view at the top of the image viewer that holds the download button, next/previous buttons and the file info label
     var toolbar : KJColoredView? = nil;
     
@@ -51,13 +54,63 @@ class KJPostsImageViewer: NSView {
         
     }
     
+    /// The post that this image browser is currently displaying
+    var currentBrowsingPosts : [KJ4CPost] = [];
+    
     /// Shows this image browser with the images of the given posts
     func showImagesForPosts(posts : [KJ4CPost]) {
-        // Set the background color of this view to 50% opaque black
-        self.layer?.backgroundColor = NSColor(calibratedWhite: 0, alpha: 0.5).CGColor;
+        // Clear currentBrowsingPosts
+        currentBrowsingPosts.removeAll();
         
-        // Set fileInfoTextField's tooltip
-        fileInfoTextField!.toolTip = fileInfoTextField!.stringValue;
+        // Set currentBrowsingPosts
+        // For every post in posts...
+        for(_, currentPost) in posts.enumerate() {
+            // If the current post has a file...
+            if(currentPost.hasFile) {
+                // Add the current post to currentBrowsingPosts
+                currentBrowsingPosts.append(currentPost);
+            }
+        }
+        
+        // If currentBrowsingPosts isnt empty...
+        if(currentBrowsingPosts != []) {
+            // Show the view
+            self.hidden = false;
+            
+            displayPost(currentBrowsingPosts[0]);
+        }
+        // If currentBrowsingPosts is empty...
+        else {
+            // Print that we cant open the browser because there are no posts to display
+            Swift.print("KJPostsImageViewer: Cant display browser for \(posts) because none of the posts have files");
+        }
+    }
+    
+    /// Displays the given post in this browser
+    func displayPost(post : KJ4CPost) {
+        // Show the post's file in the file view
+        postFileViewer!.displayFileFromPost(post);
+        
+        // Display the post's file info in the toolbar
+        displayPostFileInfoInToolbar(post);
+    }
+    
+    /// Displays the info for the given post's file in the toolbar
+    func displayPostFileInfoInToolbar(post : KJ4CPost) {
+        // If the post has a file...
+        if(post.hasFile) {
+            // Update the toolbar
+            // Set the file info text field's string value
+            fileInfoTextField!.stringValue = post.fileInfo;
+            
+            // Update the tooltip for the file info text field
+            fileInfoTextField!.toolTip = post.fileInfo;
+        }
+        // If the post doesnt have a file...
+        else {
+            // Print that we cant display info for a post that doesnt have a file
+            Swift.print("KJPostsImageViewer: Cant display file info for \(post) in the toolbar because it doesnt have a file");
+        }
     }
 
     /// Creates everything needed for the view and initializes it
@@ -77,6 +130,11 @@ class KJPostsImageViewer: NSView {
     
     /// Creates the views needed for displaying the image browser
     func createViews() {
+        // Create postFileViewer
+        
+        // Create the file viewer
+        postFileViewer = KJFileView();
+        
         // Create the toolbar
         toolbar = KJColoredView();
         
@@ -109,6 +167,7 @@ class KJPostsImageViewer: NSView {
         previousButton!.action = Selector("previousButtonPressed");
         
         // Move everything into this view
+        self.addSubview(postFileViewer!);
         self.addSubview(toolbar!);
         toolbar!.addSubview(galleryButton!);
         toolbar!.addSubview(fileInfoTextField!);
@@ -119,6 +178,9 @@ class KJPostsImageViewer: NSView {
     
     /// Themes all the views
     func themeViews() {
+        // Hide the view
+        self.hidden = true;
+        
         // Set the appearance to aqua so nothing is vibrant
         self.appearance = NSAppearance(named: NSAppearanceNameAqua);
         
@@ -167,12 +229,38 @@ class KJPostsImageViewer: NSView {
     func createConstraints() {
         // Disable all the autoresizing mask to constraint translation
         self.translatesAutoresizingMaskIntoConstraints = false;
+        postFileViewer?.translatesAutoresizingMaskIntoConstraints = false;
         toolbar?.translatesAutoresizingMaskIntoConstraints = false;
         galleryButton?.translatesAutoresizingMaskIntoConstraints = false;
         fileInfoTextField?.translatesAutoresizingMaskIntoConstraints = false;
         downloadButton?.translatesAutoresizingMaskIntoConstraints = false;
         nextButton?.translatesAutoresizingMaskIntoConstraints = false;
         previousButton?.translatesAutoresizingMaskIntoConstraints = false;
+        
+        // Create the constraints for the file viewer
+        /// The constraint for the leading edge of the file viewer
+        let postFileViewerLeadingConstraint = NSLayoutConstraint(item: postFileViewer!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0);
+        
+        // Add the constraint
+        self.addConstraint(postFileViewerLeadingConstraint);
+        
+        /// The constraint for the trailing edge of the file viewer
+        let postFileViewerTrailingConstraint = NSLayoutConstraint(item: postFileViewer!, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0);
+        
+        // Add the constraint
+        self.addConstraint(postFileViewerTrailingConstraint);
+        
+        /// The constraint for the top of the file viewier
+        let postFileViewerTopConstraint = NSLayoutConstraint(item: postFileViewer!, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0);
+        
+        // Add the constraint
+        self.addConstraint(postFileViewerTopConstraint);
+        
+        /// The constraint for the bottom of the file viewer
+        let postFileViewerBottomConstraint = NSLayoutConstraint(item: postFileViewer!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: toolbar!, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0);
+        
+        // Add the constraint
+        self.addConstraint(postFileViewerBottomConstraint);
         
         // Create the constraints for the toolbar
         /// The constraint for the leading edge of the toolbar
@@ -334,14 +422,32 @@ class KJPostsImageViewer: NSView {
         toolbar!.addConstraint(downloadButtonCenterYConstraint);
     }
     
+    /// Was this browser inited from init(As apposed to awakeFromNib)?
+    private var initedFromInit : Bool = false;
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect);
+        
+        // Set the background color of this view to 50% opaque black
+        self.layer?.backgroundColor = NSColor(calibratedWhite: 0, alpha: 0.5).CGColor;
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib();
+        
+        // If we didnt init from init...
+        if(!initedFromInit) {
+            // Initialize the view
+            initializeView();
+        }
     }
     
     // Blank init
     init() {
         super.init(frame: NSRect.zero);
+        
+        // Set initedFromInit to true
+        initedFromInit = true;
         
         // Initialize the view
         initializeView();

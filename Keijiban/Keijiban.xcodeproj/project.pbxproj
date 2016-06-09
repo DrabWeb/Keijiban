@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0984401D09FC5B001E53DF /* KJImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D09843F1D09FC5B001E53DF /* KJImageUtilities.swift */; };
 		5D0A418A1D0628CB0070C452 /* KJFloatAtTopScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A41891D0628CB0070C452 /* KJFloatAtTopScrollView.swift */; };
 		5D120F3E1CF786FA00BF41FE /* LITabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F351CF786FA00BF41FE /* LITabCell.m */; };
 		5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D120F371CF786FA00BF41FE /* LITabControl.m */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		306B504F624CC5439ADE3E07 /* Pods-Keijiban.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keijiban.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keijiban/Pods-Keijiban.release.xcconfig"; sourceTree = "<group>"; };
+		5D09843F1D09FC5B001E53DF /* KJImageUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJImageUtilities.swift; sourceTree = "<group>"; };
 		5D0A41891D0628CB0070C452 /* KJFloatAtTopScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJFloatAtTopScrollView.swift; sourceTree = "<group>"; };
 		5D120F1E1CF7867B00BF41FE /* Keijiban-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keijiban-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D120F341CF786FA00BF41FE /* LITabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LITabCell.h; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D0984411D09FC86001E53DF /* 4chan */ = {
+			isa = PBXGroup;
+			children = (
+				5D7B17E51CFA11130062705C /* KJ4CUtilities.swift */,
+			);
+			name = 4chan;
+			sourceTree = "<group>";
+		};
 		5D120F301CF7868400BF41FE /* Objective C */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,9 +252,10 @@
 		5D7957BD1CF9F50900CFE83E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5D0984411D09FC86001E53DF /* 4chan */,
 				5D7957BE1CF9F51C00CFE83E /* KJConstants.swift */,
-				5D7B17E51CFA11130062705C /* KJ4CUtilities.swift */,
 				5D2AE0B81D032B8E00B5A7B4 /* KJExtensions.swift */,
+				5D09843F1D09FC5B001E53DF /* KJImageUtilities.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -720,6 +731,7 @@
 				5D7F2E881CFA1580008FFAB2 /* KJ4CBoard.swift in Sources */,
 				5D120F461CF7885400BF41FE /* KJBrowserWindowPostsTabItem.swift in Sources */,
 				5D7F2E861CFA154C008FFAB2 /* KJ4CPost.swift in Sources */,
+				5D0984401D09FC5B001E53DF /* KJImageUtilities.swift in Sources */,
 				5D83AB1F1CF7708600B4F81B /* KJBrowserWindowPostsViewController.swift in Sources */,
 				5D7957BF1CF9F51C00CFE83E /* KJConstants.swift in Sources */,
 				5DBE947E1CFE372A00BA0C14 /* KJAlwaysVibrantBox.swift in Sources */,
