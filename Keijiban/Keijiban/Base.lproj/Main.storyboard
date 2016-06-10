@@ -351,7 +351,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="dfD-fT-ocs">
-                                    <rect key="frame" x="434" y="0.0" width="16" height="300"/>
+                                    <rect key="frame" x="435" y="0.0" width="15" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -688,21 +688,14 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>
                             </tabView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Bv5-04-AEB" customClass="KJPostsImageViewer" customModule="Keijiban" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="276"/>
-                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qvp-0N-cXt" secondAttribute="trailing" id="6WY-bd-9Es"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="CXg-vY-UZv"/>
-                            <constraint firstItem="Bv5-04-AEB" firstAttribute="trailing" secondItem="Qvp-0N-cXt" secondAttribute="trailing" id="Eag-UA-Irk"/>
-                            <constraint firstItem="Bv5-04-AEB" firstAttribute="top" secondItem="Qvp-0N-cXt" secondAttribute="top" id="GG3-q9-KL4"/>
                             <constraint firstItem="eej-2v-z8g" firstAttribute="top" secondItem="hrP-YI-cXx" secondAttribute="top" id="INp-9G-rcV"/>
-                            <constraint firstItem="Bv5-04-AEB" firstAttribute="leading" secondItem="Qvp-0N-cXt" secondAttribute="leading" id="KBE-Ws-2CV"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="top" secondItem="eej-2v-z8g" secondAttribute="bottom" id="bf9-YQ-8YC"/>
                             <constraint firstAttribute="bottom" secondItem="Qvp-0N-cXt" secondAttribute="bottom" id="drf-bG-2DR"/>
                             <constraint firstAttribute="trailing" secondItem="eej-2v-z8g" secondAttribute="trailing" id="lcg-EE-ZZy"/>
-                            <constraint firstItem="Bv5-04-AEB" firstAttribute="bottom" secondItem="Qvp-0N-cXt" secondAttribute="bottom" id="uAY-LP-eFy"/>
                             <constraint firstItem="Qvp-0N-cXt" firstAttribute="leading" secondItem="hrP-YI-cXx" secondAttribute="leading" id="z1r-FO-VO9"/>
                         </constraints>
                     </view>
@@ -710,7 +703,6 @@
                         <outlet property="postViewersTabView" destination="Qvp-0N-cXt" id="U7O-xB-ULu"/>
                         <outlet property="tabsControl" destination="pcB-b9-8kg" id="aTX-W3-Fpw"/>
                         <outlet property="tabsControlBackgroundVisualEffectView" destination="jqg-Vc-HAD" id="SQA-xg-UPW"/>
-                        <outlet property="testingPostsImageViewer" destination="Bv5-04-AEB" id="HW6-v7-oKt"/>
                     </connections>
                 </viewController>
                 <customObject id="rCM-1W-Ssd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -764,16 +756,23 @@
                                     <binding destination="FkG-3z-BBL" name="value" keyPath="representedObject.attributedCatalogComment" id="GKT-ZU-e9L"/>
                                 </connections>
                             </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="4zD-ZC-N65" customClass="KJChangeCursorOnHoverView" customModule="Keijiban" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Wzb-y0-Scr" firstAttribute="top" secondItem="Ade-eb-UTk" secondAttribute="bottom" constant="5" id="1Xw-6P-MYk"/>
                             <constraint firstAttribute="trailing" secondItem="Ade-eb-UTk" secondAttribute="trailing" constant="10" id="20f-0s-ItH"/>
+                            <constraint firstItem="4zD-ZC-N65" firstAttribute="leading" secondItem="Owf-Jx-jPB" secondAttribute="leading" id="4Q8-MU-UtH"/>
+                            <constraint firstAttribute="bottom" secondItem="4zD-ZC-N65" secondAttribute="bottom" id="4md-Vw-UIj"/>
                             <constraint firstItem="IgV-v0-bW4" firstAttribute="top" secondItem="Wzb-y0-Scr" secondAttribute="bottom" id="EiE-mk-5AO"/>
                             <constraint firstItem="IgV-v0-bW4" firstAttribute="leading" secondItem="Owf-Jx-jPB" secondAttribute="leading" constant="10" id="JWv-Ib-tVc"/>
                             <constraint firstAttribute="trailing" secondItem="Wzb-y0-Scr" secondAttribute="trailing" constant="10" id="Ljq-cl-MCg"/>
                             <constraint firstItem="Wzb-y0-Scr" firstAttribute="leading" secondItem="Owf-Jx-jPB" secondAttribute="leading" constant="10" id="Sl2-9S-2m4"/>
                             <constraint firstAttribute="trailing" secondItem="IgV-v0-bW4" secondAttribute="trailing" constant="10" id="Y3L-y2-X4u"/>
+                            <constraint firstAttribute="trailing" secondItem="4zD-ZC-N65" secondAttribute="trailing" id="Z6P-nu-7G9"/>
                             <constraint firstAttribute="bottom" secondItem="IgV-v0-bW4" secondAttribute="bottom" constant="10" id="ecQ-3J-KF3"/>
+                            <constraint firstItem="4zD-ZC-N65" firstAttribute="top" secondItem="Owf-Jx-jPB" secondAttribute="top" id="giL-ea-9uE"/>
                             <constraint firstItem="Ade-eb-UTk" firstAttribute="top" secondItem="Owf-Jx-jPB" secondAttribute="top" constant="10" id="m74-Oa-Q9z"/>
                             <constraint firstItem="Ade-eb-UTk" firstAttribute="leading" secondItem="Owf-Jx-jPB" secondAttribute="leading" constant="10" id="qg1-Pr-aiP"/>
                         </constraints>

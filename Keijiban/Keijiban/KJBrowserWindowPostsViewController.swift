@@ -12,9 +12,6 @@ import Alamofire
 /// The view controller for the posts view. Controls the tabs and creating new post viewer views
 class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
     
-    /// The KJPostsImageViewer for testing(REMOVEME)
-    @IBOutlet var testingPostsImageViewer: KJPostsImageViewer!
-    
     /// The tabs control for this browser window
     @IBOutlet var tabsControl: LITabControl!
     
@@ -123,9 +120,6 @@ class KJBrowserWindowPostsViewController: NSViewController, LITabDataSource {
                 
                 /// The downloaded thread
                 let downloadedThread : KJ4CThread = KJ4CThread(json: responseJson, board: opPost.board!);
-                
-                // Init the testing image browser(REMOVEME)
-                self.testingPostsImageViewer.showImagesForPosts(downloadedThread.allPosts, displayFirstPost: true);
                 
                 // Open the downloaded thread
                 self.openNewTab(downloadedThread, type: .Thread, completionHandler: nil);

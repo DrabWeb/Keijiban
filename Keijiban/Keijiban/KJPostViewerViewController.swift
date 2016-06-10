@@ -236,6 +236,10 @@ class KJPostViewerViewController: NSViewController {
         // Set newPostView's repliesViewerViewContainer
         newPostView.repliesViewerViewContainer = self.view;
         
+        // Set newPostView's thumbnail clicked target and action
+        newPostView.thumbnailClickedTarget = self;
+        newPostView.thumbnailClickedAction = Selector("postThumbnailImageClicked:");
+        
         // Add the post view to postsViewerStackView
         postsViewerStackView.addView(newPostView, inGravity: NSStackViewGravity.Top);
         
@@ -251,6 +255,36 @@ class KJPostViewerViewController: NSViewController {
         
         // Add the constraint
         postsViewerStackViewScrollView.addConstraint(newPostViewLeadingConstraint);
+    }
+    
+    /// The current image browser for this posts viewer
+    var currentImageBrowser : KJPostsImageViewer? = nil;
+    
+    /// Called when the user presses a post's thumbnail image
+    func postThumbnailImageClicked(post : KJ4CPost) {
+        // Print what post we are displaying the file of
+        print("KJPostViewerViewController: Displaying the file for \(post)");
+        
+        // If the current image browser is nil...
+        if(currentImageBrowser?.superview == nil) {
+            // Create a new KJPostsImageViewer
+            currentImageBrowser = KJPostsImageViewer();
+            
+            // Move it into this view
+            self.view.addSubview(currentImageBrowser!);
+            
+            // Disable translating autoresizing masks into constraints
+            currentImageBrowser!.translatesAutoresizingMaskIntoConstraints = false;
+            
+            // Add the outer constraints
+            currentImageBrowser!.addOuterConstraints(0);
+            
+            // Load in the current posts
+            currentImageBrowser!.showImagesForPosts(self.currentThread!.allPosts, displayFirstPost: false);
+        }
+        
+        // Jump to the clicked image in the current image browser
+        currentImageBrowser!.displayPostAtIndex(NSMutableArray(array: currentImageBrowser!.currentBrowsingPosts).indexOfObject(post));
     }
     
     override func viewWillAppear() {

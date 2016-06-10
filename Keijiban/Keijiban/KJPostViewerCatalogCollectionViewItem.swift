@@ -18,7 +18,7 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
         super.mouseDown(theEvent);
         
         // If we double clicked...
-        if(theEvent.clickCount >= 2) {
+        if(theEvent.clickCount == 2) {
             /// The post that was clicked
             let clickedPost : KJ4COPPost = (self.representedObject as! KJ4COPPost);
             
@@ -30,6 +30,7 @@ class KJPostViewerCatalogCollectionViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
         // Theme the view
         self.textField?.textColor = KJThemingEngine().defaultEngine().commentTextColor;
         imageReplyCountTextField.textColor = KJThemingEngine().defaultEngine().catalogItemImageReplyCountTextColor;

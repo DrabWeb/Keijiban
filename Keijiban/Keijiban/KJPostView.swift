@@ -14,7 +14,7 @@ class KJPostView: NSView {
     var repliesViewerViewContainer : NSView? = nil;
     
     /// The image view for displaying the post's possible thumbnail image
-    var imageView : KJRasterizedAsyncImageView? = nil;
+    var imageView : KJThumbnailImageView? = nil;
     
     /// The width constraint for imageView
     var imageViewWidthConstraint : NSLayoutConstraint? = nil;
@@ -122,6 +122,18 @@ class KJPostView: NSView {
         adjustConstraints();
     }
     
+    /// The object to perform thumbnailClickedAction
+    var thumbnailClickedTarget : AnyObject? = nil;
+    
+    /// The selector to call when the user presses the thumbnail image for this post. Passed the pressed KJ4CPost
+    var thumbnailClickedAction : Selector = Selector("");
+    
+    /// Called when the user clicks imageView
+    func thumbnailClicked() {
+        // Perform the thumbnail clicked action
+        thumbnailClickedTarget?.performSelector(thumbnailClickedAction, withObject: self.representedPost!);
+    }
+    
     /// Creates everything needed for the view and initializes it
     func initializeView() {
         // Create the views
@@ -137,10 +149,14 @@ class KJPostView: NSView {
     /// Creates the views needed for displaying post info
     func createViews() {
         // Create the image view
-        imageView = KJRasterizedAsyncImageView();
+        imageView = KJThumbnailImageView();
         
         // Set the scaling
         imageView!.imageScaling = .ScaleProportionallyUpOrDown;
+        
+        // Set the clicked target and action
+        imageView!.clickTarget = self;
+        imageView!.clickAction = Selector("thumbnailClicked");
         
         // Create the poster info text field
         posterInfoTextField = NSTextField();
