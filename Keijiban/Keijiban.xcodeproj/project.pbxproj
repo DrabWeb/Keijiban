@@ -16,6 +16,7 @@
 		5D2AE0B91D032B8E00B5A7B4 /* KJExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AE0B81D032B8E00B5A7B4 /* KJExtensions.swift */; };
 		5D2E1F0D1D0607BD00D4802A /* KJColoredTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */; };
 		5D2E1F0F1D06141500D4802A /* KJPostRepliesViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E1F0E1D06141500D4802A /* KJPostRepliesViewerView.swift */; };
+		5D4818841D0CD65100D2D41D /* KJCommentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4818831D0CD65100D2D41D /* KJCommentTextView.swift */; };
 		5D543D291D0B213B003F48B5 /* KJThumbnailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D543D281D0B213B003F48B5 /* KJThumbnailImageView.swift */; };
 		5D543D2B1D0B23A9003F48B5 /* KJChangeCursorOnHoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D543D2A1D0B23A9003F48B5 /* KJChangeCursorOnHoverView.swift */; };
 		5D7957BF1CF9F51C00CFE83E /* KJConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7957BE1CF9F51C00CFE83E /* KJConstants.swift */; };
@@ -89,6 +90,7 @@
 		5D2AE0B81D032B8E00B5A7B4 /* KJExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJExtensions.swift; sourceTree = "<group>"; };
 		5D2E1F0C1D0607BD00D4802A /* KJColoredTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJColoredTitleButton.swift; sourceTree = "<group>"; };
 		5D2E1F0E1D06141500D4802A /* KJPostRepliesViewerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPostRepliesViewerView.swift; sourceTree = "<group>"; };
+		5D4818831D0CD65100D2D41D /* KJCommentTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJCommentTextView.swift; sourceTree = "<group>"; };
 		5D543D281D0B213B003F48B5 /* KJThumbnailImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThumbnailImageView.swift; sourceTree = "<group>"; };
 		5D543D2A1D0B23A9003F48B5 /* KJChangeCursorOnHoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJChangeCursorOnHoverView.swift; sourceTree = "<group>"; };
 		5D7957BE1CF9F51C00CFE83E /* KJConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJConstants.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				5DC119351D08D9D100EE79BF /* KJFileView.swift */,
 				5D543D281D0B213B003F48B5 /* KJThumbnailImageView.swift */,
 				5D543D2A1D0B23A9003F48B5 /* KJChangeCursorOnHoverView.swift */,
+				5D4818831D0CD65100D2D41D /* KJCommentTextView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				5DC1063E1CFA146C00F471A9 /* PXSourceListDelegateDataSourceProxy.m in Sources */,
 				5DC119361D08D9D100EE79BF /* KJFileView.swift in Sources */,
 				5D120F3F1CF786FA00BF41FE /* LITabControl.m in Sources */,
+				5D4818841D0CD65100D2D41D /* KJCommentTextView.swift in Sources */,
 				5D0A418A1D0628CB0070C452 /* KJFloatAtTopScrollView.swift in Sources */,
 				5DF203231D07848100557BD6 /* KJPostsImageViewer.swift in Sources */,
 				5DF1B3FA1CFCE85F00DF15E1 /* NSColorFromHex.swift in Sources */,

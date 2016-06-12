@@ -36,12 +36,16 @@ class KJPostView: NSView {
     
     /// Called when repliesButton is pressed
     func repliesButtonPressed() {
+        /// The new replies view for viewing the replies of this post
         let newRepliesViewerView : KJPostRepliesViewerView = KJPostRepliesViewerView();
         
+        // Move the replies view into this biew
         repliesViewerViewContainer!.addSubview(newRepliesViewerView);
         
+        // Add the outer constraints
         newRepliesViewerView.addOuterConstraints();
         
+        // Display the replies from this post in it
         newRepliesViewerView.displayRepliesFromPost(representedPost!, darkenBackground: true);
     }
     
@@ -62,8 +66,8 @@ class KJPostView: NSView {
     /// The top constraint for fileInfoTextField
     var fileInfoTextFieldTopConstraint : NSLayoutConstraint? = nil;
     
-    /// The text field for showing the post's comment
-    var commentTextField : NSTextField? = nil;
+    /// The text view for showing the post's comment
+    var commentTextView : KJCommentTextView? = nil;
     
     /// The separator for the bottom of this view
     var bottomSeparator : NSView? = nil;
@@ -112,7 +116,16 @@ class KJPostView: NSView {
         repliesButton!.title = String(post.replies.count);
         
         // Set the comment text field's string value
-        commentTextField!.attributedStringValue = post.attributedComment;
+        commentTextView!.textStorage?.setAttributedString(post.attributedComment);
+        
+        // Set the font
+        commentTextView!.textStorage!.font = NSFont.systemFontOfSize(13);
+        
+        // Make the links clickable
+        commentTextView!.checkTextInDocument(self);
+        
+        // Redraw the comment text view
+        commentTextView!.setNeedsDisplayInRect(commentTextView!.frame, avoidAdditionalLayout: true);
         
         // Update the tooltips
         posterInfoTextField!.toolTip = posterInfoTextField!.stringValue;
@@ -184,8 +197,11 @@ class KJPostView: NSView {
         // Create the file info text field
         fileInfoTextField = NSTextField();
         
-        // Create the comment text field
-        commentTextField = NSTextField();
+        // Create the comment text view
+        commentTextView = KJCommentTextView();
+        
+        // Set the comment text view's delegate
+        commentTextView!.delegate = commentTextView;
         
         // Create the bottom separator
         bottomSeparator = NSView();
@@ -196,7 +212,7 @@ class KJPostView: NSView {
         self.addSubview(repliesButton!);
         self.addSubview(replyButton!);
         self.addSubview(fileInfoTextField!);
-        self.addSubview(commentTextField!);
+        self.addSubview(commentTextView!);
         self.addSubview(bottomSeparator!);
     }
     
@@ -242,13 +258,15 @@ class KJPostView: NSView {
         fileInfoTextField!.lineBreakMode = NSLineBreakMode.ByTruncatingMiddle;
         
         // Theme the comment text field
-        commentTextField!.bordered = false;
-        commentTextField!.selectable = false;
-        commentTextField!.editable = false;
-        commentTextField!.backgroundColor = NSColor.clearColor();
-        commentTextField!.textColor = KJThemingEngine().defaultEngine().commentTextColor;
-        commentTextField!.font = NSFont.systemFontOfSize(13);
-        commentTextField!.lineBreakMode = NSLineBreakMode.ByWordWrapping;
+        commentTextView!.defaultParagraphStyle = NSParagraphStyle.defaultParagraphStyle();
+        commentTextView!.linkTextAttributes = [NSForegroundColorAttributeName:KJThemingEngine().defaultEngine().postQuoteColor];
+        commentTextView!.automaticLinkDetectionEnabled = true;
+        commentTextView!.richText = false;
+        commentTextView!.usesRuler = false;
+        commentTextView!.selectable = false;
+        commentTextView!.editable = false;
+        commentTextView!.backgroundColor = NSColor.clearColor();
+        commentTextView!.textContainerInset = NSSize(width: -3, height: 0);
     }
     
     /// Creates the constraints for the view
@@ -260,7 +278,7 @@ class KJPostView: NSView {
         repliesButton!.translatesAutoresizingMaskIntoConstraints = false;
         replyButton!.translatesAutoresizingMaskIntoConstraints = false;
         fileInfoTextField!.translatesAutoresizingMaskIntoConstraints = false;
-        commentTextField!.translatesAutoresizingMaskIntoConstraints = false;
+        commentTextView!.translatesAutoresizingMaskIntoConstraints = false;
         bottomSeparator!.translatesAutoresizingMaskIntoConstraints = false;
         
         // Add the constraints to the image view
@@ -403,36 +421,36 @@ class KJPostView: NSView {
         fileInfoTextField!.setContentCompressionResistancePriority(250, forOrientation: .Horizontal);
         fileInfoTextField!.setContentCompressionResistancePriority(250, forOrientation: .Vertical);
         
-        // Add the constraints to the comment text field
+        // Add the constraints to the comment text view
         /// The constraint for the leading edge of the comment text field
-        let commentTextFieldLeadingConstraint = NSLayoutConstraint(item: commentTextField!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: imageView!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 10);
+        let commentTextViewLeadingConstraint = NSLayoutConstraint(item: commentTextView!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: imageView!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 10);
         
         // Add the constraint
-        self.addConstraint(commentTextFieldLeadingConstraint);
+        self.addConstraint(commentTextViewLeadingConstraint);
         
         /// The constraint for the trailing edge of the comment text field
-        let commentTextFieldTrailingConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: commentTextField!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 5);
+        let commentTextViewTrailingConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: commentTextView!, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 5);
         
         // Add the constraint
-        self.addConstraint(commentTextFieldTrailingConstraint);
+        self.addConstraint(commentTextViewTrailingConstraint);
         
         /// The constraint for the top edge of the comment text field
-        let commentTextFieldTopConstraint = NSLayoutConstraint(item: fileInfoTextField!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: commentTextField!, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0);
+        let commentTextViewTopConstraint = NSLayoutConstraint(item: fileInfoTextField!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: commentTextView!, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: -1);
         
         // Add the constraint
-        self.addConstraint(commentTextFieldTopConstraint);
+        self.addConstraint(commentTextViewTopConstraint);
         
         /// The constraint for the bottom edge of the comment text field
-        let commentTextFieldBottomConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: commentTextField!, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 10);
+        let commentTextViewBottomConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: commentTextView!, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 10);
         
         // Add the constraint
-        self.addConstraint(commentTextFieldBottomConstraint);
+        self.addConstraint(commentTextViewBottomConstraint);
         
         // Set the content compression and hugging priorities
-        commentTextField!.setContentCompressionResistancePriority(250, forOrientation: .Horizontal);
-        commentTextField!.setContentCompressionResistancePriority(1000, forOrientation: .Vertical);
-        commentTextField!.setContentHuggingPriority(250, forOrientation: .Horizontal);
-        commentTextField!.setContentHuggingPriority(1000, forOrientation: .Vertical);
+        commentTextView!.setContentCompressionResistancePriority(250, forOrientation: .Horizontal);
+        commentTextView!.setContentCompressionResistancePriority(1000, forOrientation: .Vertical);
+        commentTextView!.setContentHuggingPriority(250, forOrientation: .Horizontal);
+        commentTextView!.setContentHuggingPriority(1000, forOrientation: .Vertical);
         
         // Add the constraints to the bottom separator
         /// The constraint for the leading edge of the bottom separator
@@ -472,6 +490,7 @@ class KJPostView: NSView {
                 
                 // Update the file info text field constraints
                 fileInfoTextFieldHeightConstraint!.constant = 14;
+                fileInfoTextFieldTopConstraint!.constant = -2;
                 
                 // Show the image view
                 imageView!.hidden = false;
@@ -507,6 +526,7 @@ class KJPostView: NSView {
                 
                 // Update the file info text field constraints
                 fileInfoTextFieldHeightConstraint!.constant = 0;
+                fileInfoTextFieldTopConstraint!.constant = -1;
             }
             
             // If this post has at least one reply...

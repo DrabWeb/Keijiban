@@ -146,6 +146,9 @@ class KJ4CPost: NSObject {
         /// The NSAttributedString for comment
         let attributedComment : NSMutableAttributedString = NSMutableAttributedString(string: comment);
         
+        // Set the text color
+        attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().commentTextColor, range: NSMakeRange(0, attributedComment.string.characters.count));
+        
         // Color the quotes
         
         /// Every range of "<span class="quote">" in comment
@@ -205,6 +208,7 @@ class KJ4CPost: NSObject {
             
             // For every range in postQuoteRanges...
             for(_, currentRange) in postQuoteRanges.enumerate() {
+                // Color the post quote
                 /// Add the beginning post quote tag for this post to postQuoteTags
                 postQuoteTags.append(comment.substringWithRange(Range<String.Index>(start: comment.startIndex.advancedBy(currentRange.location), end: comment.startIndex.advancedBy(currentRange.location + currentRange.length))));
                 
@@ -228,6 +232,9 @@ class KJ4CPost: NSObject {
                 
                 // Color the post quote in attributedComment
                 attributedComment.addAttribute(NSForegroundColorAttributeName, value: KJThemingEngine().defaultEngine().postQuoteColor, range: postQuoteRange);
+                
+                // Add the link to the post quote
+                attributedComment.addAttribute(NSLinkAttributeName, value: postQuoteTags.last!.hrefContent()!, range: postQuoteRange);
             }
         }
         // If there was an error...

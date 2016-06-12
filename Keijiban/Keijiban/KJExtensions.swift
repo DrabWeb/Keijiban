@@ -27,6 +27,27 @@ extension String {
         // Return the cleaned string
         return cleanedString;
     }
+    
+    /// Return the content inside the href tag(If any) of this string
+    func hrefContent() -> String? {
+        /// The href content of this string
+        var hrefContent : String? = nil;
+        
+        // If this string contains a "href=""...
+        if(self.containsString("href=\"")) {
+            /// The start index of the href tag
+            let hrefStartIndex : String.Index = self.rangeOfString("href=\"")!.last!.advancedBy(1);
+            
+            /// The string after "href=""
+            let hrefContentWithEnd : String = self.substringFromIndex(hrefStartIndex);
+            
+            // Set hrefContent
+            hrefContent = hrefContentWithEnd.substringToIndex(hrefContentWithEnd.rangeOfString("\"")!.last!);
+        }
+        
+        // Return the href content
+        return hrefContent;
+    }
 }
 
 extension NSImage {
