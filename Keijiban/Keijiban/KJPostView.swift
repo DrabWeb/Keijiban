@@ -3,7 +3,6 @@
 //  Keijiban
 //
 //  Created by Seth on 2016-06-07.
-//  Copyright © 2016 DrabWeb. All rights reserved.
 //
 
 import Cocoa
@@ -120,9 +119,6 @@ class KJPostView: NSView {
         
         // Set the font
         commentTextView!.textStorage!.font = NSFont.systemFontOfSize(13);
-        
-        // Make the links clickable
-        commentTextView!.checkTextInDocument(self);
         
         // Redraw the comment text view
         commentTextView!.setNeedsDisplayInRect(commentTextView!.frame, avoidAdditionalLayout: true);
@@ -260,10 +256,9 @@ class KJPostView: NSView {
         // Theme the comment text field
         commentTextView!.defaultParagraphStyle = NSParagraphStyle.defaultParagraphStyle();
         commentTextView!.linkTextAttributes = [NSForegroundColorAttributeName:KJThemingEngine().defaultEngine().postQuoteColor];
-        commentTextView!.automaticLinkDetectionEnabled = true;
         commentTextView!.richText = false;
         commentTextView!.usesRuler = false;
-        commentTextView!.selectable = false;
+        commentTextView!.selectable = true;
         commentTextView!.editable = false;
         commentTextView!.backgroundColor = NSColor.clearColor();
         commentTextView!.textContainerInset = NSSize(width: -3, height: 0);

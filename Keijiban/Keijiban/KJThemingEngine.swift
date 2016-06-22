@@ -3,7 +3,6 @@
 //  Keijiban
 //
 //  Created by Seth on 2016-05-30.
-//  Copyright © 2016 DrabWeb. All rights reserved.
 //
 
 import Cocoa
